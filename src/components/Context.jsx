@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 
 
-const ThemeContext= createContext()
+export const ThemeContext= createContext()
 
 const ContextProvider=({children})=>{
     const [sidebar, setSidebar]= useState(false)
@@ -11,7 +11,7 @@ const ContextProvider=({children})=>{
 
     const contextValue={
         sidebar, setSidebar,
-        
+
     }
     return <ThemeContext.Provider value={contextValue}>
         {children}
