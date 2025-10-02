@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { RiGlobalLine } from "react-icons/ri";
 import Mission from '../pages/Mission';
 import Events from '../pages/Events';
+import Contact from '../pages/Contact';
 const Home = () => {
   return (
     <section className='w-full flex flex-col items-center justify-center  mt-16'>
@@ -25,6 +26,7 @@ const Home = () => {
       {/* pages */}
       <Mission/>
       <Events/>
+      <Contact/>
 
     </section>
   )

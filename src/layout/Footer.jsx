@@ -5,8 +5,8 @@ import { RiGlobalLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <section className='w-full flex flex-col items-center justify-center bg-gray-600 text-white/60'>
-      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center justify-center gap-4'>
+    <section className='w-full flex flex-col items-center justify-center  text-white/60'>
+      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center bg-gray-700 justify-center gap-4'>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
           <div className='w-auto  flex flex-col items-start justify-center'>
@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
       </footer>
-      <div className='w-full flex items-center justify-center px-5 py-7 text-center border-t-2'>
+      <div className='w-full bg-gray-900 flex items-center justify-center px-5 py-7 text-center border-t-2'>
         <p className='text-xs sm:text-base'>© 2025 Climate Change and Impact Resonance Lab. All rights reserved.</p>
 
       </div>

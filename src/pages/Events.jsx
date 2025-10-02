@@ -43,7 +43,7 @@ const Events = () => {
         {
           events.map((event) => {
             const { id, date, title, description, location, time, seats, register } = event
-            return <div key={id} className='w-full lg:w-3/4 p-2 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gray-50'>
+            return <div key={id} className='w-full lg:w-3/4 p-2 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gray-50 shadow-lg hover:scale-[1.02] transition duration-500'>
               <div className='w-auto h-full flex flex-col items-center justify-center  bg-black/20 p-10'>
                 <p className='text-xl font-semibold'>{date.month}</p>
                 <p className='text-4xl font-bold'>{date.date}</p>
