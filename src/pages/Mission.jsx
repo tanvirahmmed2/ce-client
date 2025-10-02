@@ -8,7 +8,7 @@ import { GiPalmTree } from "react-icons/gi";
 
 const Mission = () => {
   return (
-    <section className='w-full min-h-[800px] p-6 bg-gray-200 flex flex-col items-center justify-center gap-8'>
+    <section className='w-full min-h-[800px] p-6 bg-gray-100 flex flex-col items-center justify-center gap-8'>
         <h1 className='text-4xl font-bold text-emerald-600'>Our Mission</h1>
         <p className='text-base sm:text-lg text-center'>Dedicated to understanding and addressing climate change through interdisciplinary research and innovation</p>
         <div className='w-full flex flex-col md:flex-row items-center justify-center gap-6'>
