@@ -36,7 +36,7 @@ const Contact = () => {
 
 
           <div className='w-auto flex flex-row items-start justify-center gap-4 '>
-            <p className='text-4xl text-emerald-500'><CiPhone /></p>
+            <p className='text-4xl text-cyan-500'><CiPhone /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Phone</h1>
               <p>+1 (555) 123-4567</p>
@@ -46,7 +46,7 @@ const Contact = () => {
 
 
           <div className='w-auto flex flex-row items-start justify-center gap-4 '>
-            <p className='text-4xl text-emerald-500'><CiClock1 /></p>
+            <p className='text-4xl text-blue-500'><CiClock1 /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Time</h1>
               <p>Monday - Friday: 9:00 AM - 5:00 PM</p>

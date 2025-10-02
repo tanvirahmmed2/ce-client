@@ -33,6 +33,8 @@ const Sidebar = () => {
         <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Data Portal</Link>
         <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Tools</Link>
         <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Library</Link>
+        <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Profile</Link>
+        <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>DashBoard</Link>
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Join to Community</Link>
       </div>
       
