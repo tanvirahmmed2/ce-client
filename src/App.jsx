@@ -19,6 +19,7 @@ import Register from './user/Register'
 import Login from './user/Login'
 import Profile from './pages/Profile'
 import DashBoard from './pages/DashBoard'
+import NewsBox from './components/NewsBox'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path='/gallery' element={<Gallery/>} />
           <Route path='/mission' element={<Mission/>} />
           <Route path='/news' element={<News/>} />
+          <Route path='/news/:id' element={<NewsBox/>} />
           <Route path='/research' element={<Research/>} />
           <Route path='/dataportal' element={<Portal/>} />
           <Route path='/publications' element={<Publications/>} />
