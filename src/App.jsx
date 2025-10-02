@@ -4,6 +4,7 @@ import Navbar from './layout/Navbar'
 import Sidebar from './layout/Sidebar'
 import Footer from './layout/Footer'
 import Home from './layout/Home'
+import Error from './components/Error'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <div className='w-full min-h-screen flex items-center justify-center'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/*' element={<Error />} />
         </Routes>
       </div>
       <Footer />
