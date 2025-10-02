@@ -57,7 +57,7 @@ const Contact = () => {
         </div>
 
 
-        <div className='w-full flex items-start justify-center flex-col gap-2 p-6 bg-white rounded-lg shadow-lg'>
+        <div className='w-full flex items-start justify-center flex-col gap-2 p-6 bg-white rounded-xl shadow-lg'>
           <p className='text-2xl font-semibold'>Send us a Message</p>
           <form onSubmit={handleSubmit} className='w-full flex flex-col items-start justify-center gap-4'>
             <div className='w-full flex flex-col items-start justify-center gap-2 '>

@@ -7,7 +7,7 @@ import Events from '../pages/Events';
 import Contact from '../pages/Contact';
 const Home = () => {
   return (
-    <section className='w-full flex flex-col items-center justify-center  mt-16'>
+    <section className='w-full flex flex-col items-center justify-center '>
 
       {/* intro */}
       <div className='bg-gradient-to-br from-gray-600 to-emerald-600 w-full h-[600px] text-center text-white flex flex-col items-center justify-center gap-4 p-6'>
