@@ -28,6 +28,10 @@ const Sidebar = () => {
         <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Gallery</Link>
         <Link to='/council' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Council</Link>
         <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Contact</Link>
+        <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Publications</Link>
+        <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Data Portal</Link>
+        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Tools</Link>
+        <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Library</Link>
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Join to Community</Link>
       </div>
       <button onClick={() => setSidebar(!sidebar)} className='w-auto  flex  justify-center items-center px-2  text-2xl mt-10'><FaArrowRightLong /></button>
