@@ -10,7 +10,8 @@ const Sidebar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
   console.log(sidebar)
   return (
-    <div className={`w-[250px] min-h-screen fixed bg-gray-600 z-50 right-0 flex md:hidden ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-6`}>
+    <div className={`w-[250px] min-h-screen fixed bg-gray-600 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-6`}>
+      <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl mb-10'><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 
         <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
@@ -34,7 +35,7 @@ const Sidebar = () => {
         <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Library</Link>
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Join to Community</Link>
       </div>
-      <button onClick={() => setSidebar(!sidebar)} className='w-auto  flex  justify-center items-center px-2  text-2xl mt-10'><FaArrowRightLong /></button>
+      
     </div>
   )
 }
