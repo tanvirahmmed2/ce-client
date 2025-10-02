@@ -7,7 +7,7 @@ import { ThemeContext } from '../components/Context';
 const Navbar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
   return (
-    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-md'>
+    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-md z-40'>
       <a href="/" className='w-auto h-full flex flex-row items-center justify-center gap-2'>
         <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
         <div className='w-auto h-full flex flex-col items-start justify-center'>
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 sm:px-4 lg:px-6 bg-green-500 text-white p-1 rounded-lg'>Join</Link>
-        <p onClick={() => setSidebar(!sidebar)} className='w-auto h-full flex md:hidden justify-center items-center px-2  text-2xl'><TbMenuDeep /></p>
+        <button onClick={() => setSidebar(!sidebar)} className='w-auto h-full flex md:hidden justify-center items-center px-2  text-2xl'><TbMenuDeep /></button>
       </div>
 
     </nav>
