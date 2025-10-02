@@ -22,11 +22,11 @@ const Sidebar = () => {
       <div className='w-  flex flex-col items-end justify-center gap-2'>
         <Link to='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Home</Link>
         <Link to='/mission' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Mission</Link>
-        <Link to='/reserach' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Research</Link>
+        <Link to='/research' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Research</Link>
         <Link to='/news' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600'>News</Link>
         <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Gallery</Link>
-        <Link to='/council' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Council</Link>
+        <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Team</Link>
         <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Contact</Link>
         <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Publications</Link>
         <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Data Portal</Link>

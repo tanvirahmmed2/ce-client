@@ -18,11 +18,11 @@ const Navbar = () => {
       <div className='w-auto h-full hidden sm:flex flex-row items-center justify-center'>
         <Link to='/' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Home</Link>
         <Link to='/mission' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Mission</Link>
-        <Link to='/reserach' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Research</Link>
+        <Link to='/research' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Research</Link>
         <Link to='/news' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>News</Link>
         <Link to='/events' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Gallery</Link>
-        <Link to='/council' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Council</Link>
+        <Link to='/team' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Team</Link>
         <Link to='/contact' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Contact</Link>
       </div>
       <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>

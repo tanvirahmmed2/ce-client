@@ -5,6 +5,18 @@ import Sidebar from './layout/Sidebar'
 import Footer from './layout/Footer'
 import Home from './layout/Home'
 import Error from './components/Error'
+import Contact from './pages/Contact'
+import Team from './pages/Team'
+import Events from './pages/Events'
+import Gallery from './pages/Gallery'
+import Mission from './pages/Mission'
+import News from './pages/News'
+import Research from './pages/Research'
+import Portal from './pages/Portal'
+import Publications from './pages/Publications'
+import Library from './pages/Library'
+import Register from './user/Register'
+import Login from './user/Login'
 
 const App = () => {
   return (
@@ -14,6 +26,19 @@ const App = () => {
       <div className='w-full min-h-screen flex items-center justify-center'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/team' element={<Team />} />
+          <Route path='/events' element={<Events/>} />
+          <Route path='/gallery' element={<Gallery/>} />
+          <Route path='/mission' element={<Mission/>} />
+          <Route path='/news' element={<News/>} />
+          <Route path='/research' element={<Research/>} />
+          <Route path='/dataportal' element={<Portal/>} />
+          <Route path='/publications' element={<Publications/>} />
+          <Route path='/library' element={<Library/>} />
+          <Route path='/registration' element={<Register/>} />
+          <Route path='/login' element={<Login/>} />
+
           <Route path='/*' element={<Error />} />
         </Routes>
       </div>

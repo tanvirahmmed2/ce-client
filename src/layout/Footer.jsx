@@ -5,7 +5,7 @@ import { RiGlobalLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <section className='w-full flex flex-col items-center justify-center bg-gray-600 text-white/70'>
+    <section className='w-full flex flex-col items-center justify-center bg-gray-600 text-white/60'>
       <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center justify-center gap-4'>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
@@ -17,19 +17,19 @@ const Footer = () => {
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <h1 className='font-semibold text-white'>Quick links</h1>
           <div className='flex flex-col'>
-            <Link>Mission</Link>
-            <Link>Research</Link>
-            <Link>News</Link>
-            <Link>Events</Link>
+            <Link to='/mission'>Mission</Link>
+            <Link to='/research'>Research</Link>
+            <Link to='/news'>News</Link>
+            <Link to='/events'>Events</Link>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <h1 className='font-semibold text-white'>Resources</h1>
           <div className='flex flex-col'>
-            <Link>Publications</Link>
-            <Link>Data Portal</Link>
-            <Link>Tools</Link>
-            <Link>Library</Link>
+            <Link to='/publications'>Publications</Link>
+            <Link to='/dataportal'>Data Portal</Link>
+            <Link to='/'>Tools</Link>
+            <Link to='/library'>Library</Link>
           </div>
         </div>
 
