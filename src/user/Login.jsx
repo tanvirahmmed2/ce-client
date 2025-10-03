@@ -7,14 +7,14 @@ const Login = () => {
   }
   return (
     <section className='w-full flex items-center justify-center p-6'>
-      <div className='w-full lg:w-3/4 h-auto  bg-gray-200 flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
-        <div className='w-full flex flex-col items-center justify-center gap-2'>
+      <div className='w-full lg:w-3/4 h-auto  bg-gradient-to-br from-emerald-600 to-cyan-700 text-white flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
+        <div className='w-full flex flex-col items-center justify-center gap-2 py-6'>
           <h1>Welcom back to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
           <p>Login to your portal and contribute for the world</p>
           <Link to='/registration' className='text-xs mt-6 italic'>New Member?</Link>
         </div>
-        <div className='w-full h-auto flex flex-col p-4 items-center justify-center bg-gray-300'>
+        <div className='w-full h-auto flex flex-col p-4 items-center justify-center bg-gray-200 text-black'>
           <form onSubmit={HandleSubmit} className='w-full flex flex-col gap-4 items-center justify-center'>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
