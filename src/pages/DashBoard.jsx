@@ -14,27 +14,25 @@ const DashBoard = () => {
   return (
     <section className='w-full flex flex-col md:flex-row '>
       <div className='w-full md:w-auto h-auto md:min-h-[800px] p-4 flex flex-wrap gap-4 md:flex-col md:items-start md:justify-start md:gap-2 items-center justify-center bg-slate-100'>
-        <p onClick={() => setSection('profile')}>Profile</p>
-        <p onClick={() => setSection('events')}>Events</p>
-        <p onClick={() => setSection('news')}>News</p>
-        <p onClick={() => setSection('team')}>Team</p>
-        <p onClick={() => setSection('gallery')}>Gallery</p>
-        <p onClick={() => setSection('member')}>Members</p>
-        <p onClick={() => setSection('policy')}>Policy</p>
-        <p onClick={() => setSection('access')}>Access</p>
-        <p onClick={() => setSection('setting')}>Setting</p>
+        <button onClick={() => setSection('profile')}>Profile</button>
+        <button onClick={() => setSection('events')}>Events</button>
+        <button onClick={() => setSection('news')}>News</button>
+        <button onClick={() => setSection('team')}>Team</button>
+        <button onClick={() => setSection('gallery')}>Gallery</button>
+        <button onClick={() => setSection('member')}>Members</button>
+        <button onClick={() => setSection('access')}>Access</button>
+        <button onClick={() => setSection('setting')}>Setting</button>
 
       </div>
       <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
-        <div className={`${section === 'profile' ? 'flex' : 'hidden'}`}><AdminProfile /></div>
-        <div className={`${section === 'events' ? 'flex' : 'hidden'}`}><EventHandle /></div>
-        <div className={`${section === 'news' ? 'flex' : 'hidden'}`}><NewsHandle /></div>
-        <div className={`${section === 'team' ? 'flex' : 'hidden'}`}><TeamHandle /></div>
-        <div className={`${section === 'gallery' ? 'flex' : 'hidden'}`}><Galleryhandle /></div>
-        <div className={`${section === 'member' ? 'flex' : 'hidden'}`}><MemberHandle /></div>
-        <div className={`${section === 'policy' ? 'flex' : 'hidden'}`}>policy</div>
-        <div className={`${section === 'access' ? 'flex' : 'hidden'}`}><AccessHandle /></div>
-        <div className={`${section === 'setting' ? 'flex' : 'hidden'}`}><Setting /></div>
+        {section === 'profile' && <AdminProfile />}
+        {section === 'events' && <EventHandle />}
+        {section === 'news' && <NewsHandle />}
+        {section === 'team' && <TeamHandle />}
+        {section === 'gallery' && <Galleryhandle />}
+        {section === 'member' && <MemberHandle />}
+        {section === 'access' && <AccessHandle />}
+        {section === 'setting' && <Setting />}
       </section>
 
     </section>

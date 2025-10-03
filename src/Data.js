@@ -70,3 +70,36 @@ export const latestnews = [
     description: "Scientists and engineers are developing innovative solutions to mitigate climate change impacts. These include carbon capture technologies, climate-resilient agriculture, renewable energy innovations, and urban planning strategies that reduce emissions. Pilot programs are showing promising results, but large-scale adoption is needed to make a global impact. Collaboration between governments, industries, and communities is crucial to scale these solutions effectively and create a sustainable path toward reducing global greenhouse gas emissions."
   }
 ];
+
+export const eventData = [
+  {
+    id: 1,
+    date: { month: 'April', year: 2026, date: 2 },
+    title: 'Climate Science Symposium 2026',
+    description: 'Annual symposium featuring leading researchers presenting latest findings in climate science and sustainability.',
+    location: 'Main Auditorium',
+    time: '9 am - 10 am',
+    seats: 200,
+    register: '/'
+  },
+  {
+    id: 2,
+    date: { month: 'April', year: 2026, date: 22 },
+    title: 'Workshop: Climate Data Analysis',
+    description: 'Hands-on workshop teaching advanced techniques for analyzing climate datasets using modern tools.',
+    location: 'Computer Lab B',
+    time: '9 am - 10 am',
+    seats: 200,
+    register: '/'
+  },
+  {
+    id: 3,
+    date: { month: 'May', year: 2026, date: 18 },
+    title: 'Public Lecture: Future of Climate Science',
+    description: 'Open lecture discussing emerging technologies and methodologies in climate research.',
+    location: 'University Hall',
+    time: '9 am - 10 am',
+    seats: 200,
+    register: '/'
+  },
+]

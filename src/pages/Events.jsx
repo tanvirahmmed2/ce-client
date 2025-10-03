@@ -1,41 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../components/Context'
 
 
 
-const events = [
-  {
-    id: 1,
-    date: { month: 'April', year: 2026, date: 2 },
-    title: 'Climate Science Symposium 2026',
-    description: 'Annual symposium featuring leading researchers presenting latest findings in climate science and sustainability.',
-    location: 'Main Auditorium',
-    time: '9 am - 10 am',
-    seats: 200,
-    register: '/'
-  },
-  {
-    id: 2,
-    date: { month: 'April', year: 2026, date: 22 },
-    title: 'Workshop: Climate Data Analysis',
-    description: 'Hands-on workshop teaching advanced techniques for analyzing climate datasets using modern tools.',
-    location: 'Computer Lab B',
-    time: '9 am - 10 am',
-    seats: 200,
-    register: '/'
-  },
-  {
-    id: 3,
-    date: { month: 'May', year: 2026, date: 18 },
-    title: 'Public Lecture: Future of Climate Science',
-    description: 'Open lecture discussing emerging technologies and methodologies in climate research.',
-    location: 'University Hall',
-    time: '9 am - 10 am',
-    seats: 200,
-    register: '/'
-  },
-]
+
 
 const Events = () => {
+  const {events}= useContext(ThemeContext)
   return (
     <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
       <h1 className='text-4xl font-bold text-emerald-600'>Upcoming Events</h1>
