@@ -8,9 +8,13 @@ import { ThemeContext } from '../components/Context'
 
 const Sidebar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
+
+  const closeSidebar=()=>{
+    setSidebar(!sidebar)
+  }
   console.log(sidebar)
   return (
-    <div className={`w-auto min-h-screen fixed bg-gray-500 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-6`}>
+    <div className={`w-auto min-h-screen fixed bg-gray-800 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-6`}>
       <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl mb-10'><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 
@@ -21,21 +25,21 @@ const Sidebar = () => {
         </div>
       </a>
       <div className='w-auto  flex flex-col items-end justify-center gap-2'>
-        <Link to='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Home</Link>
-        <Link to='/mission' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Mission</Link>
-        <Link to='/research' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Research</Link>
-        <Link to='/news' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600'>News</Link>
-        <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Events</Link>
-        <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Gallery</Link>
-        <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Team</Link>
-        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Contact</Link>
-        <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Publications</Link>
-        <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Data Portal</Link>
-        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Tools</Link>
-        <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Library</Link>
-        <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Profile</Link>
-        <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>DashBoard</Link>
-        <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600'>Join to Community</Link>
+        <Link to='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Home</Link>
+        <Link to='/mission' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Mission</Link>
+        <Link to='/research' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Research</Link>
+        <Link to='/news' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>News</Link>
+        <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Events</Link>
+        <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
+        <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Team</Link>
+        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Contact</Link>
+        <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Publications</Link>
+        <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Data Portal</Link>
+        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
+        <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Library</Link>
+        <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Profile</Link>
+        <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>DashBoard</Link>
+        <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Join to Community</Link>
       </div>
       
     </div>
