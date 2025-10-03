@@ -13,7 +13,7 @@ const DashBoard = () => {
   console.log(section)
   return (
     <section className='w-full flex flex-col md:flex-row '>
-      <div className='w-full md:w-auto h-auto md:min-h-[800px] p-4 flex flex-wrap md:flex-col md:items-start md:justify-start gap-2 items-center justify-center bg-slate-100'>
+      <div className='w-full md:w-auto h-auto md:min-h-[800px] p-4 flex flex-wrap gap-4 md:flex-col md:items-start md:justify-start md:gap-2 items-center justify-center bg-slate-100'>
         <p onClick={() => setSection('profile')}>Profile</p>
         <p onClick={() => setSection('information')}>Information</p>
         <p onClick={() => setSection('events')}>Events</p>
