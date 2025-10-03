@@ -62,14 +62,20 @@ const Register = () => {
         </div>
         <div className='w-full h-auto flex flex-col p-4 py-8 items-center justify-center bg-gray-200'>
           <form onSubmit={HandleSubmit} className='w-full flex flex-col gap-4 items-center justify-center'>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="name">Name</label>
               <input type="text" id='name' name='name' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="dateofbirth">Date of birth</label>
               <input type="date" name='dateofbirth' id='dateofbirth' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="bloodgroup">Blood Group</label>
               <select name="bloodgroup" id="bloodgroup" required className='w-full border-2 outline-none p-1 px-3'>
@@ -84,6 +90,9 @@ const Register = () => {
                 <option value="o-">O-</option>
               </select>
             </div>
+
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="country">County</label>
               <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3'>
@@ -93,27 +102,60 @@ const Register = () => {
                 }
               </select>
             </div>
+
+
             <h1>Educational Information</h1>
             <div className='w-full flex flex-col md:flex-row items-start justify-between'>
+
+
               <div className='w-full flex flex-col items-start justify-start gap-2'>
                 <label htmlFor="studyin">Currently studying</label>
-                <input type="text" required className='w-full border-2 outline-none p-1 px-3' />
+                <select name="studyin" id="studyin" required className='w-full border-2 outline-none p-1 px-3'>
+                  <option value="">Select your department</option>
+                  <option value="ce">Civil Engineering</option>
+                  <option value="eee">EEE</option>
+                  <option value="cse">CSE</option>
+                  <option value="me">Mechanical Engineering</option>
+                  <option value="ss">Soil Science</option>
+                </select>
               </div>
-              
+
+              <div className='w-full flex flex-col items-start justify-start gap-2'>
+                <label htmlFor="studyininstitution">Institution</label>
+                <input type="text" name='studyininstitution' id='studyininstitution' required className='w-full border-2 outline-none p-1 px-3' />
+              </div>
 
             </div>
+
+            <div className='w-full flex flex-col items-start justify-start gap-2'>
+              <label htmlFor="interest">Intereted In</label>
+              <select name="interest" id="interest" required className='w-full border-2 outline-none p-1 px-3'>
+                <option value="">select your interest</option>
+                <option value="explore">Explore</option>
+                <option value="research">Research</option>
+                <option value="contribute">Contribute</option>
+              </select>
+            </div>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="phone">Phone</label>
               <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
               <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="password">Password</label>
               <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+
+
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Register</button>
           </form>
         </div>
