@@ -1,16 +1,16 @@
 import React from 'react'
 
 import { GiModernCity } from "react-icons/gi";
-import { SlEnergy } from "react-icons/sl";
 import { GiFruitTree } from "react-icons/gi"
 import { GiHills } from "react-icons/gi";
 import { GiWaveCrest } from "react-icons/gi";
-import { FaMobile} from "react-icons/fa";
+import { MdOutlineMonitorHeart } from "react-icons/md";
+import { CgDanger } from "react-icons/cg";
 
 const fields=[
   {
     id: 1,
-    icon: <FaMobile className='text-red-600'/>,
+    icon: <MdOutlineMonitorHeart className='text-red-600'/>,
     title: 'Climate Change and Environmental Monitoring',
     description: [
       '- Monitoring the impacts of climate change on infrastructure, ecosystems and communities.',
@@ -20,7 +20,7 @@ const fields=[
   },
   {
     id: 2,
-    icon: <GiWaveCrest className='text-blue-600'/>,
+    icon: <CgDanger className='text-blue-600'/>,
     title: 'Disaster Risk Reduction and Resilience ',
     description:[
       '- Flood mapping and hazard assessment using GIS and remote sensing tools',
@@ -30,7 +30,7 @@ const fields=[
   },
   {
     id: 3,
-    icon: <GiHills className='text-orange-500'/>,
+    icon: <GiWaveCrest className='text-orange-500'/>,
     title: 'Water Resources and Quality Management',
     description: [
       '- Monitoring surface and groundwater availability and quality using field data and remote sensing ',
@@ -40,7 +40,7 @@ const fields=[
   },
   {
     id: 4,
-    icon: <GiFruitTree className='text-emerald-500'/>,
+    icon: <GiHills className='text-emerald-500'/>,
     title: 'Geotechnical and Soil Resilience',
     description: [
       '- Investigating climate impacts on soil stability, erosion, and slope failure. ',
@@ -50,7 +50,7 @@ const fields=[
   },
   {
     id: 5,
-    icon: <SlEnergy/>,
+    icon: <GiModernCity/>,
     title: 'Urban Resilience and Infrastructure Sustainability',
     description: [
       '- Assessing urban flooding risks and designing resilient drainage systems',
@@ -60,7 +60,7 @@ const fields=[
   },
   {
     id: 6,
-    icon: <GiModernCity className='text-cyan-400'/>,
+    icon: <GiFruitTree className='text-cyan-400'/>,
     title: 'Agriculture and Food Security ',
     description: [
       '- Monitoring crop health and estimating yields using satellite data and machine learning.',
