@@ -6,10 +6,9 @@ import Galleryhandle from '../Admin/Galleryhandle'
 import MemberHandle from '../Admin/MemberHandle'
 import AccessHandle from '../Admin/AccessHandle'
 import Setting from '../Admin/Setting'
-import AdminProfile from '../Admin/AdminProfile'
 
 const DashBoard = () => {
-  const [section, setSection] = useState('profile')
+  const [section, setSection] = useState('events')
   console.log(section)
   return (
     <section className='w-full flex flex-col md:flex-row '>
@@ -25,7 +24,6 @@ const DashBoard = () => {
 
       </div>
       <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
-        {section === 'profile' && <AdminProfile />}
         {section === 'events' && <EventHandle />}
         {section === 'news' && <NewsHandle />}
         {section === 'team' && <TeamHandle />}
