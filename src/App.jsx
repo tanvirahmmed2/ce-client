@@ -12,7 +12,6 @@ import Gallery from './pages/Gallery'
 import Mission from './pages/Mission'
 import News from './pages/News'
 import Research from './pages/Research'
-import Portal from './pages/Portal'
 import Publications from './pages/Publications'
 import Library from './pages/Library'
 import Register from './user/Register'
@@ -38,7 +37,6 @@ const App = () => {
           <Route path='/news' element={<News/>} />
           <Route path='/news/:id' element={<NewsBox/>} />
           <Route path='/research' element={<Research/>} />
-          <Route path='/dataportal' element={<Portal/>} />
           <Route path='/publications' element={<Publications/>} />
           <Route path='/library' element={<Library/>} />
           <Route path='/registration' element={<Register/>} />

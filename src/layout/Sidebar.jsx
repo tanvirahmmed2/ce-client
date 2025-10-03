@@ -28,18 +28,17 @@ const Sidebar = () => {
         <Link to='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Home</Link>
         <Link to='/mission' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Mission</Link>
         <Link to='/research' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Research</Link>
-        <Link to='/news' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>News</Link>
-        <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Events</Link>
-        <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
-        <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Team</Link>
-        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Contact</Link>
         <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Publications</Link>
-        <Link to='/dataportal' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Data Portal</Link>
-        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
         <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Library</Link>
+        <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Events</Link>
+        <Link to='/news' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>News</Link>
+        <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
+        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
         <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Profile</Link>
         <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>DashBoard</Link>
-        <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Join to Community</Link>
+        <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Join us</Link>
+        <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Team</Link>
+        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Contact</Link>
       </div>
       
     </div>
