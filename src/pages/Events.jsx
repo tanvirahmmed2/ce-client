@@ -13,7 +13,7 @@ const Events = () => {
       <p className='text-base sm:text-lg text-center'>Join us for conferences, workshops, and seminars</p>
       <div className='w-full flex flex-col items-center justify-center gap-4'>
         {
-          events.map((event) => {
+          events.slice(-3).map((event) => {
             const { id, date, title, description, location, time, seats, register } = event
             return <div key={id} className='w-full lg:w-3/4 p-2 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gray-50 shadow-lg hover:scale-[1.02] transition duration-500'>
               <div className='w-auto h-full flex flex-col items-center justify-center  bg-gradient-to-br from-gray-600 to-emerald-600 text-white p-10'>

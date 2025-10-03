@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { eventData, latestnews } from "../Data";
+import { eventData, latestnews, messageData } from "../Data";
 
 
 
@@ -10,6 +10,7 @@ const ContextProvider = ({ children }) => {
     const [news, setNews] = useState(latestnews)
     const [events, setEvents] = useState(eventData)
     const [gallery, setGallery] = useState(null)
+    const [messages, setMessages]= useState(messageData)
 
 
 
@@ -18,6 +19,7 @@ const ContextProvider = ({ children }) => {
         news, setNews,
         events, setEvents,
         gallery, setGallery,
+        messages, setMessages,
 
     }
     return <ThemeContext.Provider value={contextValue}>

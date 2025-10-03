@@ -103,3 +103,28 @@ export const eventData = [
     register: '/'
   },
 ]
+
+
+export const messageData=[
+  {
+        name: 'Nazrul Islam',
+        message: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+        subject: 'Research purpose',
+        email: 'xxxx@yahoo.com',
+
+    },
+  {
+        name: 'Sakib',
+        message: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+        subject: 'Research purpose',
+        email: 'xxxx@yahoo.com',
+
+    },
+  {
+        name: 'Sakib',
+        message: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+        subject: 'Research purpose',
+        email: 'xxxx@yahoo.com',
+
+    },
+]
