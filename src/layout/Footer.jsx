@@ -11,7 +11,7 @@ const Footer = () => {
           <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
           <div className='w-auto  flex flex-col items-start justify-center'>
             <h1 className='font-semibold text-white'>CCIRL</h1>
-            <p className='text-xs'>Climate Change and Impact Resonance Lab</p>
+            <p className='text-xs'>Climate Change Impact and Resilience Lab</p>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
@@ -45,7 +45,7 @@ const Footer = () => {
 
       </footer>
       <div className='w-full bg-gray-900 flex items-center justify-center px-5 py-7 text-center border-t-2'>
-        <p className='text-xs sm:text-base'>© 2025 Climate Change and Impact Resonance Lab. All rights reserved.</p>
+        <p className='text-xs sm:text-base'>© 2025 Climate Change Impact and Resilience Lab. All rights reserved.</p>
 
       </div>
     </section>

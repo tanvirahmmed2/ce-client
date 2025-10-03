@@ -12,13 +12,13 @@ const Navbar = () => {
         <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
         <div className='w-auto h-full flex flex-col items-start justify-center'>
           <h1 className='font-semibold'>CCIRL</h1>
-          <p className='text-[10px]'>Climate Change and Impact Resonance Lab</p>
+          <p className='text-[10px]'>Climate Change Impact and Resilience Lab</p>
         </div>
       </a>
       <div className='w-auto h-full hidden sm:flex flex-row items-center justify-center'>
         <Link to='/' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Home</Link>
         <Link to='/mission' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Mission</Link>
-        <Link to='/research' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Research</Link>
+        <Link to='/scope' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Scope</Link>
         <Link to='/news' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>News</Link>
         <Link to='/events' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Gallery</Link>

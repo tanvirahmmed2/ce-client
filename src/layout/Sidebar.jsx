@@ -21,13 +21,13 @@ const Sidebar = () => {
         <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
         <div className='w-auto  flex flex-col items-end justify-center'>
           <h1 className='font-semibold'>CCIRL</h1>
-          <p className='text-[10px]'>Climate Change and Impact Resonance Lab</p>
+          <p className='text-[10px]'>Climate Change Impact and Resilience Lab</p>
         </div>
       </a>
       <div className='w-auto  flex flex-col items-end justify-center gap-2'>
         <Link to='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Home</Link>
         <Link to='/mission' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Mission</Link>
-        <Link to='/research' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Research</Link>
+        <Link to='/scope' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Scope</Link>
         <Link to='/publications' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Publications</Link>
         <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Library</Link>
         <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Events</Link>
