@@ -20,6 +20,7 @@ import DashBoard from './pages/DashBoard'
 import NewsBox from './components/NewsBox'
 import Recover from './user/Recover'
 import Scope from './pages/Scope'
+import Notice from './pages/Notice'
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='/profile' element={<Profile/>} />
           <Route path='/dashboard' element={<DashBoard/>} />
           <Route path='/recover' element={<Recover/>} />
+          <Route path='/notice' element={<Notice/>} />
 
           <Route path='/*' element={<Error />} />
         </Routes>
