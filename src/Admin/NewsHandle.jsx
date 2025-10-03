@@ -78,7 +78,7 @@ const NewsHandle = () => {
             </thead>
             <tbody>
               {news && news.length > 0 ? (
-                news.map((e) => {
+                news.slice(-6).map((e) => {
                   const { date, id, author, title, description } = e
                   return (
                     <tr key={id} className="border-t  transition">
