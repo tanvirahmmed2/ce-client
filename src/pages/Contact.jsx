@@ -8,7 +8,7 @@ const Contact = () => {
     e.preventDefault()
   }
   return (
-    <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8 bg-emerald-50'>
+    <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8 bg-gray-50'>
       <h1 className='text-4xl font-bold text-emerald-600'>Contact Us</h1>
       <p className='text-base sm:text-lg text-center'>Get in touch with our team for collaborations and inquiries</p>
       <div className='w-full flex flex-col md:flex-row items-center justify-center gap-4'>
