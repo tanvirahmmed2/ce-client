@@ -54,7 +54,7 @@ const Register = () => {
   return (
     <section className='w-full flex items-center justify-center p-6'>
       <div className='w-full lg:w-3/4 h-auto flex flex-col  items-center justify-center rounded-lg overflow-hidden'>
-        <div className='w-full py-16 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
+        <div className='w-full text-center py-16 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
           <h1>Welcom to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
           <p>Be a proud member for the lab and contribute for the world</p>

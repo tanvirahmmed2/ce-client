@@ -26,7 +26,6 @@ const Navbar = () => {
         <Link to='/contact' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Contact</Link>
       </div>
       <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>
-        <Link to='/registration' className='w-auto  flex justify-center items-center px-2 sm:px-4 lg:px-6 bg-green-500 text-white p-1 rounded-lg'>Join</Link>
         <button onClick={() => setSidebar(!sidebar)} className='w-auto h-full flex justify-center items-center px-2  text-2xl'><TbMenuDeep /></button>
       </div>
 

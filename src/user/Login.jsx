@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <section className='w-full flex items-center justify-center p-6'>
       <div className='w-full lg:w-3/4 h-auto  bg-gradient-to-br from-emerald-600 to-cyan-700 text-white flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
-        <div className='w-full flex flex-col items-center justify-center gap-2 py-6'>
+        <div className='w-full flex flex-col items-center justify-center gap-2 py-6 text-center'>
           <h1>Welcom back to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
           <p>Login to your portal and contribute for the world</p>
@@ -26,7 +26,7 @@ const Login = () => {
             </div>
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Login</button>
           </form>
-          <Link to='/' className='mt-6 text-red-500 text-xs'>Forgot password</Link>
+          <Link to='/recover' className='mt-6 text-red-500 text-xs'>Forgot password</Link>
         </div>
       </div>
       

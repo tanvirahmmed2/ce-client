@@ -20,6 +20,7 @@ import Login from './user/Login'
 import Profile from './pages/Profile'
 import DashBoard from './pages/DashBoard'
 import NewsBox from './components/NewsBox'
+import Recover from './user/Recover'
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='/login' element={<Login/>} />
           <Route path='/profile' element={<Profile/>} />
           <Route path='/dashboard' element={<DashBoard/>} />
+          <Route path='/recover' element={<Recover/>} />
 
           <Route path='/*' element={<Error />} />
         </Routes>
