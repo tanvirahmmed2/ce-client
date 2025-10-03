@@ -5,14 +5,14 @@ const Galleryhandle = () => {
 
   const handlesearch = () => {
     setSearchImage({
-      image: 'https://via.placeholder.com/200', // demo placeholder
+      image: 'https://via.placeholder.com/200', 
       title: 'Searching image',
     })
   }
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-start gap-10 py-10 px-4 ">
-      {/* Upload Form */}
+      
       <div className="w-full  bg-white shadow-lg rounded-2xl p-8">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Upload New Image
@@ -62,7 +62,7 @@ const Galleryhandle = () => {
         </form>
       </div>
 
-      {/* Search Section */}
+      
       <div className="w-full  bg-white shadow-lg rounded-2xl p-8 flex flex-col gap-6">
         <h1 className="text-xl font-bold text-gray-800 text-center">
           Delete Any Image
@@ -84,7 +84,7 @@ const Galleryhandle = () => {
           </button>
         </div>
 
-        {/* Search Result */}
+        
         <div className="mt-4">
           {searchImage ? (
             <div className="flex flex-col items-center gap-4 bg-gray-100 p-6 rounded-xl shadow-sm">
