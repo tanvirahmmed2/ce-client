@@ -49,7 +49,7 @@ const EventHandle = () => {
         Manage Events
       </h1>
 
-      <form onSubmit={handleSubmit} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
+      <form onSubmit={handleSubmit} className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
         <h2 className='text-2xl font-bold text-gray-800 text-center mb-2'>
           Fill Event Details
         </h2>
@@ -110,7 +110,7 @@ const EventHandle = () => {
         </button>
       </form>
 
-      <div className='w-full max-w-6xl flex flex-col gap-4'>
+      <div className='w-full  flex flex-col gap-4'>
         <h2 className='text-2xl font-bold text-gray-800 text-center'>Upcoming Events</h2>
         
         <div className='w-full grid grid-cols-5 gap-4 py-3 px-4 text-sm font-semibold text-gray-900 border-b border-t border-gray-400 bg-gray-200 rounded-md'>
