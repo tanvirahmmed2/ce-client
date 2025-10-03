@@ -19,8 +19,8 @@ const Home = () => {
         </div>
         <p className='text-base md:text-lg'>Advancing climate science through innovative research, cutting-edge technology, and collaborative solutions for a sustainable future</p>
         <div className='w-full h-auto flex flex-col sm:flex-row items-center justify-center gap-2'>
-          <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white rounded-lg border-[1px] text-black' to='/research'>Explore Research</Link>
-          <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white/10 rounded-lg border-[1px] text-white' to='/registration'>Join to Community</Link>
+          <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white hover:bg-white/80 transition duration-500 rounded-lg border-[1px] text-black' to='/research'>Explore Research</Link>
+          <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white/10 hover:bg-white/20 transition duration-500 rounded-lg border-[1px] text-white' to='/registration'>Join to Community</Link>
         </div>
       </div>
 
