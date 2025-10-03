@@ -18,7 +18,7 @@ const Footer = () => {
           <h1 className='font-semibold text-white'>Quick links</h1>
           <div className='flex flex-col'>
             <Link to='/mission'>Mission</Link>
-            <Link to='/research'>Research</Link>
+            <Link to='/scope'>Scope</Link>
             <Link to='/news'>News</Link>
             <Link to='/events'>Events</Link>
           </div>
