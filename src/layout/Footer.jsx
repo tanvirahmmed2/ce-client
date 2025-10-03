@@ -24,11 +24,11 @@ const Footer = () => {
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
-          <h1 className='font-semibold text-white'>Resources</h1>
+          <h1 className='font-semibold text-white'>Important</h1>
           <div className='flex flex-col'>
             <Link to='/publications'>Publications</Link>
-            <Link to='/dataportal'>Data Portal</Link>
-            <Link to='/'>Tools</Link>
+            <Link to='dashboard'>DashBoard</Link>
+            <Link to='/profile'>Profile</Link>
             <Link to='/library'>Library</Link>
           </div>
         </div>

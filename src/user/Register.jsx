@@ -74,6 +74,16 @@ const Register = () => {
               <label htmlFor="dateofbirth">Date of birth</label>
               <input type="date" name='dateofbirth' id='dateofbirth' required className='w-full border-2 outline-none p-1 px-3' />
             </div>
+            
+            
+            <div className='w-full flex flex-col items-start justify-start gap-2'>
+              <label htmlFor="gender">Gender</label>
+              <select name="gender" id="gender" required className='w-full border-2 outline-none p-1 px-3'>
+                <option value="">Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
