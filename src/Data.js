@@ -146,6 +146,27 @@ export const noticeData=[
     pdf: 'New Advisor Team.pdf'
   }
 ]
+export const galleryData=[
+  {
+    id: 1,
+    title: 'Member selection report',
+    author: 'Nazim',
+    image: ''
+
+  },
+  {
+    id: 2,
+    title: 'CE Yearly Summit 2025',
+    author: 'Akib',
+    image: ''
+  },
+  {
+    id: 3,
+    title: 'New Advisor Team',
+    author: 'Hasan',
+    image: ''
+  }
+]
 
 
 export const libraryData=[

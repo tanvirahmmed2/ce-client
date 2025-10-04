@@ -23,6 +23,7 @@ import Update from './pages/Update'
 import UpdateBox from './components/UpdateBox'
 import Projects from './pages/Projects'
 import Project from './components/Project'
+import Image from './components/Image'
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path='/projects' element={<Projects/>} />
           <Route path='/projects/:id' element={<Project/>} />
           <Route path='/gallery' element={<Gallery/>} />
+          <Route path='/gallery/:id' element={<Image/>} />
           <Route path='/mission' element={<Mission/>} />
           <Route path='/update' element={<Update/>} />
           <Route path='/update/:id' element={<UpdateBox/>} />

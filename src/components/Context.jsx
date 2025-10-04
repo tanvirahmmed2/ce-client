@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { eventData, latestnews, libraryData, messageData, noticeData, projectData, publicationsData } from "../Data";
+import { eventData, galleryData, latestnews, libraryData, messageData, noticeData, projectData, publicationsData } from "../Data";
 
 
 
@@ -9,7 +9,7 @@ const ContextProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(false)
     const [news, setNews] = useState(latestnews)
     const [events, setEvents] = useState(eventData)
-    const [gallery, setGallery] = useState(null)
+    const [gallery, setGallery] = useState(galleryData)
     const [messages, setMessages]= useState(messageData)
     const [notices, setNotices]= useState(noticeData)
     const [library, setLibrary]= useState(libraryData)
