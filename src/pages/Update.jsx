@@ -6,11 +6,11 @@ import { ThemeContext } from '../components/Context';
 
 
 
-const News = () => {
+const Update = () => {
   const {news}= useContext(ThemeContext)
   return (
     <section className="w-full min-h-[800px] bg-gray-50 p-6 flex flex-col items-center justify-center gap-8">
-      <h1 className='text-4xl font-bold text-emerald-600'>Latest News</h1>
+      <h1 className='text-4xl font-bold text-emerald-600'>Latest Updates</h1>
       <p className='text-base sm:text-lg text-center'>Stay updated with our recent discoveries and announcements</p>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center'>
         {
@@ -24,7 +24,7 @@ const News = () => {
 
               </div>
               {
-                description.length > 100 && <p className='text-xs'>{description.slice(0,150)} .... <Link to={`/news/${id}`} className='italic text-green-600'>see more</Link></p>
+                description.length > 100 && <p className='text-xs'>{description.slice(0,150)} .... <Link to={`/update/${id}`} className='italic text-green-600'>see more</Link></p>
               }
             </div>
           })
@@ -36,4 +36,4 @@ const News = () => {
   )
 }
 
-export default News
+export default Update

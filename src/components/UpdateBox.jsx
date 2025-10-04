@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { ThemeContext } from './Context'
 
-const NewsBox = () => {
+const UpdateBox = () => {
     const { id } = useParams()
     const { news } = useContext(ThemeContext)
     const selectednews = news.find((item) => item.id === Number(id))
@@ -25,4 +25,4 @@ const NewsBox = () => {
     )
 }
 
-export default NewsBox
+export default UpdateBox

@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link to='/' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Home</Link>
         <Link to='/mission' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Mission</Link>
         <Link to='/scope' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Scope</Link>
-        <Link to='/news' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>News</Link>
+        <Link to='/update' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Update</Link>
         <Link to='/events' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Gallery</Link>
         <Link to='/team' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Team</Link>

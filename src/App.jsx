@@ -10,17 +10,17 @@ import Team from './pages/Team'
 import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Mission from './pages/Mission'
-import News from './pages/News'
 import Publications from './pages/Publications'
 import Library from './pages/Library'
 import Register from './user/Register'
 import Login from './user/Login'
 import Profile from './pages/Profile'
 import DashBoard from './pages/DashBoard'
-import NewsBox from './components/NewsBox'
 import Recover from './user/Recover'
 import Scope from './pages/Scope'
 import Notice from './pages/Notice'
+import Update from './pages/Update'
+import UpdateBox from './components/UpdateBox'
 
 const App = () => {
   return (
@@ -35,8 +35,8 @@ const App = () => {
           <Route path='/events' element={<Events/>} />
           <Route path='/gallery' element={<Gallery/>} />
           <Route path='/mission' element={<Mission/>} />
-          <Route path='/news' element={<News/>} />
-          <Route path='/news/:id' element={<NewsBox/>} />
+          <Route path='/update' element={<Update/>} />
+          <Route path='/update/:id' element={<UpdateBox/>} />
           <Route path='/scope' element={<Scope/>} />
           <Route path='/publications' element={<Publications/>} />
           <Route path='/library' element={<Library/>} />

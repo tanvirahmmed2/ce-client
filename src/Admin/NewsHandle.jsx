@@ -10,7 +10,6 @@ const NewsHandle = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
-      {/* Form Section */}
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
         <h1 className="text-3xl font-bold text-center text-gray-800">Update Latest News</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
