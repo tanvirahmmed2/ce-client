@@ -21,6 +21,7 @@ const Footer = () => {
             <Link to='/scope'>Scope</Link>
             <Link to='/news'>News</Link>
             <Link to='/events'>Events</Link>
+            <Link to='/notice'>Notice</Link>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
@@ -30,6 +31,7 @@ const Footer = () => {
             <Link to='dashboard'>DashBoard</Link>
             <Link to='/profile'>Profile</Link>
             <Link to='/library'>Library</Link>
+            <Link to='/projects'>Projects</Link>
           </div>
         </div>
 

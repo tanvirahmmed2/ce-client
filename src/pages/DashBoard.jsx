@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import EventHandle from '../Admin/EventHandle'
-import NewsHandle from '../Admin/NewsHandle'
 import TeamHandle from '../Admin/TeamHandle'
 import Galleryhandle from '../Admin/Galleryhandle'
 import MemberHandle from '../Admin/MemberHandle'
@@ -9,6 +8,7 @@ import Setting from '../Admin/Setting'
 import NoticeHandle from '../Admin/NoticeHandle'
 import LibraryHandle from '../Admin/LibraryHandle'
 import PublicationHandle from '../Admin/PublicationHandle'
+import UpdateHandle from '../Admin/UpdateHandle'
 
 const DashBoard = () => {
   const [section, setSection] = useState('events')
@@ -31,7 +31,7 @@ const DashBoard = () => {
       </div>
       <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
         {section === 'events' && <EventHandle />}
-        {section === 'news' && <NewsHandle />}
+        {section === 'news' && <UpdateHandle />}
         {section === 'team' && <TeamHandle />}
         {section === 'gallery' && <Galleryhandle />}
         {section === 'member' && <MemberHandle />}

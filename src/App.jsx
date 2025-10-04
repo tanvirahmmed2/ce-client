@@ -21,6 +21,8 @@ import Scope from './pages/Scope'
 import Notice from './pages/Notice'
 import Update from './pages/Update'
 import UpdateBox from './components/UpdateBox'
+import Projects from './pages/Projects'
+import Project from './components/Project'
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/team' element={<Team />} />
           <Route path='/events' element={<Events/>} />
+          <Route path='/projects' element={<Projects/>} />
+          <Route path='/projects/:id' element={<Project/>} />
           <Route path='/gallery' element={<Gallery/>} />
           <Route path='/mission' element={<Mission/>} />
           <Route path='/update' element={<Update/>} />

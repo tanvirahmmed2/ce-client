@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../components/Context'
 
-const NewsHandle = () => {
+const UpdateHandle = () => {
   const { news } = useContext(ThemeContext)
 
   const handleSubmit = (e) => {
@@ -11,7 +11,7 @@ const NewsHandle = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
-        <h1 className="text-3xl font-bold text-center text-gray-800">Update Latest News</h1>
+        <h1 className="text-3xl font-bold text-center text-gray-800">Latest Updates</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="title" className="font-medium ">Title</label>
@@ -64,7 +64,7 @@ const NewsHandle = () => {
 
       {/* Uploaded News Section */}
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Uploaded News</h1>
+        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Uploaded updates</h1>
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 rounded-lg">
             <thead>
@@ -101,4 +101,4 @@ const NewsHandle = () => {
   )
 }
 
-export default NewsHandle
+export default UpdateHandle

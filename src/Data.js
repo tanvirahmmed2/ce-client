@@ -223,3 +223,35 @@ export const publicationsData = [
     abstract: "/"
   },
 ];
+
+
+export const projectData=[
+  {
+    id:1,
+    title: 'Project title here should be placed',
+    image: '',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+
+  },
+  {
+    id:2,
+    title: 'Project title here should be placed',
+    image: '',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+
+  },
+  {
+    id:3,
+    title: 'Project title here should be placed',
+    image: '',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+
+  },
+  {
+    id:4,
+    title: 'Project title here should be placed',
+    image: '',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab veniam amet consequatur, assumenda saepe cumque excepturi! Quisquam autem pariatur doloremque modi, unde nulla, maxime incidunt consequatur odit quia id ipsum culpa officiis sunt obcaecati? Id cum totam, corrupti doloremque laudantium et ex quis ipsa debitis provident enim ad! Provident, tempora?',
+
+  },
+]
