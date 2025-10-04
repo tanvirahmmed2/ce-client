@@ -42,7 +42,7 @@ const objectives = [
 
 const Mission = () => {
   return (
-    <section className="w-full min-h-screen px-6 py-16 bg-gradient-to-b from-gray-50 to-white flex flex-col items-center gap-16">
+    <section className="w-full min-h-screen px-6 py-16 bg-gray-50 flex flex-col items-center gap-16">
       
       {/* Vision */}
       <div className="text-center max-w-3xl animate-fadeIn">

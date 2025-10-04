@@ -5,7 +5,8 @@ import { RiGlobalLine } from "react-icons/ri";
 import Mission from '../pages/Mission';
 import Events from '../pages/Events';
 import Contact from '../pages/Contact';
-import Research from '../pages/Scope';
+import Scope from '../pages/Scope';
+import Projects from '../pages/Projects';
 const Home = () => {
   return (
     <section className='w-full flex flex-col items-center justify-center '>
@@ -25,7 +26,8 @@ const Home = () => {
 
       {/* pages */}
       <Mission/>
-      <Research/>
+      <Scope/>
+      <Projects/>
       <Events/>
       <Contact/>
 
