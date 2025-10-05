@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
-import { RiGlobalLine } from "react-icons/ri";
+import logo from '../components/CCIRL.png'
 import Mission from '../pages/Mission';
 import Events from '../pages/Events';
 import Contact from '../pages/Contact';
@@ -12,7 +11,8 @@ const Home = () => {
     <section className='w-full flex flex-col items-center justify-center '>
 
       <div className='bg-gradient-to-br from-gray-600 to-emerald-600 w-full h-[800px] text-center text-white flex flex-col items-center justify-center gap-4 p-6'>
-        <p className='text-6xl md:text-8xl text-white'><RiGlobalLine /></p>
+        
+        <img src={logo} alt="" className='w-[200px] h-[200px] '/>
         <div >
           <h1 className=' text-4xl md:text-5xl font-semibold text-white'>Climate Change Impact and</h1>
           <h1 className=' text-4xl md:text-5xl font-semibold text-emerald-400'>Resilience Lab</h1>
