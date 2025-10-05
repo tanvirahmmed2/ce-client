@@ -24,16 +24,6 @@ const UpdateHandle = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="author" className="font-medium ">Author</label>
-            <input 
-              type="text" 
-              name="author"  
-              id="author" 
-              required 
-              className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
             <label htmlFor="image" className="font-medium ">Image</label>
             <input 
               type="file" 
