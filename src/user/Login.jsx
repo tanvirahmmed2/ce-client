@@ -3,8 +3,11 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from '../components/Context'
 
 const Login = () => {
+  const {setUser}= useContext(ThemeContext)
   const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     email: '',
@@ -23,6 +26,7 @@ const Login = () => {
       })
       setProblem(response.data.message)
       console.log(response.data.message)
+      setUser(response.data.user)
       setFormData({
         email: '',
         password: ''

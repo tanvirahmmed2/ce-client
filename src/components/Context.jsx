@@ -35,6 +35,8 @@ const ContextProvider = ({ children }) => {
     },[])
 
 
+    
+
     const contextValue = {
         sidebar, setSidebar,
         news, setNews,
