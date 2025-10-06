@@ -132,7 +132,7 @@ const Register = () => {
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="country">County</label>
               <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.country}>
-                <option value="">Select you country</option>
+                <option value="" >Select you country</option>
                 {
                   countries && countries.map((country) => <option key={country.id} value={country}>{country}</option>)
                 }

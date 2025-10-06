@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -9,8 +9,19 @@ import { ThemeContext } from '../components/Context'
 const Sidebar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
 
-  const closeSidebar=()=>{
+  const closeSidebar = () => {
     setSidebar(!sidebar)
+  }
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/user/logout',{}, {
+        withCredentials: true
+      })
+      alert(response.data.message)
+    } catch (error) {
+      alert('logout failed' + error)
+    }
   }
   console.log(sidebar)
   return (
@@ -40,8 +51,9 @@ const Sidebar = () => {
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Join us</Link>
         <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Team</Link>
         <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Contact</Link>
+        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 py-4 border-green-600' onClick={handleLogout}>LogOut</Link>
       </div>
-      
+
     </div>
   )
 }

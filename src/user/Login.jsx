@@ -1,14 +1,39 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {motion} from 'framer-motion'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const Login = () => {
-  const HandleSubmit=(e)=>{
+  const [problem, setProblem] = useState('')
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+  const HandleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const response = await axios.post('http://localhost:5000/api/user/login', formData,{
+        withCredentials: true
+      })
+      setProblem(response.data.message)
+      console.log(response.data.message)
+      setFormData({
+        email: '',
+        password: ''
+      })
+    } catch (error) {
+      setProblem('log in failed' + error)
+    }
   }
   return (
     <section className='w-full flex items-center justify-center p-6'>
-      <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} className='w-full lg:w-3/4 h-auto  bg-gradient-to-br from-emerald-600 to-cyan-700 text-white flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} className='w-full lg:w-3/4 h-auto  bg-gradient-to-br from-emerald-600 to-cyan-700 text-white flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
         <div className='w-full flex flex-col items-center justify-center gap-2 py-6 text-center'>
           <h1>Welcom back to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
@@ -19,18 +44,19 @@ const Login = () => {
           <form onSubmit={HandleSubmit} className='w-full flex flex-col gap-4 items-center justify-center'>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
-              <input type="email" id='email' name='email'  required className='w-full border-2 outline-none p-1 px-3'/>
+              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email} />
             </div>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="password">Password</label>
-              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3'/>
+              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password} />
             </div>
+            <p>{problem}</p>
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Login</button>
           </form>
           <Link to='/recover' className='mt-6 text-red-500 text-xs'>Forgot password</Link>
         </div>
       </motion.div>
-      
+
     </section>
   )
 }
