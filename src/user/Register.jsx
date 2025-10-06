@@ -155,7 +155,7 @@ const Register = () => {
             </div>
 
 
-            <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Apply</button>
+            <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Register</button>
             <p>{problem}</p>
           </form>
         </div>
