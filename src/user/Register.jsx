@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react';
 
 
 const countries = [
@@ -46,10 +48,33 @@ const countries = [
 
 
 const Register = () => {
+  const [problem, setProblem] = useState('')
+  const [formData, setFormData] = useState({
+    name: "",
+    dateOfBirth: "",
+    gender: "",
+    country: "",
+    bloodGroup: "",
+    phone: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
 
-  const HandleSubmit = (e) => {
+  const HandleSubmit = async (e) => {
+    e.preventDefault()
+    try {
 
+      const response = await axios.post("http://localhost:5000/api/user/register", formData)
+
+      setProblem(response.data.message);
+    } catch (error) {
+      setProblem(" Registration failed: " + (error.response?.data?.message || "Server error"));
+    }
   }
   return (
     <section className='w-full flex items-center justify-center p-6'>
@@ -66,19 +91,19 @@ const Register = () => {
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="name">Name</label>
-              <input type="text" id='name' name='name' required className='w-full border-2 outline-none p-1 px-3' />
+              <input type="text" id='name' name='name' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.name} />
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
-              <label htmlFor="dateofbirth">Date of birth</label>
-              <input type="date" name='dateofbirth' id='dateofbirth' required className='w-full border-2 outline-none p-1 px-3' />
+              <label htmlFor="dateOfBirth">Date of birth</label>
+              <input type="date" name='dateOfBirth' id='dateOfBirth' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.dateOfBirth}/>
             </div>
-            
-            
+
+
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="gender">Gender</label>
-              <select name="gender" id="gender" required className='w-full border-2 outline-none p-1 px-3'>
+              <select name="gender" id="gender" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.gender}>
                 <option value="">Select your gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -87,8 +112,8 @@ const Register = () => {
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
-              <label htmlFor="bloodgroup">Blood Group</label>
-              <select name="bloodgroup" id="bloodgroup" required className='w-full border-2 outline-none p-1 px-3'>
+              <label htmlFor="bloodGroup">Blood Group</label>
+              <select name="bloodGroup" id="bloodGroup" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.bloodGroup}>
                 <option value="">Select you blood group</option>
                 <option value="a+">A+</option>
                 <option value="b+">B+</option>
@@ -105,7 +130,7 @@ const Register = () => {
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="country">County</label>
-              <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3'>
+              <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.country}>
                 <option value="">Select you country</option>
                 {
                   countries && countries.map((country) => <option key={country.id} value={country}>{country}</option>)
@@ -114,23 +139,24 @@ const Register = () => {
             </div>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="phone">Phone</label>
-              <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' />
+              <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.phone}/>
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
-              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' />
+              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email}/>
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="password">Password</label>
-              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' />
+              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password}/>
             </div>
 
 
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Apply</button>
+            <p>{problem}</p>
           </form>
         </div>
       </div>
