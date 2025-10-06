@@ -1,11 +1,40 @@
 import React from 'react'
+import axios from 'axios'
+import { useState } from 'react';
 
 
 import { CiClock1, CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 
 const Contact = () => {
-  const handleSubmit = (e) => {
+  const [problem, setProblem] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const response = await axios.post("http://localhost:5000/api/message/send", formData)
+
+      setProblem(response.data.message);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      setProblem(" Registration failed: " + (error.response?.data?.message || "Server error"));
+    }
   }
   return (
     <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8 bg-gray-50'>
@@ -62,23 +91,25 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className='w-full flex flex-col items-start justify-center gap-4'>
             <div className='w-full flex flex-col items-start justify-center gap-2 '>
               <label htmlFor="name">Name</label>
-              <input type="text" name='name' id='name' required className='w-full px-4 p-2 border-2 outline-none' />
+              <input type="text" name='name' id='name' required className='w-full px-4 p-2 border-2 outline-none' onChange={handleChange} value={formData.name} />
             </div>
             <div className='w-full flex flex-col items-start justify-center gap-2 '>
               <label htmlFor="email">Email</label>
-              <input type="email" name='email' id='email' required className='w-full px-4 p-2 border-2 outline-none' />
+              <input type="email" name='email' id='email' required className='w-full px-4 p-2 border-2 outline-none' onChange={handleChange} value={formData.email} />
             </div>
             <div className='w-full flex flex-col items-start justify-center gap-2 '>
               <label htmlFor="subject">Subject</label>
-              <input type="text" name='subject' id='subject' required className='w-full px-4 p-2 border-2 outline-none' />
+              <input type="text" name='subject' id='subject' required className='w-full px-4 p-2 border-2 outline-none' onChange={handleChange} value={formData.subject} />
             </div>
             <div className='w-full flex flex-col items-start justify-center gap-2 '>
               <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" className='w-full px-4 p-2 border-2 outline-none resize-none'></textarea>
+              <textarea name="message" id="message" className='w-full px-4 p-2 border-2 outline-none resize-none' onChange={handleChange} value={formData.message}></textarea>
             </div>
+            <p>{problem}</p>
             <button type='submit' className='w-full bg-emerald-500 rounded-lg text-white hover:bg-emerald-600 p-1'>Send Message</button>
           </form>
         </div>
+
       </div>
     </section>
   )

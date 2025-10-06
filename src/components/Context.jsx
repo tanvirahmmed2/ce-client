@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { eventData, galleryData, latestnews, libraryData, messageData, noticeData, projectData, publicationsData } from "../Data";
+import { eventData, galleryData, latestnews, libraryData, noticeData, projectData, publicationsData } from "../Data";
 
 
 
@@ -10,12 +10,15 @@ const ContextProvider = ({ children }) => {
     const [news, setNews] = useState(latestnews)
     const [events, setEvents] = useState(eventData)
     const [gallery, setGallery] = useState(galleryData)
-    const [messages, setMessages]= useState(messageData)
+    const [messages, setMessages]= useState(null)
     const [notices, setNotices]= useState(noticeData)
     const [library, setLibrary]= useState(libraryData)
     const [publications, setLPublications]= useState(publicationsData)
     const [projects, setProjects]= useState(projectData)
+    const [admin, setAdmin]= useState(false)
+    
 
+    
 
 
     const contextValue = {
@@ -27,7 +30,8 @@ const ContextProvider = ({ children }) => {
         notices, setNotices,
         library, setLibrary,
         publications, setLPublications,
-        projects, setProjects
+        projects, setProjects,
+        admin, setAdmin
 
     }
     return <ThemeContext.Provider value={contextValue}>
