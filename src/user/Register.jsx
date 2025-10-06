@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {motion} from 'framer-motion'
 import axios from 'axios'
 import { useState } from 'react';
 
@@ -78,7 +79,7 @@ const Register = () => {
   }
   return (
     <section className='w-full flex items-center justify-center p-6'>
-      <div className='w-full lg:w-3/4 h-auto flex flex-col lg:flex-row items-center justify-center rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
+      <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} className='w-full lg:w-3/4 h-auto flex flex-col lg:flex-row items-center justify-center rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
         <div className='w-full text-center py-16 flex flex-col items-center justify-center gap-2 '>
           <h1>Welcom to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
@@ -159,7 +160,7 @@ const Register = () => {
             <p>{problem}</p>
           </form>
         </div>
-      </div>
+      </motion.div>
 
     </section>
   )

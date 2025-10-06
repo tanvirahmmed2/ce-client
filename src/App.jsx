@@ -26,7 +26,6 @@ import Project from './components/Project'
 import Image from './components/Image'
 
 const App = () => {
-  alert('sever under construction')
   return (
     <div className='w-full relative overflow-x-hidden'>
       <Navbar />
