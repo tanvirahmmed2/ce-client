@@ -24,6 +24,7 @@ import UpdateBox from './components/UpdateBox'
 import Projects from './pages/Projects'
 import Project from './components/Project'
 import Image from './components/Image'
+import UserProfile from './pages/UserProfile'
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/gallery/:id' element={<Image/>} />
           <Route path='/mission' element={<Mission/>} />
           <Route path='/update' element={<Update/>} />
+          <Route path='/user/:id' element={<UserProfile/>} />
           <Route path='/update/:id' element={<UpdateBox/>} />
           <Route path='/scope' element={<Scope/>} />
           <Route path='/publications' element={<Publications/>} />

@@ -82,8 +82,8 @@ const Scope = () => {
           return <div key={id} className='w-full flex flex-col items-start justify-start gap-2  shadow-xl rounded-lg p-6 py-12 border-2 hover:scale-[1.02] transition duration-500'>
             <p className='text-4xl'>{icon}</p>
             <p className='text-lg font-semibold text-emerald-600'>{title}</p>
-            {description && description.map((e)=>{
-              return <p key={e.i}>{e}</p>
+            {description && description.map((e,index)=>{
+              return <p key={index}>{e}</p>
             })}
 
           </div>
