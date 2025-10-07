@@ -62,6 +62,17 @@ const EventHandle = () => {
     }
   }
 
+
+  const removeEvent=async(id)=>{
+    try {
+      const response= await axios.delete('http://localhost:5000/api/event/delete', {data: {id}, withCredentials: true})
+      console.log(response.data.message)
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
+
   const inputStyle = 'w-full border border-gray-400 rounded-md p-2 outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-600 transition bg-white text-gray-800';
   const labelStyle = 'text-sm font-medium text-gray-700 block mb-1';
 
@@ -161,7 +172,7 @@ const EventHandle = () => {
                 <p className='truncate'>{location || 'N/A'}</p>
                 <p className='truncate'>{month} {day}, {year}</p>
                 <div className='flex justify-center'>
-                  <button className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
+                  <button onClick={()=>removeEvent(_id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
                     Remove
                   </button>
                 </div>
