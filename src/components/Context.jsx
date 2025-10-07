@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import axios from 'axios'
-import {  galleryData, latestnews, libraryData, noticeData, projectData, publicationsData } from "../Data";
+import { galleryData, latestnews, libraryData,  projectData, publicationsData } from "../Data";
 import { useEffect } from "react";
 
 
@@ -12,24 +12,24 @@ const ContextProvider = ({ children }) => {
     const [news, setNews] = useState(latestnews)
     const [events, setEvents] = useState(null)
     const [gallery, setGallery] = useState(galleryData)
-    const [messages, setMessages]= useState(null)
-    const [notices, setNotices]= useState(noticeData)
-    const [library, setLibrary]= useState(libraryData)
-    const [publications, setLPublications]= useState(publicationsData)
-    const [projects, setProjects]= useState(projectData)
-    const [user, setUser]= useState(null)
-    const [admin, setAdmin]= useState(false)
-    const [author, setAuthor]=useState(false)
-    const [team, setTeam]= useState(null)
-    
+    const [messages, setMessages] = useState(null)
+    const [notices, setNotices] = useState(null)
+    const [library, setLibrary] = useState(libraryData)
+    const [publications, setLPublications] = useState(publicationsData)
+    const [projects, setProjects] = useState(projectData)
+    const [user, setUser] = useState(null)
+    const [admin, setAdmin] = useState(false)
+    const [author, setAuthor] = useState(false)
+    const [team, setTeam] = useState(null)
 
-  
+
+
 
     // useEffect(()=>{
     //     const fetchUser=async()=>{
     //         try {
     //             const response= await axios.get('http://localhost:5000/api/user/protectedroute', {withCredentials:true})
-                
+
     //             setUser(response.data.user)
     //             if(response.data.user.role ==='admin'){
     //                 setAdmin(true)
@@ -42,7 +42,7 @@ const ContextProvider = ({ children }) => {
     //                 setAdmin(false)
     //                 setAuthor(false)
     //             }
-               
+
     //         } catch (error) {
     //             console.log(error)
     //             setUser(null)
@@ -53,19 +53,30 @@ const ContextProvider = ({ children }) => {
     //     fetchUser()
     // },[])
 
-    useEffect(()=>{
-        const fetchEvent=async()=>{
+    useEffect(() => {
+        const fetchEvent = async () => {
             try {
-                const response= await axios.get('http://localhost:5000/api/event', {withCredentials:true})
+                const response = await axios.get('http://localhost:5000/api/event', { withCredentials: true })
                 setEvents(response.data.payload)
             } catch (error) {
-                
+
             }
         }
         fetchEvent()
-    },[])
+    }, [])
 
-    
+    useEffect(() => {
+        const fetchNotice = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/notice', { withCredentials: true })
+                setNotices(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchNotice()
+    }, [])
+
     const contextValue = {
         sidebar, setSidebar,
         news, setNews,
