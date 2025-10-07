@@ -24,33 +24,33 @@ const ContextProvider = ({ children }) => {
 
   
 
-    useEffect(()=>{
-        const fetchUser=async()=>{
-            try {
-                const response= await axios.get('http://localhost:5000/api/user/protectedroute', {withCredentials:true})
+    // useEffect(()=>{
+    //     const fetchUser=async()=>{
+    //         try {
+    //             const response= await axios.get('http://localhost:5000/api/user/protectedroute', {withCredentials:true})
                 
-                setUser(response.data.user)
-                if(response.data.user.role ==='admin'){
-                    setAdmin(true)
-                    setAuthor(false)
-                }
-                else if(response.data.user.role ==='author'){
-                    setAuthor(true)
-                    setAdmin(false)
-                }else{
-                    setAdmin(false)
-                    setAuthor(false)
-                }
+    //             setUser(response.data.user)
+    //             if(response.data.user.role ==='admin'){
+    //                 setAdmin(true)
+    //                 setAuthor(false)
+    //             }
+    //             else if(response.data.user.role ==='author'){
+    //                 setAuthor(true)
+    //                 setAdmin(false)
+    //             }else{
+    //                 setAdmin(false)
+    //                 setAuthor(false)
+    //             }
                
-            } catch (error) {
-                console.log(error)
-                setUser(null)
-                setAuthor(false)
-                setAdmin(false)
-            }
-        }
-        fetchUser()
-    },[])
+    //         } catch (error) {
+    //             console.log(error)
+    //             setUser(null)
+    //             setAuthor(false)
+    //             setAdmin(false)
+    //         }
+    //     }
+    //     fetchUser()
+    // },[])
 
     useEffect(()=>{
         const fetchEvent=async()=>{
