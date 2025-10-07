@@ -20,6 +20,7 @@ const ContextProvider = ({ children }) => {
     const [user, setUser]= useState(null)
     const [admin, setAdmin]= useState(false)
     const [author, setAuthor]=useState(false)
+    const [team, setTeam]= useState(latestnews)
     
 
   
@@ -77,7 +78,8 @@ const ContextProvider = ({ children }) => {
         projects, setProjects,
         admin, setAdmin,
         user, setUser,
-        author, setAuthor
+        author, setAuthor,
+        team, setTeam
 
     }
     return <ThemeContext.Provider value={contextValue}>
