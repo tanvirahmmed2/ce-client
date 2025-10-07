@@ -93,7 +93,7 @@ const EventHandle = () => {
         </div>
         <div>
           <label htmlFor="registration" className={labelStyle}>Registration link</label>
-          <input type="text" name='registration' id='registration' required className={inputStyle} placeholder='e.g., Conference Room B' onChange={handleChange} value={formData.registration} />
+          <input type="text" name='registration' id='registration' required className={inputStyle} placeholder='google form link' onChange={handleChange} value={formData.registration} />
         </div>
 
         <div>

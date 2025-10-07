@@ -20,7 +20,7 @@ const ContextProvider = ({ children }) => {
     const [user, setUser]= useState(null)
     const [admin, setAdmin]= useState(false)
     const [author, setAuthor]=useState(false)
-    const [team, setTeam]= useState(latestnews)
+    const [team, setTeam]= useState(null)
     
 
   

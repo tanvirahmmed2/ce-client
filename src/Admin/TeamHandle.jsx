@@ -17,6 +17,7 @@ const TeamHandle = () => {
     role: 'mentor',
     post: '',
     department: '',
+    profileLink:'',
     image: ''
   })
 
@@ -55,6 +56,7 @@ const TeamHandle = () => {
               id='name'
               onChange={handleChange}
               value={formData.name}
+              required
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             />
           </div>
@@ -66,6 +68,7 @@ const TeamHandle = () => {
               id="role"
               onChange={handleChange}
               value={formData.role}
+              required
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             >
               {Object.keys(roleMap).map((key) => (
@@ -83,6 +86,7 @@ const TeamHandle = () => {
               id="post"
               onChange={handleChange}
               value={formData.post}
+              required
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             >
               <option value="">Select Post</option>
@@ -99,6 +103,7 @@ const TeamHandle = () => {
               id="department"
               onChange={handleChange}
               value={formData.department}
+              required
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             />
 
@@ -109,6 +114,18 @@ const TeamHandle = () => {
               type='file'
               name="image"
               id="image"
+              required
+              className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
+            />
+
+          </div>
+          <div>
+            <label htmlFor="profileLink">Profile Link</label>
+            <input
+              type='text'
+              name="profileLink"
+              id="profileLink"
+              required
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             />
 
