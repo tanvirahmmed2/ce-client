@@ -43,7 +43,7 @@ const ContextProvider = ({ children }) => {
                 }
                
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error)
                 setUser(null)
                 setAuthor(false)
                 setAdmin(false)
