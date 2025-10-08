@@ -23,7 +23,6 @@ const TeamHandle = () => {
     profileImage: null
   })
 
-  // ✅ handleChange fixed to support file input
   const handleChange = (e) => {
     const { name, value, files } = e.target
     if (name === 'profileImage') {
@@ -33,7 +32,6 @@ const TeamHandle = () => {
     }
   }
 
-  // ✅ Fixed FormData creation and headers
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {

@@ -1,11 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
+import axios from 'axios'
 
 const UpdateHandle = () => {
-  const { news } = useContext(ThemeContext)
 
-  const handleSubmit = (e) => {
+
+  const { news } = useContext(ThemeContext)
+  const [formData, setFormData]= useState({
+    title: '',
+    description:'',
+    image: null
+  })
+
+  const handleChange=(e)=>{
+    const { name, value, files } = e.target
+    if (name === 'image') {
+      setFormData((prev) => ({ ...prev, image: files[0] }))
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
+  }
+  const handleSubmit = async(e) => {
     e.preventDefault()
+    try {
+      const newData= new FormData()
+      newData.append('title', formData.title)
+      newData.append('description', formData.description)
+      newData.append('image', formData.image)
+      const response= await axios.post('http://localhost:5000/api/update/add', newData, {withCredentials: true})
+      console.log(response.data.message)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -20,6 +46,8 @@ const UpdateHandle = () => {
               name="title"  
               id="title" 
               required 
+              onChange={handleChange}
+              value={formData.title}
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
@@ -30,6 +58,7 @@ const UpdateHandle = () => {
               name="image"  
               id="image" 
               required 
+              onChange={handleChange}
               className="w-full border rounded-lg p-2 px-3 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700"
             />
           </div>
@@ -40,6 +69,8 @@ const UpdateHandle = () => {
               id="description" 
               rows="4" 
               required 
+              onChange={handleChange}
+              value={formData.description}
               className="w-full border rounded-lg p-2 px-3 resize-none outline-none focus:ring-2 focus:ring-emerald-500"
             ></textarea>
           </div>
