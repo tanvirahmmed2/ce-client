@@ -66,6 +66,19 @@ const ContextProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
+        const fetchTeam = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/team', { withCredentials: true })
+                setTeam(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchTeam()
+    }, [])
+
+
+    useEffect(() => {
         const fetchNotice = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/notice', { withCredentials: true })

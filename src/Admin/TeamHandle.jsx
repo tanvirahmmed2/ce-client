@@ -18,7 +18,7 @@ const TeamHandle = () => {
     post: '',
     department: '',
     profileLink:'',
-    image: ''
+    profileImage: ''
   })
 
   const handleChange = (e) => {
@@ -28,15 +28,21 @@ const TeamHandle = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
+    try {
+      const newData= new formData()
+      newData.append('name', formData.name)
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  // derive roles directly based on current role
   const roles = roleMap[formData.role] || []
 
 
   const handleRemove=(id)=>{
     console.log(id)
+
   }
 
   return (
@@ -109,12 +115,13 @@ const TeamHandle = () => {
 
           </div>
           <div>
-            <label htmlFor="image">Image</label>
+            <label htmlFor="profileImage">Image</label>
             <input
               type='file'
-              name="image"
-              id="image"
+              name="profileImage"
+              id="profileImage"
               required
+              onChange={handleChange}
               className='w-full border border-gray-400 rounded-md p-2 outline-none  bg-white text-gray-800'
             />
 
