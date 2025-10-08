@@ -12,6 +12,8 @@ const roleMap = {
 }
 
 const TeamHandle = () => {
+
+  const [problem,setProblem]= useState('')
   const { team } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     name: '',
@@ -51,7 +53,7 @@ const TeamHandle = () => {
         }
       )
 
-      console.log(response.data.message)
+      setProblem(response.data.message)
     } catch (error) {
       console.error(error)
     }
@@ -154,7 +156,7 @@ const TeamHandle = () => {
               className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
             />
           </div>
-
+                <p>{problem}</p>
           <button
             type='submit'
             className='bg-gray-800 text-white rounded-md py-2 hover:bg-gray-700 transition'
