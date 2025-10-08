@@ -5,6 +5,8 @@ import { FaHandHoldingHand } from "react-icons/fa6";
 import { GiPalmTree } from "react-icons/gi";
 import { FaGraduationCap } from "react-icons/fa"; 
 
+import logo from '../components/CCIRL.png'
+
 const missions = [
   {
     title: "Advanced Research & Strategies",
@@ -44,6 +46,8 @@ const Mission = () => {
   return (
     <section className="w-full min-h-screen px-6 py-16 bg-gray-50 flex flex-col items-center gap-16">
       
+
+      <img src={logo} alt="logo" className='w-[350px] h-'/>
       {/* Vision */}
       <div className="text-center max-w-3xl animate-fadeIn">
         <h1 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">Vision</h1>

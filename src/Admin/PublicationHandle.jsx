@@ -4,9 +4,7 @@ import { ThemeContext } from '../components/Context'
 const PublicationHandle = () => {
     const {publications}= useContext(ThemeContext)
   
-    const handleSubmit=(e)=>{
-      e.preventDefault()
-    }
+    
   
   
     return (
@@ -16,38 +14,7 @@ const PublicationHandle = () => {
           Manage Publications
         </h1>
   
-        <form onSubmit={handleSubmit} className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
-          <h2 className='text-2xl font-bold text-gray-800 text-center mb-2'>
-            Fill Details
-          </h2>
-  
-          <div>
-            <label htmlFor="title" >Title</label>
-            <input type="text" name='title' id='title' required className='w-full border-2 outline-none p-1 px-3' />
-          </div>
-
-
-          <div>
-            <label htmlFor="author" >Author</label>
-            <input type="text" name='author' id='author' required className='w-full border-2 outline-none p-1 px-3' />
-          </div>
-  
-          
-          
-           <div>
-            <label htmlFor="abstract" >Abstract Link</label>
-            <input type="text" name='abstract' id='abstract'   required className='w-full border-2 outline-none p-1 px-3' />
-          </div>
-  
-         
-  
-          <button 
-            type='submit' 
-            className='mt-3 bg-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition duration-300 shadow-lg'
-          >
-            Add Publication
-          </button>
-        </form>
+        
   
         <div className='w-full  flex flex-col gap-4'>
           <h2 className='text-2xl font-bold text-gray-800 text-center'>Available Publications</h2>
