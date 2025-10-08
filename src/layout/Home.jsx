@@ -16,7 +16,7 @@ const Home = () => {
           <h1 className=' text-4xl md:text-5xl font-semibold text-white'>Climate Change Impact and</h1>
           <h1 className=' text-4xl md:text-5xl font-semibold text-emerald-400'>Resilience Lab</h1>
         </div>
-        <p className='md:text-base text-[14px] w-full md:w-3/4 text-justify my-2'>The escalating impacts of climate change demand immediate, data-driven solutions to ensure environmental sustainability and societal resilience. The Climate Impact and Resilience Lab aims to address these challenges by conducting multidisciplinary research that integrates geospatial technologies, machine learning, and environmental sciences to develop innovative and actionable solutions</p>
+        <p className='md:text-base text-[14px] w-full md:w-3/4 text-center my-2'>The escalating impacts of climate change demand immediate, data-driven solutions to ensure environmental sustainability and societal resilience. The Climate Impact and Resilience Lab aims to address these challenges by conducting multidisciplinary research that integrates geospatial technologies, machine learning, and environmental sciences to develop innovative and actionable solutions</p>
         <div className='w-full h-auto flex flex-col sm:flex-row items-center justify-center gap-2'>
           <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white hover:bg-white/80 transition duration-500 rounded-lg border-[1px] text-black' to='/research'>Explore Research</Link>
           <Link className='sm:py-4 py-2 px-8 w-full sm:w-auto bg-white/10 hover:bg-white/20 transition duration-500 rounded-lg border-[1px] text-white' to='/registration'>Join to Community</Link>
