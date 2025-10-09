@@ -122,6 +122,20 @@ const ContextProvider = ({ children }) => {
 
 
 
+    useEffect(() => {
+        const fetchGallery = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/gallery', { withCredentials: true })
+                setGallery(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchGallery()
+    }, [])
+
+
+
     const contextValue = {
         sidebar, setSidebar,
         update, setUpdate,

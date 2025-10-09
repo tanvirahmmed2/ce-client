@@ -97,9 +97,9 @@ const [problem, setProblem]=useState('')
             <tbody>
               {projects && projects.length > 0 ? (
                 projects.slice(-6).map((e) => {
-                  const {  id,  title, description } = e
+                  const {  _id,  title, description } = e
                   return (
-                    <tr key={id} className="border-t  transition">
+                    <tr key={_id} className="border-t  transition">
                       <td className="p-3">{title}</td>
                       <td className="p-3">{description.slice(0, 50)}...</td>
                     </tr>

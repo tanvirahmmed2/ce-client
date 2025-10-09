@@ -1,7 +1,40 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 
 const Galleryhandle = () => {
   const [searchImage, setSearchImage] = useState(null)
+  const [problem, setProblem]= useState('')
+  const [formData, setFormData]=useState({
+    title:'',
+    author: '',
+    image: null
+  })
+
+    const handleChange=(e)=>{
+    const { name, value, files } = e.target
+    if (name === 'image') {
+      setFormData((prev) => ({ ...prev, image: files[0] }))
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
+  }
+
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    try {
+      const newData= new FormData()
+      newData.append('title', formData.title)
+      newData.append('image', formData.image)
+      newData.append('author', formData.author)
+      const response= await axios.post('http://localhost:5000/api/gallery/add', newData, {withCredentials: true})
+      setProblem(response.data.message)
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
+
 
   const handlesearch = () => {
     setSearchImage({
@@ -17,7 +50,7 @@ const Galleryhandle = () => {
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Upload New Image
         </h1>
-        <form className="flex flex-col gap-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="title" className="font-medium text-gray-700">
               Title
@@ -27,6 +60,8 @@ const Galleryhandle = () => {
               name="title"
               id="title"
               required
+              onChange={handleChange}
+              value={formData.title}
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
@@ -39,6 +74,7 @@ const Galleryhandle = () => {
               name="image"
               id="image"
               required
+              onChange={handleChange}
               className="w-full border rounded-lg p-2 px-3 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700"
             />
           </div>
@@ -50,9 +86,12 @@ const Galleryhandle = () => {
               type="text"
               name="author"
               id="author"
+              onChange={handleChange}
+              value={formData.author}
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
+          <p>{problem}</p>
           <button
             type="submit"
             className="w-full bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-2 rounded-lg shadow-md"

@@ -167,7 +167,7 @@ const TeamHandle = () => {
       {team && (
         <div className='w-full flex flex-col items-center justify-center gap-4'>
           <h1 className='text-2xl font-semibold text-center'>Existing Team Members</h1>
-          <div className='w-full grid grid-cols-4'>
+          <div className='w-full grid grid-cols-4 justify-items-center'>
             <p>Name</p>
             <p>Role</p>
             <p>Post</p>
@@ -176,7 +176,7 @@ const TeamHandle = () => {
           {team.map((e) => {
             const { name, role, post,  _id } = e
             return (
-              <div key={_id} className='w-full grid grid-cols-4'>
+              <div key={_id} className='w-full grid grid-cols-4 justify-items-center'>
                 <h1>{name}</h1>
                 <p>{role}</p>
                 <p>{post}</p>
