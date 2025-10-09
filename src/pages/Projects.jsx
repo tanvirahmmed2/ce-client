@@ -11,11 +11,11 @@ const Projects = () => {
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8'>
         {
           projects && projects.map((project)=>{
-            const {id,  title, description, image}= project
-            return <div key={id} className='w-full flex flex-col items-start justify-between gap-2  shadow-xl rounded-lg p-4 border-2 hover:scale-[1.02] transition duration-500'>
+            const {_id,  title, description, image}= project
+            return <div key={_id} className='w-full flex flex-col items-start justify-between gap-2  shadow-xl rounded-lg p-4 border-2 hover:scale-[1.02] transition duration-500'>
               <img src={image} alt=""  className='w-full h-[200px] object-cover'/>
               <p className='text-lg font-semibold'>{title}</p>
-              <p>{description.slice(0,70)} .....<Link to={`/projects/${id}`} className='text-red-500'>show more</Link> </p>
+              <p>{description.slice(0,70)} .....<Link to={`/projects/${_id}`} className='text-red-500'>show more</Link> </p>
   
             </div>
           })

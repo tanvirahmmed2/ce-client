@@ -25,8 +25,8 @@ const Sidebar = () => {
   }
   
   return (
-    <div className={`w-auto min-h-screen fixed bg-gray-800 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-6`}>
-      <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl mb-10'><FaArrowRightLong /></button>
+    <div className={`w-auto min-h-screen fixed bg-gray-800 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-4`}>
+      <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl '><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 
         <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
@@ -43,6 +43,7 @@ const Sidebar = () => {
         <Link to='/library' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Library</Link>
         <Link to='/events' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Events</Link>
         <Link to='/update' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Update</Link>
+        <Link to='/projects' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Projects</Link>
         <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
         <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
         <Link to='/notice' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Notice</Link>

@@ -1,20 +1,25 @@
 import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import { ThemeContext } from './Context'
+import { useParams, Link } from 'react-router-dom'
+import { ThemeContext } from '../components/Context'
 
 const UpdateBox = () => {
-    const { _id } = useParams()
-    const { update } = useContext(ThemeContext)
-    const data = update.find((item) => item._id === _id)
-    if(!data)return <p>No data foun with this id</p>
-    console.log(data)
-    return (
-        <section className="w-full min-h-[800px] bg-gray-50 p-6 flex flex-col items-center justify-center gap-8">
-            <div className='w-full h-[400px] overflow-hidden bg-gradient-to-br from-emerald-600 to-cyan-500 flex items-center justify-center'>
+    const {id}= useParams()
+        const {update}= useContext(ThemeContext)
+        const data= update.find((prev)=>prev._id=== id)
 
-                <img src='' alt="" />
-            </div>
-           
+
+    return (
+        <section className='w-full flex flex-col items-center justify-center gap-4 p-6'>
+            {!data ? <p>data not found</p> : <div className='w-full flex flex-col items-center justify-center gap-4'>
+                <p className='text-xl font-semibold text-center'>{data.title}</p>
+                <img src={data.image} alt="" className='w-full h-[400px] object-cover' />
+                <p className='text-xs italic'>Uploaded at: {data.createdAt.slice(0, 10)}</p>
+                <p className='w-full text-center'>{data.description}</p>
+            </div>}
+
+            <Link to="/update" className="mt-6 bg-black text-white p-1 px-4 rounded-lg">
+                ← Back to all updates
+            </Link>
         </section>
     )
 }

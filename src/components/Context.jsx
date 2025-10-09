@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import axios from 'axios'
-import { galleryData, latestnews, libraryData,  projectData, publicationsData } from "../Data";
+import { galleryData,  libraryData,  publicationsData } from "../Data";
 import { useEffect } from "react";
 
 
@@ -9,18 +9,18 @@ export const ThemeContext = createContext()
 
 const ContextProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(false)
-    const [update, setUpdate] = useState(latestnews)
-    const [events, setEvents] = useState(null)
+    const [update, setUpdate] = useState([])
+    const [events, setEvents] = useState([])
     const [gallery, setGallery] = useState(galleryData)
-    const [messages, setMessages] = useState(null)
-    const [notices, setNotices] = useState(null)
+    const [messages, setMessages] = useState([])
+    const [notices, setNotices] = useState([])
     const [library, setLibrary] = useState(libraryData)
     const [publications, setLPublications] = useState(publicationsData)
-    const [projects, setProjects] = useState(projectData)
-    const [user, setUser] = useState(null)
+    const [projects, setProjects] = useState([])
+    const [user, setUser] = useState([])
     const [admin, setAdmin] = useState(false)
     const [author, setAuthor] = useState(false)
-    const [team, setTeam] = useState(null)
+    const [team, setTeam] = useState([])
 
 
 
