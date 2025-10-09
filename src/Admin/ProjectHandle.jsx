@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 
-const UpdateHandle = () => {
+const ProjectHandle = () => {
 
-
-  const { update } = useContext(ThemeContext)
+const [problem, setProblem]=useState('')
+  const { projects } = useContext(ThemeContext)
   const [formData, setFormData]= useState({
     title: '',
     description:'',
@@ -27,8 +27,8 @@ const UpdateHandle = () => {
       newData.append('title', formData.title)
       newData.append('description', formData.description)
       newData.append('image', formData.image)
-      const response= await axios.post('http://localhost:5000/api/update/add', newData, {withCredentials: true})
-      console.log(response.data.message)
+      const response= await axios.post('http://localhost:5000/api/project/add', newData, {withCredentials: true})
+      setProblem(response.data.message)
     } catch (error) {
       console.log(error)
     }
@@ -37,7 +37,7 @@ const UpdateHandle = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
-        <h1 className="text-3xl font-bold text-center text-gray-800">Latest Updates</h1>
+        <h1 className="text-3xl font-bold text-center text-gray-800">Latest Projects</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="title" className="font-medium ">Title</label>
@@ -74,6 +74,7 @@ const UpdateHandle = () => {
               className="w-full border rounded-lg p-2 px-3 resize-none outline-none focus:ring-2 focus:ring-emerald-500"
             ></textarea>
           </div>
+          <p>{problem}</p>
           <button 
             type="submit" 
             className="w-full bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-2 rounded-lg shadow-md"
@@ -84,7 +85,7 @@ const UpdateHandle = () => {
       </div>
 
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Uploaded updates</h1>
+        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Uploaded projetcs</h1>
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 rounded-lg">
             <thead>
@@ -94,11 +95,11 @@ const UpdateHandle = () => {
               </tr>
             </thead>
             <tbody>
-              {update && update.length > 0 ? (
-                update.slice(-6).map((e) => {
-                  const {  _id,  title, description } = e
+              {projects && projects.length > 0 ? (
+                projects.slice(-6).map((e) => {
+                  const {  id,  title, description } = e
                   return (
-                    <tr key={_id} className="border-t  transition">
+                    <tr key={id} className="border-t  transition">
                       <td className="p-3">{title}</td>
                       <td className="p-3">{description.slice(0, 50)}...</td>
                     </tr>
@@ -106,7 +107,7 @@ const UpdateHandle = () => {
                 })
               ) : (
                 <tr>
-                  <td colSpan="4" className="p-4 text-center text-gray-500">No update uploaded yet.</td>
+                  <td colSpan="4" className="p-4 text-center text-gray-500">No news uploaded yet.</td>
                 </tr>
               )}
             </tbody>
@@ -117,4 +118,4 @@ const UpdateHandle = () => {
   )
 }
 
-export default UpdateHandle
+export default ProjectHandle

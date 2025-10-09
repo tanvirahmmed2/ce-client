@@ -9,6 +9,7 @@ import NoticeHandle from '../Admin/NoticeHandle'
 import LibraryHandle from '../Admin/LibraryHandle'
 import PublicationHandle from '../Admin/PublicationHandle'
 import UpdateHandle from '../Admin/UpdateHandle'
+import ProjectHandle from '../Admin/ProjectHandle'
 
 const DashBoard = () => {
   
@@ -20,7 +21,8 @@ const DashBoard = () => {
       <div className='w-full md:w-auto h-auto md:min-h-[800px] p-4 flex flex-wrap gap-4 md:flex-col md:items-start md:justify-start md:gap-2 items-center justify-center bg-slate-100'>
         
         <button onClick={() => setSection('events')}>Events</button>
-        <button onClick={() => setSection('news')}>News</button>
+        <button onClick={() => setSection('news')}>Update</button>
+        <button onClick={() => setSection('project')}>Project</button>
         <button onClick={() => setSection('team')}>Team</button>
         <button onClick={() => setSection('gallery')}>Gallery</button>
         <button onClick={() => setSection('member')}>Members</button>
@@ -34,6 +36,7 @@ const DashBoard = () => {
       <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
         {section === 'events' && <EventHandle />}
         {section === 'news' && <UpdateHandle />}
+        {section === 'project' && <ProjectHandle />}
         {section === 'team' && <TeamHandle />}
         {section === 'gallery' && <Galleryhandle />}
         {section === 'member' && <MemberHandle />}

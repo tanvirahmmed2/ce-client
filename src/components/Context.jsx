@@ -9,7 +9,7 @@ export const ThemeContext = createContext()
 
 const ContextProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(false)
-    const [news, setNews] = useState(latestnews)
+    const [update, setUpdate] = useState(latestnews)
     const [events, setEvents] = useState(null)
     const [gallery, setGallery] = useState(galleryData)
     const [messages, setMessages] = useState(null)
@@ -53,6 +53,8 @@ const ContextProvider = ({ children }) => {
     //     fetchUser()
     // },[])
 
+
+    
     useEffect(() => {
         const fetchEvent = async () => {
             try {
@@ -90,9 +92,39 @@ const ContextProvider = ({ children }) => {
         fetchNotice()
     }, [])
 
+
+
+    useEffect(() => {
+        const fetchProject = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/project', { withCredentials: true })
+                setProjects(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchProject()
+    }, [])
+
+
+
+    useEffect(() => {
+        const fetchUpdate = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/update', { withCredentials: true })
+                setUpdate(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchUpdate()
+    }, [])
+
+
+
     const contextValue = {
         sidebar, setSidebar,
-        news, setNews,
+        update, setUpdate,
         events, setEvents,
         gallery, setGallery,
         messages, setMessages,
