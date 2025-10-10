@@ -32,7 +32,7 @@ const Login = () => {
         password: ''
       })
     } catch (error) {
-      setProblem('log in failed' + error)
+      setProblem('log in failed' + error.response.data.message)
     }
   }
   return (
