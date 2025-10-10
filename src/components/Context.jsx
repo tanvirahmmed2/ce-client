@@ -150,7 +150,7 @@ const ContextProvider = ({ children }) => {
         fetchUsers()
     }, [])
 
-
+    
     const contextValue = {
         sidebar, setSidebar,
         update, setUpdate,

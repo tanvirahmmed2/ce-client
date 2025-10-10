@@ -73,6 +73,7 @@ const Register = () => {
       const response = await axios.post("http://localhost:5000/api/user/register", formData)
 
       setProblem(response.data.message);
+      window.location.replace('/')
     } catch (error) {
       setProblem(" Registration failed: " + (error.response?.data?.message || "Server error"));
     }

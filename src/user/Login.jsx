@@ -31,8 +31,9 @@ const Login = () => {
         email: '',
         password: ''
       })
+      window.location.replace('/');
     } catch (error) {
-      setProblem('log in failed' + error.response.data.message)
+      setProblem( error.response.data.message)
     }
   }
   return (
