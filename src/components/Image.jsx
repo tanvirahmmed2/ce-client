@@ -11,20 +11,20 @@ const Image = () => {
 
     return (
         <div className='w-full flex flex-col items-center justify-center p-6 gap-6'>
-            {!data ? <p>data not found</p>:<div className='w-full flex flex-col items-center justify-center gap-2 rounded-lg overflow-hidden'>
-            <p className='text-xl font-semibold text-center'>{data.title}</p>
-            <img src={data.image} alt="" className='w-full h-[400px] object-cover'/>
-            <div className='w-full flex flox-row gap-6  items-center justify-around'>
-                <p className='text-xs italic '>Uploaded at: {data.createdAt.slice(0,10)}</p>
+            {!data ? <p>data not found</p>:<div className='w-3/4 flex flex-col items-center justify-center gap-2 rounded-lg overflow-hidden'>
+            <p className='text-xl font-semibold text-center p-2'>{data.title}</p>
+            <img src={data.image} alt="" className='w-full object-cover rounded-xl'/>
+            <div className='w-full flex flox-row gap-6  items-center justify-between'>
+                <p className='text-xs w-full italic '>Uploaded at: {data.createdAt.slice(0,10)}</p>
             <p className='w-full text-center'>Clicked by: {data.author}</p>
             </div>
           </div>}
 
 
-            <div className='w-full flex flex-wrap gap-4 justify-center'>
+            <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4'>
                 {gallery && gallery.map((e) => {
                     const { _id, title, author, image } = e
-                    return <div className='w-[300px] h-[200px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center relative' key={title}>
+                    return <div className='w-full bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center relative' key={title}>
                         <img src={image} className='w-full h-full object-cover' alt="" />
                         <div className='w-full flex flex-row items-center justify-between absolute bottom-0 p-2  bg-emerald-50 bg-opacity-30 hover:bg-opacity-90 transition duration-500'>
                             <Link to={`/gallery/${_id}`}>{title}</Link>

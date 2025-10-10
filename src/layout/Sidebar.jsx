@@ -7,7 +7,7 @@ import { RiGlobalLine } from "react-icons/ri";
 import { ThemeContext } from '../components/Context'
 
 const Sidebar = () => {
-  const { sidebar, setSidebar } = useContext(ThemeContext)
+  const { sidebar, setSidebar,user, admin } = useContext(ThemeContext)
 
   const closeSidebar = () => {
     setSidebar(!sidebar)
@@ -20,7 +20,7 @@ const Sidebar = () => {
       })
       alert(response.data.message)
     } catch (error) {
-      alert('logout failed' + error)
+      alert(error.response.data.message)
     }
   }
   
@@ -47,12 +47,12 @@ const Sidebar = () => {
         <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
         <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
         <Link to='/notice' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Notice</Link>
-        <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Profile</Link>
-        <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>DashBoard</Link>
+        {user && <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Profile</Link>}
+        {admin? <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>DashBoard</Link>: <p></p>}
         <Link to='/registration' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Join us</Link>
         <Link to='/team' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Team</Link>
         <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Contact</Link>
-        <Link to='/contact' className='w-auto  flex justify-center items-center px-2 hover:px-6 py-4 border-green-600' onClick={handleLogout}>LogOut</Link>
+        {user && <a href='/' className='w-auto  flex justify-center items-center px-2 hover:px-6 py-4 border-green-600' onClick={handleLogout}>LogOut</a>}
       </div>
 
     </div>

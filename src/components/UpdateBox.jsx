@@ -12,7 +12,7 @@ const UpdateBox = () => {
         <section className='w-full flex flex-col items-center justify-center gap-4 p-6'>
             {!data ? <p>data not found</p> : <div className='w-full flex flex-col items-center justify-center gap-4'>
                 <p className='text-xl font-semibold text-center'>{data.title}</p>
-                <img src={data.image} alt="" className='w-full h-[400px] object-cover' />
+                <img src={data.image} alt="" className='w-3/4  ' />
                 <p className='text-xs italic'>Uploaded at: {data.createdAt.slice(0, 10)}</p>
                 <p className='w-full text-center'>{data.description}</p>
             </div>}
