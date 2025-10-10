@@ -8,18 +8,13 @@ const AccessHandle = () => {
     role: '',
   })
 
-  const [banData, setBanData] = useState({
-    email: '',
-  })
+
 
   const handleChangeUpdate = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
-  const handleChangeBan = (e) => {
-    const { name, value } = e.target
-    setBanData((prev) => ({ ...prev, [name]: value }))
-  }
+
 
   const handleUpdate = async (e) => {
     e.preventDefault()
@@ -32,14 +27,22 @@ const AccessHandle = () => {
     }
   }
 
-  const handleBan = async (e) => {
+  const [deleteData, setDeleteData]= useState({
+    email:''
+  })
+
+  const handleDeleteData=(e)=>{
+    const {name, value}= e.target
+    setDeleteData((prev)=>({...prev,[name]: value}))
+  }
+  const handleDelete=async(e)=>{
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updateban', banData, { withCredentials: true })
-      setProblem(response.data.message)
+      const response= await axios.delete('http://localhost:5000/api/user/delete', deleteData, {withCredentials: true})
+      console.log(response.data.message)
     } catch (error) {
-      console.log(error.response.data.message)
-
+      console.log(error)
+      
     }
   }
 
@@ -123,36 +126,12 @@ const AccessHandle = () => {
         </button>
       </form>
 
-
-      <form onSubmit={handleBan} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
-        <h2 className='text-2xl font-bold text-gray-800 text-center mb-4'>
-          Ban or unban user
-        </h2>
-
-        <div className='flex flex-col gap-1'>
-          <label htmlFor="email" className='text-sm font-medium text-gray-700'>Email</label>
-          <input
-            type="email"
-            name='email'
-            id='email'
-            required
-            onChange={handleChangeBan}
-            value={banData.email}
-            className='w-full border border-gray-400 rounded-md p-2 outline-none  transition'
-            placeholder='xxxx@example.com'
-          />
-        </div>
-
-
-
-
-        <button
-          type='submit'
-          className='mt-4 bg-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition duration-300 shadow-lg hover:shadow-xl'
-        >
-          Action
-        </button>
+      <form onSubmit={handleDelete} className='w-full max-w-lg flex flex-col items-center justify-center gap-4  p-6 px-20 rounded-lg shadow-md'>
+        <h1>Delete User</h1>
+        <input type="email" name='email' id='email' value={deleteData.email} onChange={handleDeleteData} required placeholder='enter user mail' className='w-auto min-w-[300px] border-2 outline-none p-1 px-3' />
+        <button type='submit' className='bg-red-600 text-white p-1 px-2 rounded-lg'>Delete</button>
       </form>
+
 
     </div>
   )

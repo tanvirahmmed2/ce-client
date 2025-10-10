@@ -1,10 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from 'axios'
 import { ThemeContext } from '../components/Context'
 import { useEffect } from 'react'
 
 const MemberHandle = () => {
+
+  const [problem, setProblem] = useState('')
   const { messages, setMessages } = useContext(ThemeContext)
+  const [banData, setBanData] = useState({
+    email: '',
+  })
+
+
 
   useEffect(() => {
     const fetchMessage = async () => {
@@ -18,16 +25,42 @@ const MemberHandle = () => {
     fetchMessage()
   }, [setMessages])
 
+
+
   const removeMessage = async (id) => {
     try {
       const response = await axios.delete('http://localhost:5000/api/message/delete', {
-      data: { id } 
-    })
+        data: { id }
+      })
       console.log(response.data.message)
     } catch (error) {
       console.log(error)
     }
   }
+
+
+  const handleChangeBan = (e) => {
+    const { name, value } = e.target
+    setBanData((prev) => ({ ...prev, [name]: value }))
+  }
+
+
+
+
+
+  const handleBan = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.put('http://localhost:5000/api/user/updateban', banData, { withCredentials: true })
+      setProblem(response.data.message)
+    } catch (error) {
+      console.log(error.response.data.message)
+
+    }
+  }
+
+
+
   return (
     <div className='w-full flex flex-col items-center justify-center gap-6'>
       <h1 className='text-2xl font-semibold text-center'>Public Response Section</h1>
@@ -54,11 +87,36 @@ const MemberHandle = () => {
         }
       </div>
 
-      <div className='w-auto flex flex-col items-center justify-center gap-4 bg-slate-100 p-6 px-20 rounded-lg shadow-md'>
-        <h1>Delete User</h1>
-        <input type="email" name='email' id='email' required placeholder='enter user mail' className='w-auto min-w-[300px] border-2 outline-none p-1 px-3' />
-        <button className='bg-red-600 text-white p-1 px-2 rounded-lg'>Delete</button>
-      </div>
+
+      <form onSubmit={handleBan} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
+        <h2 className='text-2xl font-bold text-gray-800 text-center mb-4'>
+          Ban or unban user
+        </h2>
+
+        <div className='flex flex-col gap-1'>
+          <label htmlFor="email" className='text-sm font-medium text-gray-700'>Email</label>
+          <input
+            type="email"
+            name='email'
+            id='email'
+            required
+            onChange={handleChangeBan}
+            value={banData.email}
+            className='w-full border border-gray-400 rounded-md p-2 outline-none  transition'
+            placeholder='xxxx@example.com'
+          />
+        </div>
+
+
+        <p>{problem}</p>
+
+        <button
+          type='submit'
+          className='mt-4 bg-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition duration-300 shadow-lg hover:shadow-xl'
+        >
+          Action
+        </button>
+      </form>
 
     </div>
   )
