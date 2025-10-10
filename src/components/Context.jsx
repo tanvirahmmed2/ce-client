@@ -45,7 +45,7 @@ const ContextProvider = ({ children }) => {
                 }
 
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
                 setUser(null)
                 setAuthor(false)
                 setAdmin(false)
@@ -74,7 +74,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/team', { withCredentials: true })
                 setTeam(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchTeam()
@@ -87,7 +87,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/notice', { withCredentials: true })
                 setNotices(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchNotice()
@@ -101,7 +101,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/project', { withCredentials: true })
                 setProjects(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchProject()
@@ -115,7 +115,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/update', { withCredentials: true })
                 setUpdate(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchUpdate()
@@ -129,7 +129,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/gallery', { withCredentials: true })
                 setGallery(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchGallery()
@@ -144,7 +144,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/user/users', { withCredentials: true })
                 setUsers(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
         }
         fetchUsers()
