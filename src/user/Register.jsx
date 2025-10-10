@@ -134,7 +134,7 @@ const Register = () => {
               <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.country}>
                 
                 {
-                  countries && countries.map((country) => <option key={country.id} value={country}>{country}</option>)
+                  countries && countries.map((country) => <option key={country} value={country}>{country}</option>)
                 }
               </select>
             </div>

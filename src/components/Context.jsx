@@ -18,6 +18,7 @@ const ContextProvider = ({ children }) => {
     const [publications, setLPublications] = useState(publicationsData)
     const [projects, setProjects] = useState([])
     const [user, setUser] = useState([])
+    const [users, setUsers] = useState([])
     const [admin, setAdmin] = useState(false)
     const [author, setAuthor] = useState(false)
     const [team, setTeam] = useState([])
@@ -25,33 +26,33 @@ const ContextProvider = ({ children }) => {
 
 
 
-    // useEffect(()=>{
-    //     const fetchUser=async()=>{
-    //         try {
-    //             const response= await axios.get('http://localhost:5000/api/user/protectedroute', {withCredentials:true})
+    useEffect(()=>{
+        const fetchUser=async()=>{
+            try {
+                const response= await axios.get('http://localhost:5000/api/user/protectedroute', {withCredentials:true})
 
-    //             setUser(response.data.user)
-    //             if(response.data.user.role ==='admin'){
-    //                 setAdmin(true)
-    //                 setAuthor(false)
-    //             }
-    //             else if(response.data.user.role ==='author'){
-    //                 setAuthor(true)
-    //                 setAdmin(false)
-    //             }else{
-    //                 setAdmin(false)
-    //                 setAuthor(false)
-    //             }
+                setUser(response.data.user)
+                if(response.data.user.role ==='admin'){
+                    setAdmin(true)
+                    setAuthor(false)
+                }
+                else if(response.data.user.role ==='author'){
+                    setAuthor(true)
+                    setAdmin(false)
+                }else{
+                    setAdmin(false)
+                    setAuthor(false)
+                }
 
-    //         } catch (error) {
-    //             console.log(error)
-    //             setUser(null)
-    //             setAuthor(false)
-    //             setAdmin(false)
-    //         }
-    //     }
-    //     fetchUser()
-    // },[])
+            } catch (error) {
+                console.log(error)
+                setUser(null)
+                setAuthor(false)
+                setAdmin(false)
+            }
+        }
+        fetchUser()
+    },[])
 
 
     
@@ -133,7 +134,21 @@ const ContextProvider = ({ children }) => {
         }
         fetchGallery()
     }, [])
-
+    
+    
+    
+    
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/user/users', { withCredentials: true })
+                setUsers(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchUsers()
+    }, [])
 
 
     const contextValue = {
@@ -149,7 +164,8 @@ const ContextProvider = ({ children }) => {
         admin, setAdmin,
         user, setUser,
         author, setAuthor,
-        team, setTeam
+        team, setTeam,
+        users, setUsers
 
     }
     return <ThemeContext.Provider value={contextValue}>
