@@ -6,7 +6,6 @@ import MemberHandle from '../Admin/MemberHandle'
 import AccessHandle from '../Admin/AccessHandle'
 import Setting from '../Admin/Setting'
 import NoticeHandle from '../Admin/NoticeHandle'
-import LibraryHandle from '../Admin/LibraryHandle'
 import PublicationHandle from '../Admin/PublicationHandle'
 import UpdateHandle from '../Admin/UpdateHandle'
 import ProjectHandle from '../Admin/ProjectHandle'
@@ -28,7 +27,6 @@ const DashBoard = () => {
         <button onClick={() => setSection('member')}>Members</button>
         <button onClick={() => setSection('access')}>Access</button>
         <button onClick={() => setSection('notice')}>Notice</button>
-        <button onClick={() => setSection('library')}>Library</button>
         <button onClick={() => setSection('publications')}>Publications</button>
         <button onClick={() => setSection('setting')}>Setting</button>
 
@@ -42,7 +40,6 @@ const DashBoard = () => {
         {section === 'member' && <MemberHandle />}
         {section === 'access' && <AccessHandle />}
         {section === 'notice' && <NoticeHandle />}
-        {section === 'library' && <LibraryHandle />}
         {section === 'publications' && <PublicationHandle/>}
         {section === 'setting' && <Setting />}
       </section>
