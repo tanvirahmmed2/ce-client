@@ -18,7 +18,7 @@ const DashBoard = () => {
   const [section, setSection] = useState('events')
   console.log(section)
   return (
-    <div>
+    <div className='w-full '>
       {!admin ? <p>Only admin can access this</p> :
         <section className='w-full flex flex-col md:flex-row '>
           <div className='w-full md:w-auto h-auto md:min-h-[800px] p-4 flex flex-wrap gap-4 md:flex-col md:items-start md:justify-start md:gap-2 items-center justify-center bg-slate-100'>

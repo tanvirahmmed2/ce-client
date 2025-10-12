@@ -14,6 +14,7 @@ const roleMap = {
 const TeamHandle = () => {
 
   const [problem,setProblem]= useState('')
+  const [showremovedata, setShowRemoveData]= useState('')
   const { team } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     name: '',
@@ -53,7 +54,7 @@ const TeamHandle = () => {
 
       setProblem(response.data.message)
     } catch (error) {
-      console.error(error)
+      setProblem(error.response.data.message)
     }
   }
 
@@ -63,10 +64,10 @@ const TeamHandle = () => {
     console.log(id)
     try {
       const response= await axios.delete('http://localhost:5000/api/team/remove', {data: {id}, withCredentials: true})
-      console.log(response.data.message)
+      setShowRemoveData(response.data.message)
       
     } catch (error) {
-      console.log('failed tp remove member' + error)
+      setShowRemoveData('failed tp remove member' + error)
       
     }
   }
@@ -149,12 +150,12 @@ const TeamHandle = () => {
               name="email"
               id="email"
               onChange={handleChange}
-              value={formData.profileLink}
+              value={formData.email}
               required
               className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
             />
           </div>
-                <p>{problem}</p>
+          <p>{problem}</p>
           <button
             type='submit'
             className='bg-gray-800 text-white rounded-md py-2 hover:bg-gray-700 transition'
@@ -167,6 +168,7 @@ const TeamHandle = () => {
       {team && (
         <div className='w-full flex flex-col items-center justify-center gap-4'>
           <h1 className='text-2xl font-semibold text-center'>Existing Team Members</h1>
+          <p className='text-red-500'>{showremovedata}</p>
           <div className='w-full grid grid-cols-4 justify-items-center'>
             <p>Name</p>
             <p>Role</p>
@@ -176,7 +178,7 @@ const TeamHandle = () => {
           {team.map((e) => {
             const { name, role, post,  _id } = e
             return (
-              <div key={_id} className='w-full grid grid-cols-4 justify-items-center'>
+              <div key={_id} className='w-full grid grid-cols-4 justify-items-center shadow-lg py-2'>
                 <h1>{name}</h1>
                 <p>{role}</p>
                 <p>{post}</p>
@@ -184,6 +186,7 @@ const TeamHandle = () => {
               </div>
             )
           })}
+          
         </div>
       )}
     </div>

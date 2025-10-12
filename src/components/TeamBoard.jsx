@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const TeamBoard = (props) => {
     const {title,size, groupmember}=props
@@ -9,11 +10,11 @@ const TeamBoard = (props) => {
 
             {
                groupmember.map((member) => {
-                const { name, post,  _id, profileLink, profileImage } = member
+                const { name, post,  _id, userId, profileImage } = member
                 return <div key={_id} className={` h-auto w-[${size}px]  overflow-hidden shadow-emerald-400 shadow-sm flex flex-col items-center justify-between rounded-lg`}>
                   <img src={profileImage} alt="" className={`w-full h-[${size}px]  object-cover `}/>
                   <div className='w-full flex flex-col items-center justify-center py-2'>
-                    <a href={profileLink} className='text-xl font-semibold '>{name}</a>
+                    <Link to={`/profile/${userId}`} className='text-xl font-semibold '>{name}</Link>
                     <p className=' font-semibold'>{post}</p>
 
                   </div>

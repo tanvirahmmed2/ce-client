@@ -10,7 +10,6 @@ const UserProfile = () => {
 
   
   const user = users.find((e) => e._id === id); 
-
   if (!user) return <p>User not found</p>;
 
   return (

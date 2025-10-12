@@ -1,7 +1,15 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from '../components/Context'
 
 const AccessHandle = () => {
+  const { users } = useContext(ThemeContext)
+
+
+  const admins = users.filter((user) => user.role === 'admin')
+
+
   const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     email: '',
@@ -27,22 +35,25 @@ const AccessHandle = () => {
     }
   }
 
-  const [deleteData, setDeleteData]= useState({
-    email:''
+  const [deleteData, setDeleteData] = useState({
+    email: ''
   })
 
-  const handleDeleteData=(e)=>{
-    const {name, value}= e.target
-    setDeleteData((prev)=>({...prev,[name]: value}))
+  const handleDeleteData = (e) => {
+    const { name, value } = e.target
+    setDeleteData((prev) => ({ ...prev, [name]: value }))
   }
-  const handleDelete=async(e)=>{
+  const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.delete('http://localhost:5000/api/user/delete', deleteData, {withCredentials: true})
+      const response = await axios.delete('http://localhost:5000/api/user/delete', {
+        data: deleteData,
+        withCredentials: true
+      })
       console.log(response.data.message)
     } catch (error) {
       console.log(error)
-      
+
     }
   }
 
@@ -54,36 +65,19 @@ const AccessHandle = () => {
         Access Manager
       </h1>
 
-      <div className='w-full flex flex-col gap-4'>
 
-
-        <div className='w-full flex flex-col md:flex-row items-start md:items-center justify-between bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-gray-200'>
-          <div className='w-full md:w-auto flex flex-col gap-1 mb-3 md:mb-0'>
-            <h1 className='text-lg font-bold text-gray-900'>Nazrul Islam</h1>
-            <p className='text-sm text-gray-600'>Email: nazrulislam@gmail.com</p>
+      <h1 className='text-2xl font-semibold text-center text-emerald-500'>Admins</h1>
+      {
+        admins.length > 0 && admins.map((admin) => {
+          const { name, email, profileImage, _id } = admin
+          return <div key={_id} className='w-full flex-row flex items-center justify-around'>
+            <img src={profileImage} alt="" className='w-[100px]' />
+            <h1>{name}</h1>
+            <p>{email}</p>
           </div>
+        })
+      }
 
-          <div className='w-full md:w-auto flex flex-col gap-1 mb-3 md:mb-0'>
-            <label htmlFor="role" className='text-sm font-medium text-gray-700'>Role:</label>
-            <select name="role" id="role" className='bg-white border border-gray-400 rounded-md p-2 outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition'>
-              <option value="">Select Role</option>
-              <option value="admin">Admin</option>
-              <option value="author">Author</option>
-            </select>
-          </div>
-
-          <div className='w-full md:w-auto flex flex-row md:flex-col gap-2'>
-            <button className='w-full md:w-auto bg-gray-800 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 shadow-sm'>
-              Update
-            </button>
-            <button className='w-full md:w-auto border border-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-md hover:bg-gray-100 transition duration-300 shadow-sm'>
-              Remove
-            </button>
-          </div>
-        </div>
-
-
-      </div>
 
       <p>{problem}</p>
 
