@@ -73,7 +73,7 @@ const EventHandle = () => {
     }
   }
 
-  const inputStyle = 'w-full border border-gray-400 rounded-md p-2 outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-600 transition bg-white text-gray-800';
+  const inputStyle = 'w-full border border-gray-400 rounded-md p-2 outline-none  transition bg-white text-gray-800';
   const labelStyle = 'text-sm font-medium text-gray-700 block mb-1';
 
   return (

@@ -1,13 +1,40 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
 import { RxAvatar } from "react-icons/rx";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { ThemeContext } from '../components/Context';
+import axios from 'axios';
 
 const Profile = () => {
   const { user, author } = useContext(ThemeContext)
+
+  const [add, setAdd]= useState(false)
+
+
+
+  const [publicationData, setPublicationData]= useState({
+    authorId: user._id,
+    title:'',
+    description:'',
+    link:''
+  })
+
+  const handleChange=(e)=>{
+    const {name, value}= e.target
+    setPublicationData((prev)=>({...prev, [name]: value}))
+  }
+
+  const addPublication=async(e)=>{
+    e.preventDefault()
+    try {
+      const response= await axios.put('http://localhost:5000/api/user/addpublication', publicationData, {withCredentials:true})
+      console.log(response.data.message)
+    } catch (error) {
+      console.log('Failed to add publication')
+    }
+  }
 
 
 
@@ -49,29 +76,51 @@ const Profile = () => {
           author ? <div className='w-full  flex flex-col gap-4 bg-white shadow-sm rounded-sm p-6 border border-gray-100'>
             <h2 className='text-2xl font-semibold text-gray-700'>Contributions</h2>
 
-            <div className='w-full flex justify-between p-3 border-b-2 font-bold text-gray-600 bg-gray-50 rounded-t-lg text-sm sm:text-base'>
+            <div className='w-full grid grid-cols-4 p-3 border-b-2 font-bold text-gray-600 bg-gray-50 rounded-t-lg text-sm sm:text-base'>
               <p className='w-2/5 text-left'>Title</p>
-              <p className='hidden sm:block w-1/5 text-left'>Details</p>
+              <p className='hidden sm:block w-1/5 text-left'>Description</p>
               <p className='w-1/5 text-right'>Abstruct</p>
+              <p>Action</p>
             </div>
             {
               user.publications && user.publications.map((paper) => {
                 const { title, _id, link, description } = paper
-                return <div key={(_id)}>
+                return <div key={(_id)} className='w-full grid grid-cols-4'>
                   <h1>{title}</h1>
                   <p>{description}</p>
                   <a href={link}>Abstruct</a>
+                  <button>Remove</button>
                 </div>
               })
             }
-            <p className='text-emerald-600 font-medium hover:text-emerald-800 cursor-pointer mt-2 text-center'>Add more+</p>
+            <button onClick={()=> setAdd(!add)} className='text-emerald-600 font-medium hover:text-emerald-800 cursor-pointer mt-2 text-center'>Add more+</button>
+
+
+            {
+              add? <form onSubmit={addPublication} className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
+              <h1>Add Publication Data</h1>
+              <div>
+                <label htmlFor="title">Title</label>
+                <input type="text" name='title' id='title' onChange={handleChange} value={publicationData.title} className='w-full border border-gray-400 rounded-md p-2 outline-none  transition bg-white text-gray-800' placeholder='publication title'/>
+              </div>
+              <div>
+                <label htmlFor="description">Description</label>
+                <textarea name="description" id="description" required onChange={handleChange} value={publicationData.description} className='w-full border border-gray-400 rounded-md p-2 outline-none  transition bg-white text-gray-800'></textarea>
+              </div>
+              <div>
+                <label htmlFor="link">Abstruct Link</label>
+                <input type="text" name='link' id='link' required onChange={handleChange} value={publicationData.link} className='w-full border border-gray-400 rounded-md p-2 outline-none  transition bg-white text-gray-800' placeholder='please enter abstruct link of your publication'/>
+              </div>
+              <button type='submit' className='py-2 px-6 font-semibold text-white bg-black transition duration-300 rounded-full shadow-md transform hover:scale-105'>Submit</button>
+            </form> :<></>
+            }
           </div>
             : <p></p>
         }
         <div className='flex flex-row items-center justify-center gap-6 p-3   mt-4 mb-10'>
 
           <Link
-            to='/dashboard'
+            to='/updateprofile'
             className='py-2 px-6 font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition duration-300 rounded-full shadow-md transform hover:scale-105'
           >
             Update Profile

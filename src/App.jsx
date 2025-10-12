@@ -25,6 +25,7 @@ import Project from './components/Project'
 import Image from './components/Image'
 import UserProfile from './pages/UserProfile'
 import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedAdmin from './components/ProtectedAdmin'
 
 const App = () => {
   return (
@@ -50,7 +51,7 @@ const App = () => {
           <Route path='/registration' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />
-          <Route path='/dashboard' element={<DashBoard/>} />
+          <Route path='/dashboard' element={<ProtectedAdmin><DashBoard/></ProtectedAdmin>} />
           <Route path='/recover' element={<Recover/>} />
           <Route path='/notice' element={<Notice/>} />
 
