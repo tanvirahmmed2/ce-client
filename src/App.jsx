@@ -25,6 +25,7 @@ import Projects from './pages/Projects'
 import Project from './components/Project'
 import Image from './components/Image'
 import UserProfile from './pages/UserProfile'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
   return (
@@ -50,7 +51,7 @@ const App = () => {
           <Route path='/library' element={<Library/>} />
           <Route path='/registration' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/profile' element={<Profile/>} />
+          <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />
           <Route path='/dashboard' element={<DashBoard/>} />
           <Route path='/recover' element={<Recover/>} />
           <Route path='/notice' element={<Notice/>} />

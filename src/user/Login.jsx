@@ -31,7 +31,7 @@ const Login = () => {
         email: '',
         password: ''
       })
-      window.location.replace('/');
+      window.location.replace('/profile');
     } catch (error) {
       setProblem( error.response.data.message)
     }
