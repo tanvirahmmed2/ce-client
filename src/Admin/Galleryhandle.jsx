@@ -2,15 +2,14 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const Galleryhandle = () => {
-  const [searchImage, setSearchImage] = useState(null)
-  const [problem, setProblem]= useState('')
-  const [formData, setFormData]=useState({
-    title:'',
+  const [problem, setProblem] = useState('')
+  const [formData, setFormData] = useState({
+    title: '',
     author: '',
     image: null
   })
 
-    const handleChange=(e)=>{
+  const handleChange = (e) => {
     const { name, value, files } = e.target
     if (name === 'image') {
       setFormData((prev) => ({ ...prev, image: files[0] }))
@@ -19,33 +18,41 @@ const Galleryhandle = () => {
     }
   }
 
+  
 
-  const handleSubmit=async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const newData= new FormData()
+      const newData = new FormData()
       newData.append('title', formData.title)
       newData.append('image', formData.image)
       newData.append('author', formData.author)
-      const response= await axios.post('http://localhost:5000/api/gallery/add', newData, {withCredentials: true})
+      const response = await axios.post('http://localhost:5000/api/gallery/add', newData, { withCredentials: true })
       setProblem(response.data.message)
     } catch (error) {
       console.log(error)
-      
+
     }
   }
 
-
-  const handlesearch = () => {
-    setSearchImage({
-      image: 'https://via.placeholder.com/200', 
-      title: 'Searching image',
-    })
+const [deleteImage, setDeleteImage]= useState({
+  id:''
+})
+  const handlesearch = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.delete('http://localhost:5000/api/gallery/delete', {data: deleteImage, withCredentials: true})
+      console.log(response.data.message)
+    } catch (error) {
+      console.log(error.response.data.message)
+      
+    }
+    
   }
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-start gap-10 py-10 px-4 ">
-      
+
       <div className="w-full  bg-white shadow-lg rounded-2xl p-8">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Upload New Image
@@ -101,48 +108,33 @@ const Galleryhandle = () => {
         </form>
       </div>
 
-      
+
       <div className="w-full  bg-white shadow-lg rounded-2xl p-8 flex flex-col gap-6">
         <h1 className="text-xl font-bold text-gray-800 text-center">
           Delete Any Image
         </h1>
-        <div className="flex gap-3">
+        <form
+          onSubmit={handlesearch} className="flex gap-3">
           <input
             type="text"
-            name="title"
-            id="title-search"
-            placeholder="Please paste the title here"
+            name="id"
+            id="id"
+            required
+            value={deleteImage.id}
+            onChange={(e) => setDeleteImage(prev => ({ ...prev, id: e.target.value }))}
+            placeholder="Please paste the image id here"
             className="flex-1 border rounded-lg p-2 px-3 outline-none "
           />
           <button
-            type="button"
-            onClick={handlesearch}
+            type="submit"
             className="bg-green-600 hover:bg-green-700 transition text-white font-semibold px-5 rounded-lg shadow-md"
           >
-            Search
+            Delete
           </button>
-        </div>
+        </form>
 
-        
-        <div className="mt-4">
-          {searchImage ? (
-            <div className="flex flex-col items-center gap-4 bg-gray-100 p-6 rounded-xl shadow-sm">
-              <img
-                src={searchImage.image}
-                alt={searchImage.title}
-                className="w-40 h-40 object-cover rounded-lg border"
-              />
-              <p className="font-semibold text-gray-800">{searchImage.title}</p>
-              <button className="bg-red-600 hover:bg-red-700 transition text-white font-semibold px-4 py-1 rounded-lg shadow-md">
-                Delete
-              </button>
-            </div>
-          ) : (
-            <p className="text-gray-500 italic text-center">
-              No image found with this title
-            </p>
-          )}
-        </div>
+
+
       </div>
     </div>
   )

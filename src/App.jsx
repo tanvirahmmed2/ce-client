@@ -11,7 +11,6 @@ import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Mission from './pages/Mission'
 import Publications from './pages/Publications'
-import Library from './pages/Library'
 import Register from './user/Register'
 import Login from './user/Login'
 import Profile from './pages/Profile'
@@ -48,7 +47,6 @@ const App = () => {
           <Route path='/update/:id' element={<UpdateBox/>} />
           <Route path='/scope' element={<Scope/>} />
           <Route path='/publications' element={<Publications/>} />
-          <Route path='/library' element={<Library/>} />
           <Route path='/registration' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />

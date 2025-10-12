@@ -19,7 +19,7 @@ const Footer = () => {
           <div className='flex flex-col'>
             <Link to='/mission'>Mission</Link>
             <Link to='/scope'>Scope</Link>
-            <Link to='/news'>News</Link>
+            <Link to='/update'>Update</Link>
             <Link to='/events'>Events</Link>
             <Link to='/notice'>Notice</Link>
           </div>
@@ -30,7 +30,7 @@ const Footer = () => {
             <Link to='/publications'>Publications</Link>
             <Link to='dashboard'>DashBoard</Link>
             <Link to='/profile'>Profile</Link>
-            <Link to='/library'>Library</Link>
+            <Link to='/login'>Join us</Link>
             <Link to='/projects'>Projects</Link>
           </div>
         </div>

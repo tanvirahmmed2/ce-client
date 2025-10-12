@@ -26,7 +26,7 @@ const Sidebar = () => {
   }
   
   return (
-    <div className={`w-auto min-h-screen fixed bg-gray-800 z-50 right-0 flex ${sidebar ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out flex-col items-end justify-start gap-4 text-white px-6 py-4`}>
+    <div className={`fixed right-0 top-0 h-screen max-h-screen overflow-y-auto bg-gray-800 z-50 flex flex-col items-end px-6 py-4 gap-4 text-white transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
       <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl '><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 
@@ -46,7 +46,6 @@ const Sidebar = () => {
         <Link to='/update' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Update</Link>
         <Link to='/projects' className='w-auto flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Projects</Link>
         <Link to='/gallery' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Gallery</Link>
-        <Link to='/tools' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Tools</Link>
         <Link to='/notice' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Notice</Link>
         {user && <Link to='/profile' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>Profile</Link>}
         {admin? <Link to='/dashboard' className='w-auto  flex justify-center items-center px-2 hover:px-6 border-green-600' onClick={closeSidebar}>DashBoard</Link>: <p></p>}
