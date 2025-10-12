@@ -19,7 +19,7 @@ const TeamHandle = () => {
     name: '',
     role: 'mentor',
     post: '',
-    profileLink: '',
+    email: '',
     profileImage: null
   })
 
@@ -39,7 +39,7 @@ const TeamHandle = () => {
       newData.append('name', formData.name)
       newData.append('role', formData.role)
       newData.append('post', formData.post)
-      newData.append('profileLink', formData.profileLink)
+      newData.append('email', formData.email)
       newData.append('profileImage', formData.profileImage)
 
       const response = await axios.post(
@@ -143,11 +143,11 @@ const TeamHandle = () => {
           </div>
 
           <div>
-            <label htmlFor="profileLink">Profile Link</label>
+            <label htmlFor="profileLink">email</label>
             <input
-              type='text'
-              name="profileLink"
-              id="profileLink"
+              type='email'
+              name="email"
+              id="email"
               onChange={handleChange}
               value={formData.profileLink}
               required
