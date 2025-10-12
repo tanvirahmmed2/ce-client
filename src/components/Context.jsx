@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import axios from 'axios'
-import { galleryData,  libraryData,  publicationsData } from "../Data";
+import { } from "../Data";
 import { useEffect } from "react";
 
 
@@ -11,11 +11,10 @@ const ContextProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(false)
     const [update, setUpdate] = useState([])
     const [events, setEvents] = useState([])
-    const [gallery, setGallery] = useState(galleryData)
+    const [gallery, setGallery] = useState([])
     const [messages, setMessages] = useState([])
     const [notices, setNotices] = useState([])
-    const [library, setLibrary] = useState(libraryData)
-    const [publications, setLPublications] = useState(publicationsData)
+    const [publications, setLPublications] = useState([])
     const [projects, setProjects] = useState([])
     const [user, setUser] = useState([])
     const [users, setUsers] = useState([])
@@ -150,6 +149,19 @@ const ContextProvider = ({ children }) => {
         fetchUsers()
     }, [])
 
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/user/publications', { withCredentials: true })
+                setLPublications(response.data.payload)
+            } catch (error) {
+                console.log(error.response.data.message)
+            }
+        }
+        fetchUsers()
+    }, [])
+
     
     const contextValue = {
         sidebar, setSidebar,
@@ -158,7 +170,6 @@ const ContextProvider = ({ children }) => {
         gallery, setGallery,
         messages, setMessages,
         notices, setNotices,
-        library, setLibrary,
         publications, setLPublications,
         projects, setProjects,
         admin, setAdmin,
