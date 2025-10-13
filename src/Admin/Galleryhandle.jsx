@@ -40,13 +40,13 @@ const Galleryhandle = () => {
   const [deleteImage, setDeleteImage] = useState({
     id: ''
   })
-  const handlesearch = async (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.delete('http://localhost:5000/api/gallery/delete', { data: deleteImage, withCredentials: true })
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error.response.data.message)
+      toast.error(error.response.data.message)
 
     }
 
@@ -116,7 +116,7 @@ const Galleryhandle = () => {
           Delete Any Image
         </h1>
         <form
-          onSubmit={handlesearch} className="flex gap-3">
+          onSubmit={handleDelete} className="flex gap-3">
           <input
             type="text"
             name="id"

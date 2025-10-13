@@ -68,9 +68,9 @@ const EventHandle = () => {
   const removeEvent=async(id)=>{
     try {
       const response= await axios.delete('http://localhost:5000/api/event/delete', {data: {id}, withCredentials: true})
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+      toast.error(error)
       
     }
   }
