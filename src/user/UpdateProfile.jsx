@@ -28,15 +28,23 @@ const UpdateProfile = () => {
     field: '',
     institution: '',
     startYear: '',
-    endYear:'',
-    grade:''
+    endYear: '',
+    grade: ''
   })
+
+  const eduChange = (e) => {
+    const { name, value } = e.target
+    setNewEducation((prev) => ({ ...prev, [name]: value }))
+  }
 
   const changeName = (e) => e.preventDefault()
   const changeDob = (e) => e.preventDefault()
   const changeEmail = (e) => e.preventDefault()
   const changePassword = (e) => e.preventDefault()
-  const updateEducation = (e) => e.preventDefault()
+  const updateEducation = (e) => {
+    e.preventDefault()
+    console.log(newEducation)
+  }
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4">
@@ -45,7 +53,7 @@ const UpdateProfile = () => {
       </h1>
 
       <div className="w-full max-w-2xl flex flex-col gap-8">
-      
+
         <form
           onSubmit={changeName}
           className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
@@ -66,7 +74,7 @@ const UpdateProfile = () => {
           </button>
         </form>
 
-    
+
         <form
           onSubmit={changeDob}
           className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
@@ -111,23 +119,63 @@ const UpdateProfile = () => {
           onSubmit={updateEducation}
           className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
-          <h2 className="text-lg font-semibold text-gray-700">Update Email</h2>
+          <h2 className="text-lg font-semibold text-gray-700">Update Education</h2>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="text"
+            id="degree"
+            name="degree"
             required
-            value={newEmail.email}
-            onChange={(e) => setNewEmail({ ...newEmail, email: e.target.value })}
+            value={newEducation.degree}
+            onChange={eduChange}
             className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
-            placeholder="Enter new email"
+            placeholder="Enter Degree Name"
+          />
+          <input
+            type="text"
+            id="field"
+            name="field"
+            required
+            value={newEducation.field}
+            onChange={eduChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Major Field"
+          />
+          <input
+            type="text"
+            id="institution"
+            name="institution"
+            required
+            value={newEducation.institution}
+            onChange={eduChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Institution Name"
+          />
+          <input
+            type="number"
+            id="startYear"
+            name="startYear"
+            required
+            value={newEducation.startYear}
+            onChange={eduChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Starting Year"
+          />
+          <input
+            type="number"
+            id="endYear"
+            name="endYear"
+            required
+            value={newEducation.endYear}
+            onChange={eduChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Starting Year"
           />
           <button className="bg-black text-white py-2 rounded-lg ">
-            Update
+            Add
           </button>
         </form>
 
-      
+
         <form
           onSubmit={changePassword}
           className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
