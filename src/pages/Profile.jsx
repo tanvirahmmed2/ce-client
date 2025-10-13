@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { toast } from 'react-toastify';
 
 import { RxAvatar } from "react-icons/rx";
 import { FaMapMarkedAlt } from "react-icons/fa";
@@ -31,9 +31,9 @@ const Profile = () => {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:5000/api/user/addpublication', publicationData, { withCredentials: true })
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log('Failed to add publication')
+      toast.error('Failed to add publication')
     }
   }
 
@@ -46,9 +46,9 @@ const Profile = () => {
           withCredentials: true
         }
       )
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log('Failed to remove publication')
+      toast.error('Failed to remove publication')
 
     }
   }
