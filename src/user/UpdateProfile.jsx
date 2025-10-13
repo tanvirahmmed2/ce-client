@@ -55,13 +55,23 @@ const [newDob, setNewDob] = useState({
   }
 
 
-  
+
   const [newPassword, setNewPassword] = useState({
     userId: user._id,
     old_password: '',
     new_password: ''
   })
 
+   const changePassword = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.put('http://localhost:5000/api/user/updatepassword', newPassword, {withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message || "Email change failed")
+      
+    }
+  }
 
   const [newEducation, setNewEducation] = useState({
     userId: user._id,
@@ -79,7 +89,7 @@ const [newDob, setNewDob] = useState({
   }
 
   
-  const changePassword = (e) => e.preventDefault()
+  
   const updateEducation = (e) => {
     e.preventDefault()
     console.log(newEducation)
