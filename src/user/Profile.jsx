@@ -86,14 +86,26 @@ const Profile = () => {
           <div className='text-center md:text-left'>
             <h1 className='text-4xl font-bold text-gray-800 tracking-tight'>{user.name}</h1>
             <p className='italic font-medium text-emerald-600 mb-2'>{user.role}</p>
-            <p className='text-lg text-gray-600'>Studies at Mymensingh Engineering College</p>
+            
           </div>
         </div>
 
         <div className='w-full  bg-white shadow-sm rounded-sm p-6 border border-gray-100'>
           <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Personal & Academic Details</h2>
           <div className='flex flex-col gap-3 text-gray-700'>
-            <p className='font-medium'>Currentry Studying in BSc in Engineering in Civil Engineering</p>
+            {user.education.length >0 && user.education.map((edu)=>{
+              const {_id, degree, institution, field, startYear, endYear}= edu
+              return <div key={_id}>
+                <div>{endYear < Date.now() ? <p>Studied at</p> : <p>Studies at</p>} {degree} in {field} in {institution}</div>
+                <p>Started: {startYear}</p>
+              </div>
+            })}
+            {user.work.length >0 && user.work.map((job)=>{
+              const {_id, position, company}= job
+              return <div key={_id}>
+                <p>Works as {position} at {company}</p>
+              </div>
+            })}
             <p><span className='font-semibold'>Date of Birth:</span> {user.dateOfBirth}</p>
             <p><span className='font-semibold'>Email:</span> <span className='text-emerald-600 '>{user.email}</span></p>
             <p><span className='font-semibold'>Phone:</span> {user.phone}</p>
