@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -73,14 +73,14 @@ const Register = () => {
       const response = await axios.post("http://localhost:5000/api/user/register", formData)
 
       toast.success(response.data.message);
-      window.location.replace('/')
+      window.location.replace('/login')
     } catch (error) {
       toast.error(" Registration failed: " + (error.response?.data?.message || "Server error"));
     }
   }
   return (
     <section className='w-full flex items-center justify-center p-6'>
-      <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} className='w-full lg:w-3/4 h-auto flex flex-col lg:flex-row items-center justify-center rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} className='w-full lg:w-3/4 h-auto flex flex-col lg:flex-row items-center justify-center rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-emerald-600 to-cyan-700 text-white'>
         <div className='w-full text-center py-16 flex flex-col items-center justify-center gap-2 '>
           <h1>Welcom to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
@@ -99,7 +99,7 @@ const Register = () => {
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="dateOfBirth">Date of birth</label>
-              <input type="date" name='dateOfBirth' id='dateOfBirth' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.dateOfBirth}/>
+              <input type="date" name='dateOfBirth' id='dateOfBirth' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.dateOfBirth} />
             </div>
 
 
@@ -133,7 +133,7 @@ const Register = () => {
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="country">County</label>
               <select name="country" id="country" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.country}>
-                
+
                 {
                   countries && countries.map((country) => <option key={country} value={country}>{country}</option>)
                 }
@@ -141,24 +141,24 @@ const Register = () => {
             </div>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="phone">Phone</label>
-              <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.phone}/>
+              <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.phone} />
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
-              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email}/>
+              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email} />
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="password">Password</label>
-              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password}/>
+              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password} />
             </div>
 
 
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Register</button>
-            
+
           </form>
         </div>
       </motion.div>

@@ -71,7 +71,7 @@ const AccessHandle = () => {
         admins.length > 0 && admins.map((admin) => {
           const { name, email, profileImage, _id } = admin
           return <div key={_id} className='w-full flex-row flex items-center justify-around'>
-            <img src={profileImage} alt="" className='w-[100px]' />
+            <img src={profileImage} alt="" className='w-[50px] h-[50px] rounded-full' />
             <h1>{name}</h1>
             <p>{email}</p>
           </div>

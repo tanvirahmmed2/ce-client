@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../components/Context';
 import { useParams } from 'react-router-dom';
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { RxAvatar } from "react-icons/rx";
 
 const UserProfile = () => {
   const { users } = useContext(ThemeContext);
@@ -8,20 +10,88 @@ const UserProfile = () => {
 
   if (!users) return <p>Loading...</p>;
 
-  
-  const user = users.find((e) => e._id === id); 
+  const user = users.find((e) => e._id === id);
   if (!user) return <p>User not found</p>;
 
   return (
-    <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-6'>
-      <div className='w-full bg-emerald-500 py-6 text-white rounded-lg flex flex-col items-center gap-4'>
-        <img src={user.profileImage} alt={user.name} className='w-40 h-40 object-cover rounded-full border-2' />
-        <h1 className='text-3xl font-semibold'>{user.name}</h1>
-        
-      </div>
-      <div>
+    <section className='w-full min-h-[800px] p-6 flex flex-col items-center gap-10 bg-gray-50'>
 
+
+      <div className='w-full max-w-4xl bg-emerald-500 py-6 text-white rounded-lg flex flex-col items-center gap-4'>
+        {user.profileImage
+          ? <img src={user.profileImage} alt={user.name} className='w-40 h-40 object-cover rounded-full border-4 border-white shadow-md' />
+          : <div className='text-9xl text-white border-4 border-white rounded-full p-2'><RxAvatar /></div>
+        }
+        <h1 className='text-3xl font-semibold'>{user.name}</h1>
+        <p className='italic text-white/90'>{user.role}</p>
       </div>
+
+
+      <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
+        <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Personal & Contact Info</h2>
+        <div className='flex flex-col gap-3 text-gray-700'>
+          <p><span className='font-semibold'>Email:</span> <span className='text-emerald-600 underline'>{user.email}</span></p>
+          <p><span className='font-semibold'>Phone:</span> {user.phone}</p>
+          <p className='flex flex-row gap-2 items-center font-semibold text-gray-600'>
+            <FaMapMarkedAlt className='text-red-500' /> {user.country}
+          </p>
+
+        </div>
+      </div>
+
+      {user.education?.length > 0 && (
+        <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
+          <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Education</h2>
+          <div className='flex flex-col gap-3'>
+            {user.education.map((edu) => {
+              const { _id, degree, institution, field, startYear, endYear } = edu;
+              return (
+                <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
+                  <p><span className='font-semibold'>{degree}</span> in {field} at {institution}</p>
+                  <p className='text-sm text-gray-500'>Start Year: {startYear}</p>
+                  {endYear && <p className='text-sm text-gray-500'>End Year: {endYear}</p>}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Work Experience */}
+      {user.work?.length > 0 && (
+        <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
+          <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Work Experience</h2>
+          <div className='flex flex-col gap-3'>
+            {user.work.map((job) => {
+              const { _id, position, company } = job;
+              return (
+                <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
+                  <p>Position: <span className='font-semibold'>{position}</span> at {company}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Publications */}
+      {user.publications?.length > 0 && (
+        <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
+          <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Publications</h2>
+          <div className='flex flex-col gap-3'>
+            {user.publications.map((pub) => {
+              const { _id, title, description, link } = pub;
+              return (
+                <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100 flex flex-col gap-1'>
+                  <p className='font-semibold'>{title}</p>
+                  <p className='text-gray-600 text-sm'>{description}</p>
+                  {link && <a href={link} target='_blank' rel='noopener noreferrer' className='text-emerald-600 font-semibold hover:underline'>View Abstract</a>}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
