@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 
@@ -9,50 +9,34 @@ const UpdateProfile = () => {
     userId: user._id,
     name: ''
   })
-  const changeName = async(e) => {
+  const changeName = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.put('http://localhost:5000/api/user/updatename', newName, {withCredentials: true})
+      const response = await axios.put('http://localhost:5000/api/user/updatename', newName, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.data.message)
-      
+
     }
   }
 
-const [newDob, setNewDob] = useState({
+  const [newDob, setNewDob] = useState({
     userId: user._id,
     dateOfBirth: ''
   })
 
-  const changeDob = async(e) => {
+  const changeDob = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.put('http://localhost:5000/api/user/updatedob', newDob, {withCredentials: true})
+      const response = await axios.put('http://localhost:5000/api/user/updatedob', newDob, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.data.message)
-      
+
     }
   }
 
 
-  
-  const [newEmail, setNewEmail] = useState({
-    userId: user._id,
-    email: ''
-  })
-
-   const changeEmail = async(e) => {
-    e.preventDefault()
-    try {
-      const response= await axios.put('http://localhost:5000/api/user/updateemail', newEmail, {withCredentials: true})
-      toast.success(response.data.message)
-    } catch (error) {
-      toast.error(error.response.data.message || "Email change failed")
-      
-    }
-  }
 
 
 
@@ -62,14 +46,14 @@ const [newDob, setNewDob] = useState({
     new_password: ''
   })
 
-   const changePassword = async(e) => {
+  const changePassword = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.put('http://localhost:5000/api/user/updatepassword', newPassword, {withCredentials: true})
+      const response = await axios.put('http://localhost:5000/api/user/updatepassword', newPassword, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message || "Email change failed")
-      
+
     }
   }
 
@@ -88,56 +72,57 @@ const [newDob, setNewDob] = useState({
     setNewEducation((prev) => ({ ...prev, [name]: value }))
   }
 
-  
-  
-  const updateEducation = async(e) => {
+
+
+  const updateEducation = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.post('http://localhost:5000/api/user/addeducation', newEducation, {withCredentials:true})
+      const response = await axios.post('http://localhost:5000/api/user/addeducation', newEducation, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
     }
   }
 
-  const removeEducation=async(userId, eduId)=>{
+  const removeEducation = async (userId, eduId) => {
     try {
-      const response= await axios.delete('http://localhost:5000/api/user/removeeducation', {data: {userId, eduId}, withCredentials: true})
+      const response = await axios.delete('http://localhost:5000/api/user/removeeducation', { data: { userId, eduId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
-      
+
     }
   }
 
 
-  const [newWork, setNewWork]=useState({
+  const [newWork, setNewWork] = useState({
     userId: user._id,
-    position:'',
-    company:''
+    position: '',
+    company: ''
   })
 
-  const handleWorkChange= (e)=>{
-    const {name, value}= e.target
-    setNewWork((prev)=>({...prev, [name]:value}))
+  const handleWorkChange = (e) => {
+    const { name, value } = e.target
+    setNewWork((prev) => ({ ...prev, [name]: value }))
   }
-  const updateWork = async(e) => {
+
+  const updateWork = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.post('http://localhost:5000/api/user/addwork', newWork, {withCredentials:true})
+      const response = await axios.post('http://localhost:5000/api/user/addwork', newWork, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
     }
   }
 
-  const removeWork=async(userId, workId)=>{
+  const removeWork = async (userId, workId) => {
     try {
-      const response= await axios.delete('http://localhost:5000/api/user/removework', {data: {userId, workId}, withCredentials: true})
+      const response = await axios.delete('http://localhost:5000/api/user/removework', { data: { userId, workId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
-      
+
     }
   }
 
@@ -148,6 +133,44 @@ const [newDob, setNewDob] = useState({
       </h1>
 
       <div className="w-full max-w-2xl flex flex-col gap-8">
+
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append("userId", user._id);
+            formData.append("file", e.target.profileImage.files[0]);
+
+            try {
+              const response = await axios.put(
+                "http://localhost:5000/api/user/updateprofileimage",
+                formData,
+                { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
+              );
+              toast.success(response.data.message);
+            } catch (error) {
+              toast.error(error.response?.data?.message || "Failed to upload image");
+              console.log(error)
+            }
+          }}
+          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+        >
+          <h2 className="text-lg font-semibold text-gray-700">Update Profile Image</h2>
+          <input
+            type="file"
+            id="profileImage"
+            name="profileImage"
+            accept="image/*"
+            required
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+          />
+          <button type="submit" className="bg-black text-white py-2 rounded-lg">
+            Upload
+          </button>
+        </form>
+
+
+
 
         <form
           onSubmit={changeName}
@@ -189,25 +212,6 @@ const [newDob, setNewDob] = useState({
           </button>
         </form>
 
-        <form
-          onSubmit={changeEmail}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
-        >
-          <h2 className="text-lg font-semibold text-gray-700">Update Email</h2>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={newEmail.email}
-            onChange={(e) => setNewEmail({ ...newEmail, email: e.target.value })}
-            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
-            placeholder="Enter new email"
-          />
-          <button className="bg-black text-white py-2 rounded-lg ">
-            Update
-          </button>
-        </form>
 
 
         <form
@@ -259,7 +263,6 @@ const [newDob, setNewDob] = useState({
             type="number"
             id="endYear"
             name="endYear"
-            required
             value={newEducation.endYear}
             onChange={eduChange}
             className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
@@ -274,11 +277,11 @@ const [newDob, setNewDob] = useState({
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Eduactional Information</h1>
           {
-            user.education.length >0 && user.education.map((edu)=>{
-              const {_id, degree, institution}= edu
+            user.education.length > 0 && user.education.map((edu) => {
+              const { _id, degree, institution } = edu
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <h1>Studies in {degree} in {institution}</h1>
-                <button onClick={()=>removeEducation( user._id, _id)}>Remove</button>
+                <button onClick={() => removeEducation(user._id, _id)}>Remove</button>
               </div>
             })
           }
@@ -300,9 +303,9 @@ const [newDob, setNewDob] = useState({
             className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
             placeholder="Enter Positon"
           />
-         
-         
-          
+
+
+
           <input
             type="text"
             id="company"
@@ -322,11 +325,11 @@ const [newDob, setNewDob] = useState({
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Job Information</h1>
           {
-            user.work.length >0 && user.work.map((e)=>{
-              const {_id, position, company}= e
+            user.work.length > 0 && user.work.map((e) => {
+              const { _id, position, company } = e
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <h1>Works as {position} in {company}</h1>
-                <button onClick={()=>removeWork( user._id, _id)}>Remove</button>
+                <button onClick={() => removeWork(user._id, _id)}>Remove</button>
               </div>
             })
           }
