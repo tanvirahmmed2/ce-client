@@ -13,7 +13,7 @@ const Project = () => {
         <h1 className='text-2xl font-semibold text-center'>Project Overview</h1>
         {!data ? <p>data not found</p>:<div className='w-full flex flex-col items-center justify-center gap-4'>
             <p className='text-xl font-semibold text-center'>{data.title}</p>
-            <img src={data.image} alt="" className='w-3/4  object-cover'/>
+            <img src={data.image} alt="" className='w-3/4 max-h-[500px] object-cover'/>
             <p className='text-xs italic'>Uploaded at: {data.createdAt.slice(0,10)}</p>
             <p className='w-full text-center'>{data.description}</p>
           </div>}

@@ -1,30 +1,31 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../components/Context'
-
+import { Link } from 'react-router-dom'
 
 
 
 const Publications = () => {
-  const {publications}= useContext(ThemeContext)
+  const { publications } = useContext(ThemeContext)
   return (
     <section className="w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8">
       <div style={{ backgroundImage: "url('https://res.cloudinary.com/dz45x9efk/image/upload/v1759431115/pexels-pixabay-256559_c5pjrp.jpg')" }} className="w-full h-[200px] flex items-center justify-center bg-cover bg-center">
         <h1 className="text-4xl font-semibold text-white drop-shadow-md">Publications</h1>
-        
-      </div>
-      <div className='w-full md:w-3/4 flex flex-col items-center justify-center gap-6'>
-          {
-            publications && publications.map((paper)=>{
-              const {id, author, title, abstract}= paper
-              return <div key={id} className='w-full flex-col flex gap-2 items-start'>
-                <h1>{title}</h1>
-                <p className='italic font-semibold'>{author}</p>
-                <a href={abstract} className='text-white bg-emerald-500 p-2 px-3 rounded-lg w-auto'>Abstract</a>
-              </div>
-            })
-          }
 
-        </div>
+      </div>
+      <div className='w-full flex flex-col items-center justify-center gap-6'>
+        {
+          publications && publications.map((paper) => {
+            const { _id, authorId, title, abstract, description } = paper
+            return <div key={_id} className='w-full flex-row flex gap-2 items-center justify-between shadow-lg p-4 rounded-md'>
+              <h1>{title}</h1>
+              <p>{description}</p>
+              <a href={abstract} className='text-white bg-emerald-500 p-2 px-3 rounded-lg w-auto'>Abstract</a>
+              <Link to={`/profile/${authorId}`} className='italic font-semibold'>View Author</Link>
+            </div>
+          })
+        }
+
+      </div>
     </section>
   )
 }

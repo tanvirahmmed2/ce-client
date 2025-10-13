@@ -83,6 +83,7 @@ const Galleryhandle = () => {
               name="image"
               id="image"
               required
+              accept="image/*"
               onChange={handleChange}
               className="w-full border rounded-lg p-2 px-3 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700"
             />

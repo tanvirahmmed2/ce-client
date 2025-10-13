@@ -53,13 +53,25 @@ const Profile = () => {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/user/logout', {}, {
+        withCredentials: true
+      })
+      toast.success(response.data.message)
+      window.location.replace('/');
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+  }
+
 
 
   return (
     <section className='w-full min-h-screen p-4 sm:p-6   flex flex-col items-center gap-10 justify-center'>
 
       <div className='w-full h-auto'>
-        <div className='w-full  h-32 bg-emerald-600/90 text-white shadow-sm rounded-sm flex items-center justify-center p-6'>
+        <div className='w-full  h-32 bg-black text-white shadow-sm rounded-sm flex items-center justify-center p-6'>
           <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight'>Welcome to <span className='text-yellow-300'>CCIRL</span></h1>
         </div>
 
@@ -144,9 +156,10 @@ const Profile = () => {
           </Link>
 
           <button
-            className='py-2 px-6 font-semibold text-white bg-red-500 hover:bg-red-600 transition duration-300 rounded-full shadow-md transform hover:scale-105'
+            onClick={handleLogout}
+            className='py-2 px-6 font-semibold text-white bg-black transition duration-300 rounded-full shadow-md transform hover:scale-105'
           >
-            Delete ID
+            Log out
           </button>
         </div>
       </div>

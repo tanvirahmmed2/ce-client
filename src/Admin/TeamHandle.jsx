@@ -137,6 +137,7 @@ const TeamHandle = () => {
               name="profileImage"
               id="profileImage"
               required
+              accept="image/*"
               onChange={handleChange}
               className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
             />

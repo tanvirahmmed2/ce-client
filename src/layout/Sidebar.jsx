@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RiGlobalLine } from "react-icons/ri";
 import { ThemeContext } from '../components/Context'
+import { toast } from 'react-toastify';
 
 const Sidebar = () => {
   const { sidebar, setSidebar,user, admin } = useContext(ThemeContext)
@@ -18,10 +19,10 @@ const Sidebar = () => {
       const response = await axios.post('http://localhost:5000/api/user/logout',{}, {
         withCredentials: true
       })
-      alert(response.data.message)
+      toast.success(response.data.message)
       window.location.replace('/');
     } catch (error) {
-      alert(error.response.data.message)
+      toast.error(error.response.data.message)
     }
   }
   

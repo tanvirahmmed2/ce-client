@@ -14,7 +14,6 @@ import Mission from './pages/Mission'
 import Publications from './pages/Publications'
 import Register from './user/Register'
 import Login from './user/Login'
-import Profile from './pages/Profile'
 import Recover from './user/Recover'
 import Scope from './pages/Scope'
 import Notice from './pages/Notice'
@@ -28,6 +27,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import ProtectedAdmin from './components/ProtectedAdmin'
 import Admin from './pages/Admin'
 import DashBoard from './components/DashBoard'
+import Profile from './user/Profile'
+import UpdateProfile from './user/UpdateProfile'
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
           <Route path='/registration' element={<Register/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />
+          <Route path='/updateprofile' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>} />
           <Route path='/admin' element={<ProtectedAdmin><Admin/></ProtectedAdmin>} />
           <Route path='/admin/:handler' element={<ProtectedAdmin><DashBoard/></ProtectedAdmin>} />
           <Route path='/recover' element={<Recover/>} />
