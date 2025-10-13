@@ -38,10 +38,10 @@ const Footer = () => {
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <h1 className='font-semibold text-white'>Connect</h1>
           <div className='flex flex-col'>
-            <a href="mailto:info@ccirl.edu">info@ccirl.edu</a>
-            <a href="tel:+1 (555) 123-4567">+1 (555) 123-4567</a>
-            <p>Twitter</p>
-            <p>Linkedin</p>
+            <a href="mailto:ccirl.mec@gmail.com">ccirl.mec@gmail.com</a>
+            <a href="tel:+8801306556358">+8801306556358</a>
+            <a href="https://www.facebook.com/ccirl.mec/">Facebook</a>
+            <a href='https://www.linkedin.com/in/ccirl.mec/'>Linkedin</a>
           </div>
         </div>
 

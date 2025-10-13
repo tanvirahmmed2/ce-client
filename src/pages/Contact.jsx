@@ -48,7 +48,7 @@ const Contact = () => {
             <p className='text-4xl text-red-500'><CiLocationOn /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Address</h1>
-              <p>Civil Engineering Building</p>
+              <p>Room no: 303, Civil Engineering Building</p>
               <p>Mymensingh Engineering College</p>
             </div>
           </div>
@@ -58,8 +58,8 @@ const Contact = () => {
             <p className='text-4xl text-emerald-500'><CiMail /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Email</h1>
-              <a href='mailto:info@ccirl.edu'>info@ccirl.edu</a>
-              <a href="research@ccirl.edu">research@ccirl.edu</a>
+              <a href='mailto:ccirl.mec@gmail.com'>ccirl.mec@gmail.com</a>
+              <a href="/">ccirl.info.bd</a>
             </div>
           </div>
 
@@ -68,8 +68,7 @@ const Contact = () => {
             <p className='text-4xl text-cyan-500'><CiPhone /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Phone</h1>
-              <p>+1 (555) 123-4567</p>
-              <p>+1 (555) 123-4568 (Fax)</p>
+              <a href="tel:+8801306556358">+8801306556358</a>
             </div>
           </div>
 
@@ -78,7 +77,7 @@ const Contact = () => {
             <p className='text-4xl text-blue-500'><CiClock1 /></p>
             <div className='flex flex-col items-start justify-center'>
               <h1 className='text-lg font-bold'>Time</h1>
-              <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+              <p>Sunday - Thursday: 9:00 AM - 5:00 PM</p>
               <p>Saturday: 10:00 AM - 2:00 PM</p>
             </div>
           </div>
