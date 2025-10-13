@@ -156,7 +156,7 @@ const ContextProvider = ({ children }) => {
                 const response = await axios.get('http://localhost:5000/api/user/publications', { withCredentials: true })
                 setLPublications(response.data.payload)
             } catch (error) {
-                console.log(error.response.data.message)
+                console.log(error)
             }
         }
         fetchUsers()

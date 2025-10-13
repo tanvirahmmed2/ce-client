@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import {ToastContainer} from 'react-toastify'
 import Navbar from './layout/Navbar'
 import Sidebar from './layout/Sidebar'
 import Footer from './layout/Footer'
@@ -32,6 +33,17 @@ const App = () => {
     <div className='w-full relative overflow-x-hidden'>
       <Navbar />
       <Sidebar />
+     <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className='w-full min-h-[800px] flex items-center justify-center mt-16'>
         <Routes>
           <Route path='/' element={<Home />} />

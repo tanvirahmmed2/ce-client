@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -8,7 +9,6 @@ import { ThemeContext } from '../components/Context'
 
 const Login = () => {
   const {setUser}= useContext(ThemeContext)
-  const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -24,7 +24,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/api/user/login', formData,{
         withCredentials: true
       })
-      setProblem(response.data.message)
+      toast.success(response.data.message)
       console.log(response.data.message)
       setUser(response.data.user)
       setFormData({
@@ -33,7 +33,7 @@ const Login = () => {
       })
       window.location.replace('/profile');
     } catch (error) {
-      setProblem( error.response.data.message)
+      toast.error( error.response.data.message)
     }
   }
   return (
@@ -55,7 +55,6 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password} />
             </div>
-            <p>{problem}</p>
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Login</button>
           </form>
           <Link to='/recover' className='mt-6 text-red-500 text-xs'>Forgot password</Link>
