@@ -30,6 +30,7 @@ import DashBoard from './components/DashBoard'
 import Profile from './user/Profile'
 import UpdateProfile from './user/UpdateProfile'
 import ProtectedUser from './components/ProtectedUser'
+import Publication from './components/Publication'
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
           <Route path='/update/:id' element={<UpdateBox/>} />
           <Route path='/scope' element={<Scope/>} />
           <Route path='/publications' element={<Publications/>} />
+          <Route path='/publications/:id' element={<Publication/>} />
           <Route path='/registration' element={<ProtectedUser><Register/></ProtectedUser>} />
           <Route path='/login' element={<ProtectedUser><Login/></ProtectedUser>} />
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />

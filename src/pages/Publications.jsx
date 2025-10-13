@@ -13,14 +13,20 @@ const Publications = () => {
 
       </div>
       <div className='w-full flex flex-col items-center justify-center gap-6'>
+        <div className='w-full grid grid-cols-4 shadow-lg p-4 rounded-md justify-items-center'>
+          <h1>Title</h1>
+          <p>Description</p>
+          <p>Abstruct</p>
+          <p>View Author</p>
+        </div>
         {
           publications && publications.map((paper) => {
             const { _id, authorId, title, abstract, description } = paper
-            return <div key={_id} className='w-full flex-row flex gap-2 items-center justify-between shadow-lg p-4 rounded-md'>
-              <h1>{title}</h1>
-              <p>{description}</p>
+            return <div key={_id} className='w-full grid grid-cols-4 shadow-lg p-4 rounded-md justify-items-center'>
+              <h1>{title.slice(0,20)}...</h1>
+              <p>{description.slice(0,20)}<Link to={`/publications/${_id}`} className='text-red-500'>... more</Link></p>
               <a href={abstract} className='text-white bg-emerald-500 p-2 px-3 rounded-lg w-auto'>Abstract</a>
-              <Link to={`/profile/${authorId}`} className='italic font-semibold'>View Author</Link>
+              <Link to={`/profile/${authorId}`} className='italic font-semibold'>Click</Link>
             </div>
           })
         }

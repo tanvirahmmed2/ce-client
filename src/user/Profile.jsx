@@ -144,10 +144,10 @@ const Profile = () => {
 
       {/* Publications */}
       {author && (
-        <div className='w-full bg-white shadow-md rounded-xl p-8 border border-gray-200'>
+        <div className='w-full bg-white shadow-md rounded-xl p-8 border border-gray-200 flex flex-col gap-4'>
           <h2 className='text-2xl font-semibold text-gray-700 mb-4'>Contributions</h2>
 
-          <div className='w-full grid grid-cols-4 p-3 border-b font-semibold text-gray-600 bg-gray-50 rounded-t-lg text-sm sm:text-base'>
+          <div className='w-full grid grid-cols-4 justify-items-center p-2 bg-slate-300'>
             <p className='text-left'>Title</p>
             <p className='hidden sm:block text-left'>Description</p>
             <p className='text-right'>Abstract</p>
@@ -157,9 +157,9 @@ const Profile = () => {
           {user.publications?.map((paper) => {
             const { title, _id, link, description } = paper
             return (
-              <div key={_id} className='grid grid-cols-4 p-3 items-center border-b last:border-none hover:bg-gray-50 transition'>
-                <h1 className='font-medium text-gray-800'>{title}</h1>
-                <p className='text-gray-600 text-sm hidden sm:block'>{description}</p>
+              <div key={_id}  className='w-full grid grid-cols-4 justify-items-center p-3'>
+                <h1 className='font-medium text-gray-800'>{title.slice(0,15)}</h1>
+                <p className='text-gray-600 text-sm hidden sm:block'>{description.slice(0,20)} <Link to={`/publications/${_id}`} className='text-red-500'>...See more</Link></p>
                 <a
                   href={link}
                   target='_blank'
