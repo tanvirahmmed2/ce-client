@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const UpdateHandle = () => {
 
@@ -30,9 +31,9 @@ const UpdateHandle = () => {
       newData.append('description', formData.description)
       newData.append('image', formData.image)
       const response= await axios.post('http://localhost:5000/api/update/add', newData, {withCredentials: true})
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+      toast.error(error)
     }
   }
 

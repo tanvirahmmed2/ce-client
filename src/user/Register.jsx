@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
 import axios from 'axios'
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 const countries = [
@@ -49,7 +50,6 @@ const countries = [
 
 
 const Register = () => {
-  const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     name: "",
     dateOfBirth: "",
@@ -72,10 +72,10 @@ const Register = () => {
 
       const response = await axios.post("http://localhost:5000/api/user/register", formData)
 
-      setProblem(response.data.message);
+      toast.success(response.data.message);
       window.location.replace('/')
     } catch (error) {
-      setProblem(" Registration failed: " + (error.response?.data?.message || "Server error"));
+      toast.error(" Registration failed: " + (error.response?.data?.message || "Server error"));
     }
   }
   return (
@@ -158,7 +158,7 @@ const Register = () => {
 
 
             <button type='submit' className='bg-emerald-500 text-white p-1 px-3 rounded-xl'>Register</button>
-            <p>{problem}</p>
+            
           </form>
         </div>
       </motion.div>

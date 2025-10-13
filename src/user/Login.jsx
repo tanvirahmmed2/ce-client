@@ -25,7 +25,6 @@ const Login = () => {
         withCredentials: true
       })
       toast.success(response.data.message)
-      console.log(response.data.message)
       setUser(response.data.user)
       setFormData({
         email: '',

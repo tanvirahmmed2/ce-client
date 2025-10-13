@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Galleryhandle = () => {
-  const [problem, setProblem] = useState('')
+
+
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -18,7 +20,7 @@ const Galleryhandle = () => {
     }
   }
 
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -28,26 +30,26 @@ const Galleryhandle = () => {
       newData.append('image', formData.image)
       newData.append('author', formData.author)
       const response = await axios.post('http://localhost:5000/api/gallery/add', newData, { withCredentials: true })
-      setProblem(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+      toast.error(error)
 
     }
   }
 
-const [deleteImage, setDeleteImage]= useState({
-  id:''
-})
-  const handlesearch = async(e) => {
+  const [deleteImage, setDeleteImage] = useState({
+    id: ''
+  })
+  const handlesearch = async (e) => {
     e.preventDefault()
     try {
-      const response= await axios.delete('http://localhost:5000/api/gallery/delete', {data: deleteImage, withCredentials: true})
+      const response = await axios.delete('http://localhost:5000/api/gallery/delete', { data: deleteImage, withCredentials: true })
       console.log(response.data.message)
     } catch (error) {
       console.log(error.response.data.message)
-      
+
     }
-    
+
   }
 
   return (
@@ -98,7 +100,7 @@ const [deleteImage, setDeleteImage]= useState({
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
-          <p>{problem}</p>
+          
           <button
             type="submit"
             className="w-full bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-2 rounded-lg shadow-md"

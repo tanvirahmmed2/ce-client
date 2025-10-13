@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 
 const NoticeHandle = () => {
@@ -8,13 +9,12 @@ const NoticeHandle = () => {
     title: "",
     pdf: null
   })
-  const [message, setMessage] = useState("")
+
   const [uploading, setUploading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setUploading(true)
-    setMessage("")
 
     try {
       const data = new FormData()
@@ -30,11 +30,11 @@ const NoticeHandle = () => {
         }
       )
 
-      setMessage(response.data.message || "Notice uploaded successfully!")
+      toast.success(response.data.message || "Notice uploaded successfully!")
       setFormData({ title: "", pdf: null })
     } catch (error) {
       console.error(error)
-      setMessage("Upload failed. Please try again.")
+      toast.error("Upload failed. Please try again.")
     } finally {
       setUploading(false)
     }
@@ -42,13 +42,13 @@ const NoticeHandle = () => {
 
 
 
-  const removeNotice=async(id)=>{
+  const removeNotice = async (id) => {
     try {
-      const response= await axios.delete('http://localhost:5000/api/notice/delete', {data: {id}, withCredentials: true})
+      const response = await axios.delete('http://localhost:5000/api/notice/delete', { data: { id }, withCredentials: true })
       console.log(response.data.message)
     } catch (error) {
       console.log(error)
-      
+
     }
   }
   return (
@@ -92,7 +92,7 @@ const NoticeHandle = () => {
           {uploading ? "Uploading..." : "Add Notice"}
         </button>
 
-        {message && <p className='text-center text-gray-700 mt-2'>{message}</p>}
+
       </form>
 
       <div className='w-full flex flex-col gap-4'>
@@ -115,7 +115,7 @@ const NoticeHandle = () => {
                 <h3 className='font-medium text-gray-900 truncate'>{title}</h3>
                 <a href={pdf} target="_blank" rel="noopener noreferrer" download>Download PDF</a>
                 <div className='flex justify-center'>
-                  <button onClick={()=> removeNotice(_id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
+                  <button onClick={() => removeNotice(_id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
                     Remove
                   </button>
                 </div>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import axios from 'axios';
 import { ThemeContext } from '../components/Context'
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const daysInMonth = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -34,7 +35,8 @@ const monthNames = [
 
 
 const EventHandle = () => {
-  const [problem, setProblem] = useState('')
+  
+
   const { events } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     title: '',
@@ -55,10 +57,10 @@ const EventHandle = () => {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:5000/api/event/add', formData, { withCredentials: true })
-      setProblem(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
       console.log(error)
-      setProblem('Event creation failed')
+      toast.error('Event creation failed')
     }
   }
 
@@ -139,7 +141,7 @@ const EventHandle = () => {
             </div>
           </div>
         </div>
-        <p>{problem}</p>
+        
         <button
           type='submit'
           className='mt-3 bg-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition duration-300 shadow-lg'

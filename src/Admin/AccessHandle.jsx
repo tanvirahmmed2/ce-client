@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useContext } from 'react'
+import {toast} from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 
 const AccessHandle = () => {
@@ -10,7 +11,6 @@ const AccessHandle = () => {
   const admins = users.filter((user) => user.role === 'admin')
 
 
-  const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     email: '',
     role: '',
@@ -28,9 +28,9 @@ const AccessHandle = () => {
     e.preventDefault()
     try {
       const response = await axios.put('http://localhost:5000/api/user/updaterole', formData, { withCredentials: true })
-      setProblem(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error.response.data.message)
+      toast.error(error.response.data.message)
 
     }
   }
@@ -50,9 +50,9 @@ const AccessHandle = () => {
         data: deleteData,
         withCredentials: true
       })
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+     toast.error(error)
 
     }
   }
@@ -77,9 +77,6 @@ const AccessHandle = () => {
           </div>
         })
       }
-
-
-      <p>{problem}</p>
 
       <form onSubmit={handleUpdate} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
         <h2 className='text-2xl font-bold text-gray-800 text-center mb-4'>

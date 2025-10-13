@@ -1,18 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const ProjectHandle = () => {
 
-const [problem, setProblem]=useState('')
   const { projects } = useContext(ThemeContext)
-  const [formData, setFormData]= useState({
+  const [formData, setFormData] = useState({
     title: '',
-    description:'',
+    description: '',
     image: null
   })
 
-  const handleChange=(e)=>{
+  const handleChange = (e) => {
     const { name, value, files } = e.target
     if (name === 'image') {
       setFormData((prev) => ({ ...prev, image: files[0] }))
@@ -20,17 +20,17 @@ const [problem, setProblem]=useState('')
       setFormData((prev) => ({ ...prev, [name]: value }))
     }
   }
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const newData= new FormData()
+      const newData = new FormData()
       newData.append('title', formData.title)
       newData.append('description', formData.description)
       newData.append('image', formData.image)
-      const response= await axios.post('http://localhost:5000/api/project/add', newData, {withCredentials: true})
-      setProblem(response.data.message)
+      const response = await axios.post('http://localhost:5000/api/project/add', newData, { withCredentials: true })
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+      toast.error(error)
     }
   }
 
@@ -41,11 +41,11 @@ const [problem, setProblem]=useState('')
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="title" className="font-medium ">Title</label>
-            <input 
-              type="text" 
-              name="title"  
-              id="title" 
-              required 
+            <input
+              type="text"
+              name="title"
+              id="title"
+              required
               onChange={handleChange}
               value={formData.title}
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
@@ -53,30 +53,30 @@ const [problem, setProblem]=useState('')
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="image" className="font-medium ">Image</label>
-            <input 
-              type="file" 
-              name="image"  
-              id="image" 
-              required 
+            <input
+              type="file"
+              name="image"
+              id="image"
+              required
               onChange={handleChange}
               className="w-full border rounded-lg p-2 px-3 outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="description" className="font-medium ">Description</label>
-            <textarea 
-              name="description" 
-              id="description" 
-              rows="4" 
-              required 
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              required
               onChange={handleChange}
               value={formData.description}
               className="w-full border rounded-lg p-2 px-3 resize-none outline-none focus:ring-2 focus:ring-emerald-500"
             ></textarea>
           </div>
-          <p>{problem}</p>
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="w-full bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-2 rounded-lg shadow-md"
           >
             Publish
@@ -97,7 +97,7 @@ const [problem, setProblem]=useState('')
             <tbody>
               {projects && projects.length > 0 ? (
                 projects.slice(-6).map((e) => {
-                  const {  _id,  title, description } = e
+                  const { _id, title, description } = e
                   return (
                     <tr key={_id} className="border-t  transition">
                       <td className="p-3">{title}</td>

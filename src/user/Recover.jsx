@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Recover = () => {
-  const [message, setMessage] = useState('');
   const [emailSent, setEmailSent] = useState(false);
 
   const [formData, setFormData] = useState({ email: '' });
@@ -23,13 +23,12 @@ const Recover = () => {
         formData,
         { withCredentials: true }
       );
-      setMessage(response.data.message);
+      toast.success(response.data.message);
       setEmailSent(true);
 
-      // Prefill email in reset form
       setResetData((prev) => ({ ...prev, email: formData.email }));
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Something went wrong');
+      toast.error(error.response?.data?.message || 'Something went wrong');
       setEmailSent(false);
     }
   };
@@ -47,11 +46,11 @@ const Recover = () => {
         { ...resetData, code: resetData.code.trim() }, // trim code
         { withCredentials: true }
       );
-      setMessage(response.data.message);
+      toast.success(response.data.message);
       setResetData({ email: '', code: '', newpassword: '' });
       setEmailSent(false);
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Something went wrong');
+      toast.error(error.response?.data?.message || 'Something went wrong');
     }
   };
 
@@ -73,7 +72,7 @@ const Recover = () => {
                 className="w-full text-black border-2 outline-none p-1 px-3 rounded"
               />
             </div>
-            <p>{message}</p>
+            
             <button
               type="submit"
               className="mt-6 bg-white text-black w-full p-2 rounded text-sm font-semibold"
@@ -122,7 +121,7 @@ const Recover = () => {
                 className="w-full text-black border-2 outline-none p-1 px-3 rounded"
               />
             </div>
-            <p>{message}</p>
+          
             <button
               type="submit"
               className="mt-6 bg-white text-black w-full p-2 rounded text-sm font-semibold"

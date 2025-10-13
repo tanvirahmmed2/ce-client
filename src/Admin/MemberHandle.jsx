@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react'
 import axios from 'axios'
 import { ThemeContext } from '../components/Context'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 const MemberHandle = () => {
 
-  const [problem, setProblem] = useState('')
+
   const { messages, setMessages } = useContext(ThemeContext)
   const [banData, setBanData] = useState({
     email: '',
@@ -32,9 +33,9 @@ const MemberHandle = () => {
       const response = await axios.delete('http://localhost:5000/api/message/delete', {
         data: { id }
       })
-      console.log(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error)
+      toast.error(error)
     }
   }
 
@@ -52,9 +53,9 @@ const MemberHandle = () => {
     e.preventDefault()
     try {
       const response = await axios.put('http://localhost:5000/api/user/updateban', banData, { withCredentials: true })
-      setProblem(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      console.log(error.response.data.message)
+      toast.error(error.response.data.message)
 
     }
   }
@@ -108,7 +109,6 @@ const MemberHandle = () => {
         </div>
 
 
-        <p>{problem}</p>
 
         <button
           type='submit'

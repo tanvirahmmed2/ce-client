@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const roleMap = {
   advisor: ["Chief Advisor", "Faculty Advisor", "Advisor"],
@@ -13,8 +14,6 @@ const roleMap = {
 
 const TeamHandle = () => {
 
-  const [problem,setProblem]= useState('')
-  const [showremovedata, setShowRemoveData]= useState('')
   const { team } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     name: '',
@@ -52,23 +51,23 @@ const TeamHandle = () => {
         }
       )
 
-      setProblem(response.data.message)
+      toast.success(response.data.message)
     } catch (error) {
-      setProblem(error.response.data.message)
+      toast.error(error.response.data.message)
     }
   }
 
   const roles = roleMap[formData.role] || []
 
-  const handleRemove = async(id) => {
+  const handleRemove = async (id) => {
     console.log(id)
     try {
-      const response= await axios.delete('http://localhost:5000/api/team/remove', {data: {id}, withCredentials: true})
-      setShowRemoveData(response.data.message)
-      
+      const response = await axios.delete('http://localhost:5000/api/team/remove', { data: { id }, withCredentials: true })
+      toast.success(response.data.message)
+
     } catch (error) {
-      setShowRemoveData('failed tp remove member' + error)
-      
+      toast.error('failed tp remove member' + error)
+
     }
   }
 
@@ -129,7 +128,7 @@ const TeamHandle = () => {
             </select>
           </div>
 
-          
+
 
           <div>
             <label htmlFor="profileImage">Image</label>
@@ -155,7 +154,7 @@ const TeamHandle = () => {
               className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
             />
           </div>
-          <p>{problem}</p>
+
           <button
             type='submit'
             className='bg-gray-800 text-white rounded-md py-2 hover:bg-gray-700 transition'
@@ -168,7 +167,7 @@ const TeamHandle = () => {
       {team && (
         <div className='w-full flex flex-col items-center justify-center gap-4'>
           <h1 className='text-2xl font-semibold text-center'>Existing Team Members</h1>
-          <p className='text-red-500'>{showremovedata}</p>
+
           <div className='w-full grid grid-cols-4 justify-items-center'>
             <p>Name</p>
             <p>Role</p>
@@ -176,7 +175,7 @@ const TeamHandle = () => {
             <p>Action</p>
           </div>
           {team.map((e) => {
-            const { name, role, post,  _id } = e
+            const { name, role, post, _id } = e
             return (
               <div key={_id} className='w-full grid grid-cols-4 justify-items-center shadow-lg py-2'>
                 <h1>{name}</h1>
@@ -186,7 +185,7 @@ const TeamHandle = () => {
               </div>
             )
           })}
-          
+
         </div>
       )}
     </div>

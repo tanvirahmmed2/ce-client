@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
+import {toast} from 'react-toastify'
 
 
 import { CiClock1, CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 
 const Contact = () => {
-  const [problem, setProblem] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,7 +25,7 @@ const Contact = () => {
     try {
       const response = await axios.post("http://localhost:5000/api/message/send", formData)
 
-      setProblem(response.data.message);
+      toast.success(response.data.message);
       setFormData({
         name: '',
         email: '',
@@ -33,7 +33,7 @@ const Contact = () => {
         message: ''
       })
     } catch (error) {
-      setProblem(" Registration failed: " + (error.response?.data?.message || "Server error"));
+      toast.error(" Registration failed: " + (error.response?.data?.message || "Server error"));
     }
   }
   return (
@@ -105,7 +105,7 @@ const Contact = () => {
               <label htmlFor="message">Message</label>
               <textarea name="message" id="message" className='w-full px-4 p-2 border-2 outline-none resize-none' onChange={handleChange} value={formData.message}></textarea>
             </div>
-            <p>{problem}</p>
+            
             <button type='submit' className='w-full bg-emerald-500 rounded-lg text-white hover:bg-emerald-600 p-1'>Send Message</button>
           </form>
         </div>
