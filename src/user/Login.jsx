@@ -8,7 +8,7 @@ import { useContext } from 'react'
 import { ThemeContext } from '../components/Context'
 
 const Login = () => {
-  const {setUser}= useContext(ThemeContext)
+  const { setUser } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -21,7 +21,7 @@ const Login = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/user/login', formData,{
+      const response = await axios.post('http://localhost:5000/api/user/login', formData, {
         withCredentials: true
       })
       toast.success(response.data.message)
@@ -32,7 +32,7 @@ const Login = () => {
       })
       window.location.replace('/profile');
     } catch (error) {
-      toast.error( error.response.data.message)
+      toast.error(error.response.data.message || 'Server error')
     }
   }
   return (

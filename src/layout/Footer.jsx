@@ -28,7 +28,7 @@ const Footer = () => {
           <h1 className='font-semibold text-white'>Important</h1>
           <div className='flex flex-col'>
             <Link to='/publications'>Publications</Link>
-            <Link to='dashboard'>DashBoard</Link>
+            <Link to='/admin'>Admin</Link>
             <Link to='/profile'>Profile</Link>
             <Link to='/login'>Join us</Link>
             <Link to='/projects'>Projects</Link>
