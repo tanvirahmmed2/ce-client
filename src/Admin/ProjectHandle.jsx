@@ -34,6 +34,16 @@ const ProjectHandle = () => {
     }
   }
 
+  const removeProject=async(id)=>{
+    try {
+      const response= await axios.delete('http://localhost:5000/api/project/remove', {data: {id}, withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+      
+    }
+  }
+
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
@@ -93,22 +103,24 @@ const ProjectHandle = () => {
               <tr className="bg-gray-100  text-left">
                 <th className="p-3 font-semibold">Title</th>
                 <th className="p-3 font-semibold">Description</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {projects && projects.length > 0 ? (
-                projects.slice(-6).map((e) => {
+                projects.map((e) => {
                   const { _id, title, description } = e
                   return (
                     <tr key={_id} className="border-t  transition">
                       <td className="p-3">{title}</td>
                       <td className="p-3">{description.slice(0, 50)}...</td>
+                      <td onClick={()=> removeProject(_id)} className='cursor-pointer'>Remove</td>
                     </tr>
                   )
                 })
               ) : (
                 <tr>
-                  <td colSpan="4" className="p-4 text-center text-gray-500">No news uploaded yet.</td>
+                  <td colSpan="4" className="p-4 text-center text-gray-500">No project uploaded yet.</td>
                 </tr>
               )}
             </tbody>

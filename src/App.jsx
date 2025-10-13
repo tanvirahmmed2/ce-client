@@ -29,6 +29,7 @@ import Admin from './pages/Admin'
 import DashBoard from './components/DashBoard'
 import Profile from './user/Profile'
 import UpdateProfile from './user/UpdateProfile'
+import ProtectedUser from './components/ProtectedUser'
 
 const App = () => {
   return (
@@ -62,13 +63,13 @@ const App = () => {
           <Route path='/update/:id' element={<UpdateBox/>} />
           <Route path='/scope' element={<Scope/>} />
           <Route path='/publications' element={<Publications/>} />
-          <Route path='/registration' element={<Register/>} />
-          <Route path='/login' element={<Login/>} />
+          <Route path='/registration' element={<ProtectedUser><Register/></ProtectedUser>} />
+          <Route path='/login' element={<ProtectedUser><Login/></ProtectedUser>} />
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />
           <Route path='/updateprofile' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>} />
           <Route path='/admin' element={<ProtectedAdmin><Admin/></ProtectedAdmin>} />
           <Route path='/admin/:handler' element={<ProtectedAdmin><DashBoard/></ProtectedAdmin>} />
-          <Route path='/recover' element={<Recover/>} />
+          <Route path='/recover' element={<ProtectedUser><Recover/></ProtectedUser>} />
           <Route path='/notice' element={<Notice/>} />
 
           <Route path='/*' element={<Error />} />

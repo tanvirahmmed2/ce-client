@@ -37,6 +37,16 @@ const UpdateHandle = () => {
     }
   }
 
+
+  const removeUpdate=async(id)=>{
+    try {
+      const response= await axios.delete('http://localhost:5000/api/update/remove', {data: {id}, withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+      
+    }
+  }
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
       <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
@@ -95,16 +105,18 @@ const UpdateHandle = () => {
               <tr className="bg-gray-100  text-left">
                 <th className="p-3 font-semibold">Title</th>
                 <th className="p-3 font-semibold">Description</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {update && update.length > 0 ? (
-                update.slice(-6).map((e) => {
+                update.map((e) => {
                   const {  _id,  title, description } = e
                   return (
                     <tr key={_id} className="border-t  transition">
                       <td className="p-3">{title}</td>
                       <td className="p-3">{description.slice(0, 50)}...</td>
+                      <td className='cursor-pointer' onClick={()=> removeUpdate(_id)}>Remove</td>
                     </tr>
                   )
                 })
