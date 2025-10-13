@@ -90,9 +90,55 @@ const [newDob, setNewDob] = useState({
 
   
   
-  const updateEducation = (e) => {
+  const updateEducation = async(e) => {
     e.preventDefault()
-    console.log(newEducation)
+    try {
+      const response= await axios.post('http://localhost:5000/api/user/addeducation', newEducation, {withCredentials:true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+  }
+
+  const removeEducation=async(userId, eduId)=>{
+    try {
+      const response= await axios.delete('http://localhost:5000/api/user/removeeducation', {data: {userId, eduId}, withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+      
+    }
+  }
+
+
+  const [newWork, setNewWork]=useState({
+    userId: user._id,
+    position:'',
+    company:''
+  })
+
+  const handleWorkChange= (e)=>{
+    const {name, value}= e.target
+    setNewWork((prev)=>({...prev, [name]:value}))
+  }
+  const updateWork = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.post('http://localhost:5000/api/user/addwork', newWork, {withCredentials:true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
+  }
+
+  const removeWork=async(userId, workId)=>{
+    try {
+      const response= await axios.delete('http://localhost:5000/api/user/removework', {data: {userId, workId}, withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+      
+    }
   }
 
   return (
@@ -224,6 +270,67 @@ const [newDob, setNewDob] = useState({
           </button>
         </form>
 
+
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+          <h1 className="text-lg font-semibold text-gray-700">Eduactional Information</h1>
+          {
+            user.education.length >0 && user.education.map((edu)=>{
+              const {_id, degree, institution}= edu
+              return <div key={_id} className='w-full flex flex-row items-center justify-between '>
+                <h1>Studies in {degree} in {institution}</h1>
+                <button onClick={()=>removeEducation( user._id, _id)}>Remove</button>
+              </div>
+            })
+          }
+        </div>
+
+
+        <form
+          onSubmit={updateWork}
+          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+        >
+          <h2 className="text-lg font-semibold text-gray-700">Update Work Place</h2>
+          <input
+            type="text"
+            id="position"
+            name="position"
+            required
+            value={newWork.position}
+            onChange={handleWorkChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Positon"
+          />
+         
+         
+          
+          <input
+            type="text"
+            id="company"
+            name="company"
+            required
+            value={newWork.company}
+            onChange={handleWorkChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Company Name"
+          />
+          <button className="bg-black text-white py-2 rounded-lg ">
+            Add
+          </button>
+        </form>
+
+
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+          <h1 className="text-lg font-semibold text-gray-700">Job Information</h1>
+          {
+            user.work.length >0 && user.work.map((e)=>{
+              const {_id, position, company}= e
+              return <div key={_id} className='w-full flex flex-row items-center justify-between '>
+                <h1>Works as {position} in {company}</h1>
+                <button onClick={()=>removeWork( user._id, _id)}>Remove</button>
+              </div>
+            })
+          }
+        </div>
 
         <form
           onSubmit={changePassword}
