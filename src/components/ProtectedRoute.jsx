@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import {  ThemeContext } from './Context'
+import { toast } from 'react-toastify'
 
 const ProtectedRoute = ({ children }) => {
     const { user } = useContext(ThemeContext) 
@@ -20,6 +21,7 @@ const ProtectedRoute = ({ children }) => {
     }
 
     if (!user) {
+        toast.error('Please login')
         return <Navigate to="/login" replace />
     }
 

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import {  ThemeContext } from './Context'
+import { toast } from 'react-toastify'
 
 const ProtectedAdmin = ({ children }) => {
     const { admin } = useContext(ThemeContext) 
@@ -20,7 +21,7 @@ const ProtectedAdmin = ({ children }) => {
     }
 
     if (!admin) {
-        alert('Admin use only')
+        toast.error('Admin use only')
         return <Navigate to="/" replace />
     }
 
