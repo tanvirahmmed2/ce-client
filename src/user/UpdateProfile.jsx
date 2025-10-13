@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
+import {toast} from 'react-toastify'
 import { ThemeContext } from '../components/Context'
+import axios from 'axios'
 
 const UpdateProfile = () => {
   const { user } = useContext(ThemeContext)
@@ -7,14 +9,53 @@ const UpdateProfile = () => {
     userId: user._id,
     name: ''
   })
-  const [newDob, setNewDob] = useState({
+  const changeName = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.put('http://localhost:5000/api/user/updatename', newName, {withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.data.message)
+      
+    }
+  }
+
+const [newDob, setNewDob] = useState({
     userId: user._id,
     dateOfBirth: ''
   })
+
+  const changeDob = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.put('http://localhost:5000/api/user/updatedob', newDob, {withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.data.message)
+      
+    }
+  }
+
+
+  
   const [newEmail, setNewEmail] = useState({
     userId: user._id,
     email: ''
   })
+
+   const changeEmail = async(e) => {
+    e.preventDefault()
+    try {
+      const response= await axios.put('http://localhost:5000/api/user/updateemail', newEmail, {withCredentials: true})
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message || "Email change failed")
+      
+    }
+  }
+
+
+  
   const [newPassword, setNewPassword] = useState({
     userId: user._id,
     old_password: '',
@@ -37,9 +78,7 @@ const UpdateProfile = () => {
     setNewEducation((prev) => ({ ...prev, [name]: value }))
   }
 
-  const changeName = (e) => e.preventDefault()
-  const changeDob = (e) => e.preventDefault()
-  const changeEmail = (e) => e.preventDefault()
+  
   const changePassword = (e) => e.preventDefault()
   const updateEducation = (e) => {
     e.preventDefault()
@@ -69,7 +108,7 @@ const UpdateProfile = () => {
             className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
             placeholder={user.name}
           />
-          <button className="bg-black text-white py-2 rounded-lg ">
+          <button type='submit' className="bg-black text-white py-2 rounded-lg ">
             Update
           </button>
         </form>
