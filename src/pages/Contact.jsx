@@ -33,7 +33,7 @@ const Contact = () => {
         message: ''
       })
     } catch (error) {
-      toast.error(" Registration failed: " + (error.response?.data?.message || "Server error"));
+      toast.error((error.response?.data?.message || "Server error"));
     }
   }
   return (
