@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import {motion} from'framer-motion'
 import { ThemeContext } from '../components/Context'
 
 const Collaboration = () => {
@@ -10,10 +11,10 @@ const Collaboration = () => {
                 collaborations.length > 0 ? <div className='w-full flex flex-wrap justify-center'>
                     {collaborations.map((collab) => {
                         const { _id, title, image, portfolio } = collab
-                        return <div key={_id} className='h-auto w-[300px] shadow-md rounded-xl overflow-hidden flex flex-col items-center justify-between p-2 gap-2'>
+                        return <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} key={_id} className='hover:scale-105 transition duration-500 h-auto w-[300px] shadow-md rounded-xl overflow-hidden flex flex-col items-center justify-between p-2 gap-2'>
                             <img src={image} alt="" className='w-[300px] h-[300px] object-cover overflow-hidden rounded-lg'/>
                             <a href={portfolio} className='text-xl font-semibold'>{title}</a>
-                        </div>
+                        </motion.div>
                     })}
                 </div> : <p> No data found</p>
             }

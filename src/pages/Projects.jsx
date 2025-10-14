@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { ThemeContext } from '../components/Context'
 
 const Projects = () => {
@@ -12,12 +13,12 @@ const Projects = () => {
         {
           projects && projects.map((project)=>{
             const {_id,  title, description, image}= project
-            return <div key={_id} className='w-full flex flex-col items-start justify-between gap-2  shadow-xl rounded-lg p-4 border-2 hover:scale-[1.02] transition duration-500'>
+            return <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} key={_id} className='w-full flex flex-col items-start justify-between gap-2  shadow-xl rounded-lg p-4 border-2 hover:scale-[1.02] transition duration-500'>
               <img src={image} alt=""  className='w-full h-[200px] object-cover'/>
               <p className='text-lg font-semibold'>{title}</p>
               <p>{description.slice(0,70)} .....<Link to={`/projects/${_id}`} className='text-red-500'>show more</Link> </p>
   
-            </div>
+            </motion.div>
           })
         }
        </div>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../components/Context';
 
@@ -16,14 +16,14 @@ const Update = () => {
         {
           update.length > 0 && update.map((e) => {
             const { _id, title, image, description } = e
-            return <div key={_id} className='w-[300px] h-auto rounded-lg  flex flex-col gap-4 bg-gray-50 p-4 overflow-hidden shadow-xl hover:scale-[1.03] transition duration-500'>
+            return <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} key={_id} className='w-[300px] h-auto rounded-lg  flex flex-col gap-4 bg-gray-50 p-4 overflow-hidden shadow-xl hover:scale-[1.03] transition duration-500'>
               <p className='font-semibold text-lg'>{title}</p>
               <img src={image} alt="" className='w-[300px] h-[300px] object-cover' />
 
               {
                 description.length >0 && <p className=''>{description.slice(0, 150)} .... <Link to={`/update/${_id}`} className='italic text-green-600'>see more</Link></p>
               }
-            </div>
+            </motion.div>
           })
         }
 

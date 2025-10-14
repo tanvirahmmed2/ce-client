@@ -16,7 +16,7 @@ const Events = () => {
           events.length >0 ? events.map((event) => {
             const { _id,day, title, description, location, month,year, registration} = event
             return <div key={_id} className='w-full lg:w-3/4 p-2 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gray-50 shadow-lg hover:scale-[1.02] transition duration-500'>
-              <div className='w-auto h-full flex flex-col items-center justify-center  bg-gradient-to-br from-gray-600 to-emerald-600 text-white p-10'>
+              <div className='w-[200px] overflow-hidden h-full flex flex-col items-center justify-center  bg-gradient-to-br from-gray-600 to-emerald-600 text-white p-10'>
                 <p className='text-xl font-semibold'>{month}</p>
                 <p className='text-4xl font-bold'>{day}</p>
                 <p className='text-xl'>{year}</p>

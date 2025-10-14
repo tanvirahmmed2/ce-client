@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 import { TbMapSearch } from "react-icons/tb";
 import { FaHandHoldingHand } from "react-icons/fa6";
@@ -47,7 +48,7 @@ const Mission = () => {
     <section className="w-full min-h-screen px-6 py-16 bg-gray-50 flex flex-col items-center gap-16">
       
 
-      <img src={logo} alt="logo" className='w-[350px] h-'/>
+      <motion.img initial={{opacity:0, scale:0.9}} whileInView={{opacity:1, scale:1}} transition={{duration: 0.7}} src={logo} alt="logo" className='w-[350px] h-'/>
       {/* Vision */}
       <div className="text-center max-w-3xl animate-fadeIn">
         <h1 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">Vision</h1>
@@ -63,7 +64,7 @@ const Mission = () => {
           {missions.map((mission, index) => {
             const { title, icon, description, color } = mission;
             return (
-              <div 
+              <motion.div initial={{opacity:0, scale:0.9}} whileInView={{opacity:1, scale:1}} transition={{duration: 0.7}} 
                 key={index} 
                 className="bg-white shadow-md rounded-2xl p-6 flex flex-col items-center text-center 
                            hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-fadeIn"
@@ -71,7 +72,7 @@ const Mission = () => {
                 <div className={`text-5xl mb-4 ${color}`}>{icon}</div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

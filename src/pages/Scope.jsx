@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { motion } from 'framer-motion';
 import { GiModernCity } from "react-icons/gi";
 import { GiFruitTree } from "react-icons/gi"
 import { GiHills } from "react-icons/gi";
@@ -79,14 +79,14 @@ const Scope = () => {
       {
         fields && fields.map((field)=>{
           const {id, icon, title, description}= field
-          return <div key={id} className='w-full flex flex-col items-start justify-start gap-2  shadow-xl rounded-lg p-6 py-12 border-2 hover:scale-[1.02] transition duration-500'>
+          return <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration: 0.6}} key={id} className='w-full flex flex-col items-start justify-start gap-2  shadow-xl rounded-lg p-6 py-12 border-2 hover:scale-[1.02] transition duration-500'>
             <p className='text-4xl'>{icon}</p>
             <p className='text-lg font-semibold text-emerald-600'>{title}</p>
             {description && description.map((e,index)=>{
               return <p key={index}>{e}</p>
             })}
 
-          </div>
+          </motion.div>
         })
       }
      </div>
