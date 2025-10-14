@@ -19,9 +19,9 @@ const Notice = () => {
         {
           notices.length >0? notices.map((event) => {
             const { _id, pdf, title } = event
-            return <div key={_id} className='w-full lg:w-3/4 p-2 flex flex-row items-center justify-between px-6 gap-3 bg-gray-50 shadow-lg  transition duration-500'>
+            return <div key={_id} className='w-full lg:w-3/4 p-2 flex flex-row items-center justify-between px-6 gap-3 border-2 border-red-50 rounded-lg shadow-lg  transition duration-500'>
 
-              <h1 className='text-xl font-semibold'>{title}</h1>
+              <h1 className=''>{title}</h1>
               <a href={pdf} download className='hover:scale-105'>Click</a>
 
             </div>
