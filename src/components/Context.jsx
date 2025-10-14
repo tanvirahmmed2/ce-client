@@ -162,6 +162,19 @@ const ContextProvider = ({ children }) => {
         fetchUsers()
     }, [])
 
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/collaboration', { withCredentials: true })
+                setCollaborations(response.data.payload)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchUsers()
+    }, [])
+
     
     const contextValue = {
         sidebar, setSidebar,
