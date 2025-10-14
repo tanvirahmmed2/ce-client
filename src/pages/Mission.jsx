@@ -6,7 +6,6 @@ import { FaHandHoldingHand } from "react-icons/fa6";
 import { GiPalmTree } from "react-icons/gi";
 import { FaGraduationCap } from "react-icons/fa"; 
 
-import logo from '../components/CCIRL.png'
 
 const missions = [
   {
@@ -48,7 +47,7 @@ const Mission = () => {
     <section className="w-full min-h-screen px-6 py-16 bg-gray-50 flex flex-col items-center gap-16">
       
 
-      <motion.img initial={{opacity:0, scale:0.9}} whileInView={{opacity:1, scale:1}} transition={{duration: 0.7}} src={logo} alt="logo" className='w-[350px] h-'/>
+      <motion.img initial={{opacity:0, scale:0.9}} whileInView={{opacity:1, scale:1}} transition={{duration: 0.7}} src={`https://res.cloudinary.com/dq4gmh1z6/image/upload/v1760450691/CCIRL_zvnbcp.png`} alt="logo" className='w-[350px] h-'/>
       {/* Vision */}
       <div className="text-center max-w-3xl animate-fadeIn">
         <h1 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">Vision</h1>

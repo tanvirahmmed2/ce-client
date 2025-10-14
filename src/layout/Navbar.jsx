@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../components/CCIRL.png'
 import { TbMenuDeep } from "react-icons/tb";
 import { ThemeContext } from '../components/Context';
 
@@ -9,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-sm z-40 bg-white text-emerald-950'>
       <a href="/" className='w-auto h-full flex flex-row items-center justify-center gap-2'>
-        <img src={logo} alt=""  className='h-16'/>
+        <img src={`https://res.cloudinary.com/dq4gmh1z6/image/upload/v1760450691/CCIRL_zvnbcp.png`} alt=""  className='h-16'/>
         <div className='w-auto h-full flex flex-col items-start justify-center'>
           <h1 className='font-semibold'>CCIRL</h1>
           <p className='text-[10px]'>Climate Change Impact and Resilience Lab</p>
