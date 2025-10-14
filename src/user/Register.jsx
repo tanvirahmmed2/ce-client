@@ -141,19 +141,19 @@ const Register = () => {
             </div>
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="phone">Phone</label>
-              <input type="number" name='phone' id='phone' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.phone} />
+              <input type="number" name='phone' id='phone' placeholder="phone can't be changed after register" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.phone} />
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="email">Email</label>
-              <input type="email" id='email' name='email' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email} />
+              <input type="email" id='email' name='email' placeholder="email can't be changed after register" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.email} />
             </div>
 
 
             <div className='w-full flex flex-col items-start justify-start gap-2'>
               <label htmlFor="password">Password</label>
-              <input type="password" name='password' id='password' required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password} />
+              <input type="password" name='password' id='password' placeholder="password must be atleast 8 character" required className='w-full border-2 outline-none p-1 px-3' onChange={handleChange} value={formData.password} />
             </div>
 
 

@@ -9,7 +9,7 @@ const Projects = () => {
       <section className="w-full min-h-[800px] bg-slate-50 p-6 flex flex-col items-center justify-center gap-8">
         <h1 className='text-4xl font-bold text-emerald-600'>Projects</h1>
         <p className='text-base sm:text-lg text-center'>Our multidisciplinary approach integrates expertise across climate science, environmental engineering, data analysis, and sustainability studies, enabling us to design projects that address complex environmental challenges with innovative, science-driven solutions.</p>
-       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8'>
+       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-8'>
         {
           projects && projects.map((project)=>{
             const {_id,  title, description, image}= project

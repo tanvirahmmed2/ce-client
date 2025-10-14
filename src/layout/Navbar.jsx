@@ -16,6 +16,7 @@ const Navbar = () => {
       </a>
       <div className='w-auto h-full hidden sm:flex flex-row items-center justify-center'>
         <Link to='/' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Home</Link>
+        <Link to='/notice' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Notice</Link>
         <Link to='/scope' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Scope</Link>
         <Link to='/update' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Update</Link>
         <Link to='/projects' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Projects</Link>
@@ -23,7 +24,6 @@ const Navbar = () => {
         <Link to='/events' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Gallery</Link>
         <Link to='/team' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Team</Link>
-        <Link to='/notice' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Notice</Link>
         <Link to='/contact' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Contact</Link>
       </div>
       <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>

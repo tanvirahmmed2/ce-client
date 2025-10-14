@@ -50,19 +50,7 @@ const Profile = () => {
     }
   }
 
-  const handleLogout = async () => {
-    try {
-      const response = await axios.post(
-        'http://localhost:5000/api/user/logout',
-        {},
-        { withCredentials: true }
-      )
-      toast.success(response.data.message)
-      window.location.replace('/')
-    } catch (error) {
-      toast.error(error.response?.data?.message || 'Logout failed')
-    }
-  }
+ 
 
   return (
     <section className='w-full min-h-screen bg-gray-50 p-6 flex flex-col items-center gap-10'>
@@ -127,13 +115,13 @@ const Profile = () => {
             const { _id, position, company } = job
             return (
               <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
-                <p>Works as <span className='font-semibold'>{position}</span> at {company}</p>
+                <p>Working as <span className='font-semibold'>{position}</span> at {company}</p>
               </div>
             )
           })}
 
           {/* Contact Info */}
-          <p><span className='font-semibold'>Date of Birth:</span> {user.dateOfBirth}</p>
+          <p><span className='font-semibold'>Date of Birth:</span> {user.dateOfBirth.slice(0,10)}</p>
           <p><span className='font-semibold'>Email:</span> <span className='text-emerald-600 underline'>{user.email}</span></p>
           <p><span className='font-semibold'>Phone:</span> {user.phone}</p>
           <p className='flex flex-row gap-2 items-center font-semibold text-gray-600'>
@@ -251,12 +239,7 @@ const Profile = () => {
           Update Profile
         </Link>
 
-        <button
-          onClick={handleLogout}
-          className='py-2 px-6 font-semibold text-white bg-black hover:bg-gray-800 transition duration-300 rounded-full shadow-md transform hover:scale-105'
-        >
-          Log out
-        </button>
+        
       </div>
     </section>
   )

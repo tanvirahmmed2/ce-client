@@ -14,6 +14,7 @@ const UpdateProfile = () => {
     try {
       const response = await axios.put('http://localhost:5000/api/user/updatename', newName, { withCredentials: true })
       toast.success(response.data.message)
+      window.location.replace('/profile')
     } catch (error) {
       toast.error(error.data.message)
 

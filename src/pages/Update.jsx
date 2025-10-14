@@ -12,7 +12,7 @@ const Update = () => {
     <section className="w-full min-h-[800px] bg-gray-50 p-6 flex flex-col items-center justify-center gap-8">
       <h1 className='text-4xl font-bold text-emerald-600'>Latest Updates</h1>
       <p className='text-base sm:text-lg text-center'>Stay updated with our recent discoveries and announcements</p>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center'>
         {
           update.length > 0 && update.map((e) => {
             const { _id, title, image, description } = e
