@@ -27,7 +27,7 @@ const Sidebar = () => {
   }
   
   return (
-    <div className={`fixed right-0 top-0 h-screen max-h-screen overflow-y-auto bg-gray-800 z-50 flex flex-col items-end px-6 py-4 gap-4 text-white transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
+    <div className={`fixed right-0 top-0 h-screen max-h-screen overflow-y-auto bg-emerald-950 text-white z-50 flex flex-col items-end px-6 py-4 gap-4  transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
       <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl '><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 

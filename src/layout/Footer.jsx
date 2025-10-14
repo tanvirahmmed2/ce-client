@@ -6,7 +6,7 @@ import { RiGlobalLine } from "react-icons/ri";
 const Footer = () => {
   return (
     <section className='w-full flex flex-col items-center justify-center  text-white/60'>
-      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center bg-gray-700 justify-center gap-4'>
+      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center bg-emerald-900 justify-center gap-4'>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
           <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
           <div className='w-auto  flex flex-col items-start justify-center'>
@@ -33,6 +33,7 @@ const Footer = () => {
             <Link to='/profile'>Profile</Link>
             <Link to='/login'>Join us</Link>
             <Link to='/projects'>Projects</Link>
+            <Link to='/contact'>Contact</Link>
           </div>
         </div>
 
@@ -47,7 +48,7 @@ const Footer = () => {
         </div>
 
       </footer>
-      <div className='w-full bg-gray-900 flex flex-col gap-4 items-center justify-center px-5 py-8 text-center border-t-2'>
+      <div className='w-full bg-emerald-950 flex flex-col gap-4 items-center justify-center px-5 py-8 text-center border-t-2'>
         <p className='text-xs sm:text-base'>© 2025 Climate Change Impact and Resilience Lab. All rights reserved.</p>
         <p className='text-xs sm:text-base'>Designed & Doveloped by <a className='text-white' href="https://disibin.com">Disibin</a></p>
 

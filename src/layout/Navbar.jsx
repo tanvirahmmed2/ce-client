@@ -7,7 +7,7 @@ import { ThemeContext } from '../components/Context';
 const Navbar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
   return (
-    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-md z-40 bg-white'>
+    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-sm z-40 bg-white text-emerald-950'>
       <a href="/" className='w-auto h-full flex flex-row items-center justify-center gap-2'>
         <img src={logo} alt=""  className='h-16'/>
         <div className='w-auto h-full flex flex-col items-start justify-center'>

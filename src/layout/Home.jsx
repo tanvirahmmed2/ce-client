@@ -27,8 +27,8 @@ const Home = () => {
       <Mission />
       <Scope />
       <Projects />
-      <Contact />
       <Collaboration/>
+      <Contact />
 
     </section>
   )
