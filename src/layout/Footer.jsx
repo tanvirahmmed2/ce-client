@@ -22,6 +22,7 @@ const Footer = () => {
             <Link to='/update'>Update</Link>
             <Link to='/events'>Events</Link>
             <Link to='/notice'>Notice</Link>
+            <Link to='/collaboration'>Collaboration</Link>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>

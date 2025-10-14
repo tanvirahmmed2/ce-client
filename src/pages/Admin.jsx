@@ -16,7 +16,7 @@ const Admin = () => {
       <Link to='/admin/update' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Update</Link>
       <Link to='/admin/publications' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Publications</Link>
       <Link to='/admin/access' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Access</Link>
-      <Link to='/admin/setting' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Setting</Link>
+      <Link to='/admin/collaboration' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Collaboration</Link>
 
     </section>
   )

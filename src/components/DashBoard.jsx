@@ -10,7 +10,7 @@ import MemberHandle from '../Admin/MemberHandle'
 import AccessHandle from '../Admin/AccessHandle'
 import NoticeHandle from '../Admin/NoticeHandle'
 import PublicationHandle from '../Admin/PublicationHandle'
-import Setting from '../Admin/Setting'
+import CollabHandle from '../Admin/CollabHandle'
 
 const DashBoard = () => {
     const { handler } = useParams()
@@ -26,7 +26,7 @@ const DashBoard = () => {
                 <Link to='/admin/update' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2'>Update</Link>
                 <Link to='/admin/publications' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2'>Publications</Link>
                 <Link to='/admin/access' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2'>Access</Link>
-                <Link to='/admin/setting' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2 '>Setting</Link>
+                <Link to='/admin/collaboration' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2 '>Collaboration</Link>
 
             </section>
             <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
@@ -39,7 +39,7 @@ const DashBoard = () => {
                 {handler === 'access' && <AccessHandle />}
                 {handler === 'notice' && <NoticeHandle />}
                 {handler === 'publications' && <PublicationHandle />}
-                {handler === 'setting' && <Setting />}
+                {handler === 'collaboration' && <CollabHandle/>}
             </section>
         </div>
     )

@@ -4,6 +4,7 @@ import Mission from '../pages/Mission';
 import Contact from '../pages/Contact';
 import Scope from '../pages/Scope';
 import Projects from '../pages/Projects';
+import Collaboration from '../pages/Collaboration';
 const Home = () => {
   return (
     <section className='w-full flex flex-col items-center justify-center '>
@@ -27,6 +28,7 @@ const Home = () => {
       <Scope />
       <Projects />
       <Contact />
+      <Collaboration/>
 
     </section>
   )

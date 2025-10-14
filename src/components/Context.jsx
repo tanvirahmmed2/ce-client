@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import axios from 'axios'
-import { } from "../Data";
 import { useEffect } from "react";
 
 
@@ -21,6 +20,7 @@ const ContextProvider = ({ children }) => {
     const [admin, setAdmin] = useState(false)
     const [author, setAuthor] = useState(false)
     const [team, setTeam] = useState([])
+    const [collaborations, setCollaborations] = useState([])
 
 
 
@@ -176,7 +176,8 @@ const ContextProvider = ({ children }) => {
         user, setUser,
         author, setAuthor,
         team, setTeam,
-        users, setUsers
+        users, setUsers,
+        collaborations, setCollaborations
 
     }
     return <ThemeContext.Provider value={contextValue}>

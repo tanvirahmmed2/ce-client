@@ -31,6 +31,7 @@ import Profile from './user/Profile'
 import UpdateProfile from './user/UpdateProfile'
 import ProtectedUser from './components/ProtectedUser'
 import Publication from './components/Publication'
+import Collaboration from './pages/Collaboration'
 
 const App = () => {
   return (
@@ -73,6 +74,7 @@ const App = () => {
           <Route path='/admin/:handler' element={<ProtectedAdmin><DashBoard/></ProtectedAdmin>} />
           <Route path='/recover' element={<ProtectedUser><Recover/></ProtectedUser>} />
           <Route path='/notice' element={<Notice/>} />
+          <Route path='/collaboration' element={<Collaboration/>} />
 
           <Route path='/*' element={<Error />} />
         </Routes>
