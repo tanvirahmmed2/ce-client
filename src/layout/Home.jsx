@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Mission from '../pages/Mission';
-import Events from '../pages/Events';
 import Contact from '../pages/Contact';
 import Scope from '../pages/Scope';
 import Projects from '../pages/Projects';
@@ -27,7 +26,6 @@ const Home = () => {
       <Mission />
       <Scope />
       <Projects />
-      <Events />
       <Contact />
 
     </section>
