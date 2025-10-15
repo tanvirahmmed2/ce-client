@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 
 const roleMap = {
   advisor: ["Chief Advisor", "Faculty Advisor", "Advisor"],
+  founder: ["Founder", "Co-Founder"],
   mentor: ["Senior Research Mentor", "Academic Mentor"],
   leadership: ["Faculty Advisor", "Lab Coordinator"],
   research: ["Research Lead", "Associate Researcher", "Researcher", "Assistant Researcher", "Junior Researcher"],
