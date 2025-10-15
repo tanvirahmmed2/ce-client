@@ -6,7 +6,7 @@ const Admin = () => {
 
   return (
 
-    <section className='grid grid-cols-3 md:grid-cols-5 w-full justify-items-center gap-4 p-6 bg-gray-50 min-h-[800px] text-2xl'>
+    <section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full justify-items-center gap-4 p-6 bg-gray-50 min-h-[800px] text-2xl'>
       <Link to='/admin/member' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Member</Link>
       <Link to='/admin/event' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Event</Link>
       <Link to='/admin/gallery' className='w-full h-full bg-gray-50 hover:bg-gray-200 transition duration-500 flex items-center justify-center shadow-lg rounded-lg py-2'>Gallery</Link>
