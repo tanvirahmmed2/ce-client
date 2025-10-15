@@ -24,36 +24,49 @@ const ContextProvider = ({ children }) => {
 
 
 
+useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get(
+        'https://ce-server-5tje.onrender.com/api/user/protectedroute',
+        { withCredentials: true }
+      );
 
-    useEffect(()=>{
-        const fetchUser=async()=>{
-            try {
-                const response= await axios.get('https://ce-server-5tje.onrender.com/api/user/protectedroute', {withCredentials:true})
+      const userData = response.data.user;
 
-                setUser(response.data.user)
-                if(response.data.user.role ==='admin'){
-                    setAdmin(true)
-                    setAuthor(false)
-                }
-                else if(response.data.user.role ==='author'){
-                    setAuthor(true)
-                    setAdmin(false)
-                }else{
-                    setAdmin(false)
-                    setAuthor(false)
-                }
+      if (!userData) {
+        // Not logged in
+        setUser(null);
+        setAdmin(false);
+        setAuthor(false);
+      } else {
+        // Logged in
+        setUser(userData);
 
-            } catch (error) {
-                setUser(null)
-                setAuthor(false)
-                setAdmin(false)
-            }
+        if (userData.role === 'admin') {
+          setAdmin(true);
+          setAuthor(false);
+        } else if (userData.role === 'author') {
+          setAuthor(true);
+          setAdmin(false);
+        } else {
+          setAdmin(false);
+          setAuthor(false);
         }
-        fetchUser()
-    },[])
+      }
+    } catch (error) {
+      // On error, treat as not logged in
+      setUser(null);
+      setAdmin(false);
+      setAuthor(false);
+    }
+  };
 
-console.log(user)
-    
+  fetchUser();
+}, []);
+
+    console.log(user)
+
     useEffect(() => {
         const fetchEvent = async () => {
             try {
@@ -132,10 +145,10 @@ console.log(user)
         }
         fetchGallery()
     }, [])
-    
-    
-    
-    
+
+
+
+
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -174,7 +187,7 @@ console.log(user)
         fetchUsers()
     }, [])
 
-    
+
     const contextValue = {
         sidebar, setSidebar,
         update, setUpdate,
