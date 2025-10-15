@@ -24,48 +24,47 @@ const ContextProvider = ({ children }) => {
 
 
 
-useEffect(() => {
-  const fetchUser = async () => {
-    try {
-      const response = await axios.get(
-        'https://ce-server-5tje.onrender.com/api/user/protectedroute',
-        { withCredentials: true }
-      );
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await axios.get(
+                    'https://ce-server-5tje.onrender.com/api/user/protectedroute',
+                    { withCredentials: true }
+                );
 
-      const userData = response.data.user;
+                const userData = response.data.user;
 
-      if (!userData) {
-        // Not logged in
-        setUser(null);
-        setAdmin(false);
-        setAuthor(false);
-      } else {
-        // Logged in
-        setUser(userData);
+                if (!userData) {
+                    // Not logged in
+                    setUser(null);
+                    setAdmin(false);
+                    setAuthor(false);
+                } else {
+                    // Logged in
+                    setUser(userData);
 
-        if (userData.role === 'admin') {
-          setAdmin(true);
-          setAuthor(false);
-        } else if (userData.role === 'author') {
-          setAuthor(true);
-          setAdmin(false);
-        } else {
-          setAdmin(false);
-          setAuthor(false);
-        }
-      }
-    } catch (error) {
-      // On error, treat as not logged in
-      setUser(null);
-      setAdmin(false);
-      setAuthor(false);
-    }
-  };
+                    if (userData.role === 'admin') {
+                        setAdmin(true);
+                        setAuthor(false);
+                    } else if (userData.role === 'author') {
+                        setAuthor(true);
+                        setAdmin(false);
+                    } else {
+                        setAdmin(false);
+                        setAuthor(false);
+                    }
+                }
+            } catch (error) {
+                // On error, treat as not logged in
+                setUser(null);
+                setAdmin(false);
+                setAuthor(false);
+            }
+        };
 
-  fetchUser();
-}, []);
+        fetchUser();
+    }, []);
 
-    console.log(user)
 
     useEffect(() => {
         const fetchEvent = async () => {
