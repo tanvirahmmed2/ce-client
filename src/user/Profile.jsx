@@ -13,28 +13,53 @@ const Profile = () => {
     authorId: user._id,
     title: '',
     description: '',
-    link: ''
+    link: '',
+    pdf: null
   })
 
+  // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setPublicationData((prev) => ({ ...prev, [name]: value }))
+    const { name, value, files } = e.target
+    // Handle file input separately
+    if (files) {
+      setPublicationData((prev) => ({ ...prev, [name]: files[0] }))
+    } else {
+      setPublicationData((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
+  // Add Publication (with PDF upload)
   const addPublication = async (e) => {
     e.preventDefault()
     try {
+      const newData = new FormData()
+      newData.append('title', publicationData.title)
+      newData.append('description', publicationData.description)
+      newData.append('link', publicationData.link)
+      newData.append('pdf', publicationData.pdf)
+      newData.append('authorId', publicationData.authorId)
+
       const response = await axios.post(
         'http://localhost:5000/api/user/addpublication',
-        publicationData,
+        newData,
         { withCredentials: true }
       )
+
       toast.success(response.data.message)
+      setAdd(false)
+      setPublicationData({
+        authorId: user._id,
+        title: '',
+        description: '',
+        link: '',
+        pdf: null
+      })
     } catch (error) {
       toast.error(error.response?.data?.message || 'Failed to add publication')
     }
   }
 
+  // Delete Publication
   const deletePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
@@ -50,19 +75,16 @@ const Profile = () => {
     }
   }
 
- 
-
   return (
     <section className='w-full min-h-screen bg-gray-50 p-6 flex flex-col items-center gap-10'>
-
-      
+      {/* Header */}
       <div className='w-full bg-gradient-to-r from-black to-gray-800 text-white rounded-md shadow-md py-10 flex flex-col items-center justify-center'>
         <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight'>
           Welcome to <span className='text-yellow-300'>CCIRL</span>
         </h1>
       </div>
 
-    
+      {/* Profile Info */}
       <div className='w-full bg-white shadow-md rounded-xl p-8 flex flex-col md:flex-row items-center justify-around gap-8 border border-gray-200'>
         <div className='flex-shrink-0'>
           {user.profileImage ? (
@@ -84,14 +106,14 @@ const Profile = () => {
         </div>
       </div>
 
+      {/* Personal & Academic Details */}
       <div className='w-full bg-white shadow-md rounded-xl p-8 border border-gray-200'>
         <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>
           Personal & Academic Details
         </h2>
 
         <div className='flex flex-col gap-3 text-gray-700 leading-relaxed'>
-
-          
+          {/* Education */}
           {user.education?.length > 0 && user.education.map((edu) => {
             const { _id, degree, institution, field, startYear, endYear } = edu
             const currentYear = new Date().getFullYear()
@@ -130,42 +152,51 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Publications */}
+      {/* Publications Section */}
       {author && (
         <div className='w-full bg-white shadow-md rounded-xl p-8 border border-gray-200 flex flex-col gap-4'>
           <h2 className='text-2xl font-semibold text-gray-700 mb-4'>Contributions</h2>
 
-          <div className='w-full grid grid-cols-4 justify-items-center p-2 bg-slate-300'>
+          <div className='w-full grid grid-cols-5 justify-items-center p-2 bg-slate-300'>
             <p className='text-left'>Title</p>
             <p className='hidden sm:block text-left'>Description</p>
             <p className='text-right'>Abstract</p>
+            <p className='text-right'>PDF</p>
             <p>Action</p>
           </div>
 
-          {user.publications?.map((paper) => {
-            const { title, _id, link, description } = paper
-            return (
-              <div key={_id}  className='w-full grid grid-cols-4 justify-items-center p-3'>
-                <h1 className='font-medium text-gray-800'>{title.slice(0,15)}</h1>
-                <p className='text-gray-600 text-sm hidden sm:block'>{description.slice(0,20)} <Link to={`/publications/${_id}`} className='text-red-500'>...See more</Link></p>
-                <a
-                  href={link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-emerald-600 font-semibold text-right hover:underline'
-                >
-                  Abstract
-                </a>
-                <button
-                  onClick={() => deletePub(user._id, _id)}
-                  className='text-red-500 hover:text-red-700 font-semibold transition'
-                >
-                  Remove
-                </button>
-              </div>
-            )
-          })}
+          {user.publications?.length > 0 ? (
+            user.publications.map((paper) => {
+              const { title, _id, link, description, pdf } = paper
+              return (
+                <div key={_id} className='w-full grid grid-cols-5 justify-items-center p-3 border-b border-gray-100'>
+                  <h1 className='font-medium text-gray-800'>{title.slice(0, 15)}</h1>
+                  <p className='text-gray-600 text-sm hidden sm:block'>
+                    {description.slice(0, 20)} <Link to={`/publications/${_id}`} className='text-red-500'>...See more</Link>
+                  </p>
+                  <a href={pdf}>PDF</a>
+                  <a
+                    href={link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-emerald-600 font-semibold text-right hover:underline'
+                  >
+                    Abstract
+                  </a>
+                  <button
+                    onClick={() => deletePub(user._id, _id)}
+                    className='text-red-500 hover:text-red-700 font-semibold transition'
+                  >
+                    Remove
+                  </button>
+                </div>
+              )
+            })
+          ) : (
+            <p className='text-gray-500 italic text-center'>No publications yet</p>
+          )}
 
+          {/* Add Publication Form */}
           <button
             onClick={() => setAdd(!add)}
             className='text-emerald-600 font-medium hover:text-emerald-800 cursor-pointer mt-4 text-center transition'
@@ -219,6 +250,18 @@ const Profile = () => {
                 />
               </div>
 
+              <div>
+                <label htmlFor="pdf" className='block text-sm font-medium text-gray-700 mb-1'>Upload PDF</label>
+                <input
+                  type="file"
+                  name='pdf'
+                  id='pdf'
+                  accept='application/pdf'
+                  onChange={handleChange}
+                  className='w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-2 focus:ring-emerald-500'
+                />
+              </div>
+
               <button
                 type='submit'
                 className='py-2 px-6 font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition rounded-full shadow-md'
@@ -230,7 +273,7 @@ const Profile = () => {
         </div>
       )}
 
-      {/* Buttons */}
+      {/* Bottom Buttons */}
       <div className='flex flex-row items-center justify-center gap-6 p-3 mt-6 mb-10'>
         <Link
           to='/updateprofile'
@@ -238,8 +281,6 @@ const Profile = () => {
         >
           Update Profile
         </Link>
-
-        
       </div>
     </section>
   )
