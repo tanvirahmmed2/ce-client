@@ -122,7 +122,7 @@ const Profile = () => {
               <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
                 <div>
                   {endYear < currentYear ? <p>Studied at</p> : <p>Studies at</p>}
-                  <span className='font-semibold'>{degree}</span> in {field} at {institution}
+                  <span className='font-semibold'>{degree}</span> ({` ${field} `})at {institution}
                 </div>
                 <p className='text-sm text-gray-500'>Started: {startYear}</p>
                 {endYear < currentYear
@@ -134,10 +134,12 @@ const Profile = () => {
 
           {/* Work */}
           {user.work?.length > 0 && user.work.map((job) => {
-            const { _id, position, company } = job
+            const { _id, position, company, startYear, endYear } = job
             return (
               <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
-                <p>Working as <span className='font-semibold'>{position}</span> at {company}</p>
+                <p><span className='font-semibold'>{position}</span> at {company}</p>
+                {startYear && <p>From {startYear}</p>}
+                {endYear && <p>To {endYear}</p>}
               </div>
             )
           })}

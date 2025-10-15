@@ -99,7 +99,9 @@ const UpdateProfile = () => {
   const [newWork, setNewWork] = useState({
     userId: user._id,
     position: '',
-    company: ''
+    company: '',
+    startYear: '',
+    endYear: ''
   })
 
   const handleWorkChange = (e) => {
@@ -316,6 +318,25 @@ const UpdateProfile = () => {
             onChange={handleWorkChange}
             className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
             placeholder="Enter Company Name"
+          />
+          <input
+            type="number"
+            id="startYear"
+            name="startYear"
+            required
+            value={newWork.startYear}
+            onChange={handleWorkChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Start Year"
+          />
+          <input
+            type="number"
+            id="endYear"
+            name="endYear"
+            value={newWork.endYear}
+            onChange={handleWorkChange}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter End Year "
           />
           <button className="bg-black text-white py-2 rounded-lg ">
             Add

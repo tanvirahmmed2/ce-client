@@ -47,7 +47,7 @@ const UserProfile = () => {
               const { _id, degree, institution, field, startYear, endYear } = edu;
               return (
                 <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
-                  <p><span className='font-semibold'>{degree}</span> in {field} at {institution}</p>
+                  <p><span className='font-semibold'>{degree}</span> ({` ${field} `}) at {institution}</p>
                   <p className='text-sm text-gray-500'>Start Year: {startYear}</p>
                   {endYear && <p className='text-sm text-gray-500'>End Year: {endYear}</p>}
                 </div>
@@ -62,10 +62,12 @@ const UserProfile = () => {
           <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Work Experience</h2>
           <div className='flex flex-col gap-3'>
             {user.work.map((job) => {
-              const { _id, position, company } = job;
+              const { _id, position, company, startYear, endYear } = job;
               return (
-                <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
-                  <p>Position: <span className='font-semibold'>{position}</span> at {company}</p>
+                <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100 flex flex-col'>
+                  <p> <span className='font-semibold'>{position}</span> at {company}</p>
+                  {startYear && <p>From {startYear}</p>}
+                {endYear && <p>To {endYear}</p>}
                 </div>
               );
             })}
