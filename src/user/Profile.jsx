@@ -40,7 +40,7 @@ const Profile = () => {
       newData.append('authorId', publicationData.authorId)
 
       const response = await axios.post(
-        'http://localhost:5000/api/user/addpublication',
+        'https://ce-server-5tje.onrender.com/api/user/addpublication',
         newData,
         { withCredentials: true }
       )
@@ -63,7 +63,7 @@ const Profile = () => {
   const deletePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
-        'http://localhost:5000/api/user/removepublication',
+        'https://ce-server-5tje.onrender.com/api/user/removepublication',
         {
           data: { authorId, pubId },
           withCredentials: true

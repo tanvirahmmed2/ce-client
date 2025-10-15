@@ -27,7 +27,7 @@ const AccessHandle = () => {
   const handleUpdate = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updaterole', formData, { withCredentials: true })
+      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updaterole', formData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -46,7 +46,7 @@ const AccessHandle = () => {
   const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.delete('http://localhost:5000/api/user/delete', {
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/delete', {
         data: deleteData,
         withCredentials: true
       })

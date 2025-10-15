@@ -22,7 +22,7 @@ const NoticeHandle = () => {
       data.append("pdf", formdata.pdf)
 
       const response = await axios.post(
-        'http://localhost:5000/api/notice/add',
+        'https://ce-server-5tje.onrender.com/api/notice/add',
         data,
         {
           withCredentials: true,
@@ -44,7 +44,7 @@ const NoticeHandle = () => {
 
   const removeNotice = async (id) => {
     try {
-      const response = await axios.delete('http://localhost:5000/api/notice/delete', { data: { id }, withCredentials: true })
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/notice/delete', { data: { id }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error)

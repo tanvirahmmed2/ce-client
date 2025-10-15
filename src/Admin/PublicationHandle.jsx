@@ -10,7 +10,7 @@ const PublicationHandle = () => {
 const removePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
-        'http://localhost:5000/api/user/removepublication',
+        'https://ce-server-5tje.onrender.com/api/user/removepublication',
         {
           data: { authorId, pubId },
           withCredentials: true

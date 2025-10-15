@@ -23,7 +23,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("http://localhost:5000/api/message/send", formData)
+      const response = await axios.post("https://ce-server-5tje.onrender.com/api/message/send", formData)
 
       toast.success(response.data.message);
       setFormData({

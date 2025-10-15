@@ -16,7 +16,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/user/logout',{}, {
+      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/logout',{}, {
         withCredentials: true
       })
       toast.success(response.data.message)

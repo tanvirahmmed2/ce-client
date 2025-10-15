@@ -57,7 +57,6 @@ const UserProfile = () => {
         </div>
       )}
 
-      {/* Work Experience */}
       {user.work?.length > 0 && (
         <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
           <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Work Experience</h2>
@@ -74,7 +73,6 @@ const UserProfile = () => {
         </div>
       )}
 
-      {/* Publications */}
       {user.publications?.length > 0 && (
         <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
           <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Publications</h2>

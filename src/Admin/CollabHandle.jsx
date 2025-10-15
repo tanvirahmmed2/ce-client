@@ -29,7 +29,7 @@ const CollabHandle = () => {
       newData.append('title', formData.title)
       newData.append('portfolio', formData.portfolio)
       newData.append('image', formData.image)
-      const response = await axios.post('http://localhost:5000/api/collaboration/add', newData, { withCredentials: true })
+      const response = await axios.post('https://ce-server-5tje.onrender.com/api/collaboration/add', newData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error)
@@ -38,7 +38,7 @@ const CollabHandle = () => {
 
   const removeProject = async (id) => {
     try {
-      const response = await axios.delete('http://localhost:5000/api/collaboration/delete', { data: { id }, withCredentials: true })
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/collaboration/delete', { data: { id }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)

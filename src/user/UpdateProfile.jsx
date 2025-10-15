@@ -12,7 +12,7 @@ const UpdateProfile = () => {
   const changeName = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updatename', newName, { withCredentials: true })
+      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatename', newName, { withCredentials: true })
       toast.success(response.data.message)
       window.location.replace('/profile')
     } catch (error) {
@@ -29,7 +29,7 @@ const UpdateProfile = () => {
   const changeDob = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updatedob', newDob, { withCredentials: true })
+      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatedob', newDob, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.data.message)
@@ -50,7 +50,7 @@ const UpdateProfile = () => {
   const changePassword = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updatepassword', newPassword, { withCredentials: true })
+      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatepassword', newPassword, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message || "Email change failed")
@@ -78,7 +78,7 @@ const UpdateProfile = () => {
   const updateEducation = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/user/addeducation', newEducation, { withCredentials: true })
+      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/addeducation', newEducation, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -87,7 +87,7 @@ const UpdateProfile = () => {
 
   const removeEducation = async (userId, eduId) => {
     try {
-      const response = await axios.delete('http://localhost:5000/api/user/removeeducation', { data: { userId, eduId }, withCredentials: true })
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/removeeducation', { data: { userId, eduId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -110,7 +110,7 @@ const UpdateProfile = () => {
   const updateWork = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/user/addwork', newWork, { withCredentials: true })
+      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/addwork', newWork, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -119,7 +119,7 @@ const UpdateProfile = () => {
 
   const removeWork = async (userId, workId) => {
     try {
-      const response = await axios.delete('http://localhost:5000/api/user/removework', { data: { userId, workId }, withCredentials: true })
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/removework', { data: { userId, workId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -144,7 +144,7 @@ const UpdateProfile = () => {
 
             try {
               const response = await axios.put(
-                "http://localhost:5000/api/user/updateprofileimage",
+                "https://ce-server-5tje.onrender.com/api/user/updateprofileimage",
                 formData,
                 { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
               );

@@ -17,7 +17,7 @@ const MemberHandle = () => {
   useEffect(() => {
     const fetchMessage = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/message/')
+        const response = await axios.get('https://ce-server-5tje.onrender.com/api/message/')
         setMessages(response.data.payload)
       } catch (error) {
         console.log(error)
@@ -30,7 +30,7 @@ const MemberHandle = () => {
 
   const removeMessage = async (id) => {
     try {
-      const response = await axios.delete('http://localhost:5000/api/message/delete', {
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/message/delete', {
         data: { id }
       })
       toast.success(response.data.message)
@@ -52,7 +52,7 @@ const MemberHandle = () => {
   const handleBan = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:5000/api/user/updateban', banData, { withCredentials: true })
+      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updateban', banData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)

@@ -21,7 +21,7 @@ const Login = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/api/user/login', formData, {
+      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/login', formData, {
         withCredentials: true
       })
       toast.success(response.data.message)

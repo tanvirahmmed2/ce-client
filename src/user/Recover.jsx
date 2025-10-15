@@ -19,7 +19,7 @@ const Recover = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/user/forget',
+        'https://ce-server-5tje.onrender.com/api/user/forget',
         formData,
         { withCredentials: true }
       );
@@ -42,7 +42,7 @@ const Recover = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/user/reset',
+        'https://ce-server-5tje.onrender.com/api/user/reset',
         { ...resetData, code: resetData.code.trim() }, // trim code
         { withCredentials: true }
       );

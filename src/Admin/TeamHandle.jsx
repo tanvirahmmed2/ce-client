@@ -43,7 +43,7 @@ const TeamHandle = () => {
       newData.append('profileImage', formData.profileImage)
 
       const response = await axios.post(
-        'http://localhost:5000/api/team/add',
+        'https://ce-server-5tje.onrender.com/api/team/add',
         newData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -62,7 +62,7 @@ const TeamHandle = () => {
   const handleRemove = async (id) => {
     console.log(id)
     try {
-      const response = await axios.delete('http://localhost:5000/api/team/remove', { data: { id }, withCredentials: true })
+      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/team/remove', { data: { id }, withCredentials: true })
       toast.success(response.data.message)
 
     } catch (error) {
