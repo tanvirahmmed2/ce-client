@@ -143,7 +143,6 @@ const Profile = () => {
           })}
 
           {/* Contact Info */}
-          {user.dateOfBirth.length >0 && <p><span className='font-semibold'>Date of Birth:</span> {user.dateOfBirth.slice(0,10)}</p>}
           <p><span className='font-semibold'>Email:</span> <span className='text-emerald-600 underline'>{user.email}</span></p>
           <p><span className='font-semibold'>Phone:</span> {user.phone}</p>
           <p className='flex flex-row gap-2 items-center font-semibold text-gray-600'>
