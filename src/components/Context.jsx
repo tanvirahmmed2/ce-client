@@ -52,7 +52,7 @@ const ContextProvider = ({ children }) => {
         fetchUser()
     },[])
 
-
+console.log(user)
     
     useEffect(() => {
         const fetchEvent = async () => {
