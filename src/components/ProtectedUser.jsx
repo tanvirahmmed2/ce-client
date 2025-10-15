@@ -4,28 +4,32 @@ import { ThemeContext } from './Context'
 import { toast } from 'react-toastify'
 
 const ProtectedUser = ({ children }) => {
-    const { user } = useContext(ThemeContext)
-    const [checking, setChecking] = useState(true)
+  const { user } = useContext(ThemeContext)
+  const [checking, setChecking] = useState(true)
+  const [redirect, setRedirect] = useState(false)
 
-    useEffect(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => setChecking(false), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
-        const timer = setTimeout(() => {
-            setChecking(false)
-        }, 500)
 
-        return () => clearTimeout(timer)
-    }, [])
-
-    if (checking) {
-        return <div className="text-center p-4">Checking login...</div>
+  useEffect(() => {
+    if (!checking && user) {
+      toast.error('Already Logged in')
+      setRedirect(true)
     }
+  }, [checking, user])
 
-    if (user) {
-        toast.error('Already Logged in')
-        return <Navigate to="/profile" replace />
-    }
+  if (checking) {
+    return <div className="text-center p-4">Checking login...</div>
+  }
 
-    return children
+  if (redirect) {
+    return <Navigate to="/profile" replace />
+  }
+
+  return children
 }
 
 export default ProtectedUser
