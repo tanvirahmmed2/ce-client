@@ -82,7 +82,7 @@ const MemberHandle = () => {
               <h1 className='font-semibold'>{name}</h1>
               <p>{subject}</p>
               <p className='text-justify'>{message}</p>
-              <a href={`mailto:${email}`} className=''>Response</a>
+              <a href={`mailto:${email}`} className=''>Response: {email}</a>
               <button onClick={() => removeMessage(_id)}>Action</button>
             </div>
           })
