@@ -14,15 +14,13 @@ const Notice = () => {
       <div className='w-full flex flex-col items-center justify-center gap-4'>
         <div className='w-full lg:w-3/4 p-2 flex flex-row items-center justify-between gap-3 px-6 shadow-lg  transition duration-500 border-2'>
           <p>Title</p>
-          <p>Download</p>
         </div>
         {
           notices.length >0? notices.map((event) => {
             const { _id, pdf, title } = event
             return <div key={_id} className='w-full lg:w-3/4 p-2 flex flex-row items-center justify-between px-6 gap-3 border-2 border-red-50 rounded-lg shadow-lg  transition duration-500'>
 
-              <h1 className=''>{title}</h1>
-              <a href={pdf} download className='hover:scale-105'>Click</a>
+              <a href={pdf} download className='hover:scale-105'>{title}</a>
 
             </div>
 
