@@ -65,10 +65,16 @@ const UserProfile = () => {
               const { _id, position, company, startYear, endYear } = job;
               return (
                 <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100 flex flex-col'>
-                  <p> <span className='font-semibold'>{position}</span> at {company}</p>
+                  <p>
+                    <span className='font-semibold'>
+                      {new Date(endYear) < new Date() ? <span>Former </span> : <span>Current </span>}
+                      {position}
+                    </span> at {company}
+                  </p>
                   {startYear && <p>From {startYear}</p>}
-                {endYear && <p>To {endYear}</p>}
+                  {endYear && <p>To {endYear}</p>}
                 </div>
+
               );
             })}
           </div>
@@ -84,7 +90,7 @@ const UserProfile = () => {
               return (
                 <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100 flex flex-col gap-1'>
                   <p className='font-semibold'>{title}</p>
-                  <p className='text-gray-600 text-sm'>{description.slice(0,50)} <Link to={`/publications/${_id}`} className='text-red-500'>...more</Link></p>
+                  <p className='text-gray-600 text-sm'>{description.slice(0, 50)} <Link to={`/publications/${_id}`} className='text-red-500'>...more</Link></p>
                   {link && <a href={link} target='_blank' rel='noopener noreferrer' className='text-emerald-600 font-semibold hover:underline'>View Abstract</a>}
                 </div>
               );
