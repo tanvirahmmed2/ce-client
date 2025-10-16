@@ -5,6 +5,8 @@ import { RxAvatar } from "react-icons/rx"
 import { FaMapMarkedAlt } from "react-icons/fa"
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
+import { api } from '../components/api'
+
 
 const Profile = () => {
   const { user, author } = useContext(ThemeContext)
@@ -40,7 +42,7 @@ const Profile = () => {
       newData.append('authorId', publicationData.authorId)
 
       const response = await axios.post(
-        'https://ce-server-5tje.onrender.com/api/user/addpublication',
+        `${api}/user/addpublication`,
         newData,
         { withCredentials: true }
       )
@@ -63,7 +65,7 @@ const Profile = () => {
   const deletePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
-        'https://ce-server-5tje.onrender.com/api/user/removepublication',
+        `${api}/user/removepublication`,
         {
           data: { authorId, pubId },
           withCredentials: true

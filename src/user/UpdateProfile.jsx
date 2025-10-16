@@ -2,6 +2,11 @@ import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
+import { api } from '../components/api'
+
+
+
+
 
 const UpdateProfile = () => {
   const { user } = useContext(ThemeContext)
@@ -12,7 +17,7 @@ const UpdateProfile = () => {
   const changeName = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatename', newName, { withCredentials: true })
+      const response = await axios.put(`${api}/user/updatename`, newName, { withCredentials: true })
       toast.success(response.data.message)
       window.location.replace('/profile')
     } catch (error) {
@@ -29,7 +34,7 @@ const UpdateProfile = () => {
   const changeDob = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatedob', newDob, { withCredentials: true })
+      const response = await axios.put(`${api}/user/updatedob`, newDob, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.data.message)
@@ -50,7 +55,7 @@ const UpdateProfile = () => {
   const changePassword = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updatepassword', newPassword, { withCredentials: true })
+      const response = await axios.put(`${api}/user/updatepassword`, newPassword, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message || "Email change failed")
@@ -78,7 +83,7 @@ const UpdateProfile = () => {
   const updateEducation = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/addeducation', newEducation, { withCredentials: true })
+      const response = await axios.post(`${api}/user/addeducation`, newEducation, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -87,7 +92,7 @@ const UpdateProfile = () => {
 
   const removeEducation = async (userId, eduId) => {
     try {
-      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/removeeducation', { data: { userId, eduId }, withCredentials: true })
+      const response = await axios.delete(`${api}/user/removeeducation`, { data: { userId, eduId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -112,7 +117,7 @@ const UpdateProfile = () => {
   const updateWork = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/addwork', newWork, { withCredentials: true })
+      const response = await axios.post(`${api}/user/addwork`, newWork, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -121,7 +126,7 @@ const UpdateProfile = () => {
 
   const removeWork = async (userId, workId) => {
     try {
-      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/removework', { data: { userId, workId }, withCredentials: true })
+      const response = await axios.delete(`${api}/user/removework`, { data: { userId, workId }, withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -146,7 +151,7 @@ const UpdateProfile = () => {
 
             try {
               const response = await axios.put(
-                "https://ce-server-5tje.onrender.com/api/user/updateprofileimage",
+                `${api}/user/updateprofileimage`,
                 formData,
                 { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
               );

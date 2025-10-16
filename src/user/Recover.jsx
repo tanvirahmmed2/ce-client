@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { api } from '../components/api';
+
+
 
 const Recover = () => {
   const [emailSent, setEmailSent] = useState(false);
@@ -8,18 +11,16 @@ const Recover = () => {
   const [formData, setFormData] = useState({ email: '' });
   const [resetData, setResetData] = useState({ email: '', code: '', newpassword: '' });
 
-  // Handle email input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Submit email to send code
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://ce-server-5tje.onrender.com/api/user/forget',
+        `${api}/user/forget`,
         formData,
         { withCredentials: true }
       );
@@ -42,7 +43,7 @@ const Recover = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://ce-server-5tje.onrender.com/api/user/reset',
+        `${api}/user/reset`,
         { ...resetData, code: resetData.code.trim() }, // trim code
         { withCredentials: true }
       );

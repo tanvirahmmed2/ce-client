@@ -6,6 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { RiGlobalLine } from "react-icons/ri";
 import { ThemeContext } from '../components/Context'
 import { toast } from 'react-toastify';
+import { api } from '../components/api';
 
 const Sidebar = () => {
   const { sidebar, setSidebar,user, admin } = useContext(ThemeContext)
@@ -16,7 +17,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('https://ce-server-5tje.onrender.com/api/user/logout',{}, {
+      const response = await axios.post(`${api}/user/logout`,{}, {
         withCredentials: true
       })
       toast.success(response.data.message)

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { ThemeContext } from '../components/Context'
+import { api } from '../components/api'
 
 const PublicationHandle = () => {
   const { publications } = useContext(ThemeContext)
@@ -10,7 +11,7 @@ const PublicationHandle = () => {
 const removePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
-        'https://ce-server-5tje.onrender.com/api/user/removepublication',
+        `${api}/user/removepublication`,
         {
           data: { authorId, pubId },
           withCredentials: true

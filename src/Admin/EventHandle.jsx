@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ThemeContext } from '../components/Context'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../components/api';
 
 const daysInMonth = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -56,7 +57,7 @@ const EventHandle = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('https://ce-server-5tje.onrender.com/api/event/add', formData, { withCredentials: true })
+      const response = await axios.post(`${api}/event/add`, formData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       console.log(error)
@@ -67,7 +68,7 @@ const EventHandle = () => {
 
   const removeEvent=async(id)=>{
     try {
-      const response= await axios.delete('https://ce-server-5tje.onrender.com/api/event/delete', {data: {id}, withCredentials: true})
+      const response= await axios.delete(`${api}/event/delete`, {data: {id}, withCredentials: true})
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error)

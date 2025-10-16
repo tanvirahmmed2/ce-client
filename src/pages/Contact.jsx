@@ -5,6 +5,7 @@ import {toast} from 'react-toastify'
 
 
 import { CiClock1, CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
+import { api } from '../components/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("https://ce-server-5tje.onrender.com/api/message/send", formData)
+      const response = await axios.post(`${api}/message/send`, formData)
 
       toast.success(response.data.message);
       setFormData({

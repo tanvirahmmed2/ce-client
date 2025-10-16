@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import {toast} from 'react-toastify'
 import { ThemeContext } from '../components/Context'
+import { api } from '../components/api'
 
 const AccessHandle = () => {
   const { users } = useContext(ThemeContext)
@@ -27,7 +28,7 @@ const AccessHandle = () => {
   const handleUpdate = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updaterole', formData, { withCredentials: true })
+      const response = await axios.put(`${api}/user/updaterole`, formData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)
@@ -46,7 +47,7 @@ const AccessHandle = () => {
   const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/user/delete', {
+      const response = await axios.delete(`${api}/user/delete`, {
         data: deleteData,
         withCredentials: true
       })

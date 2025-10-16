@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { api } from '../components/api'
 
 const roleMap = {
   advisor: ["Chief Advisor", "Faculty Advisor", "Advisor"],
@@ -44,7 +45,7 @@ const TeamHandle = () => {
       newData.append('profileImage', formData.profileImage)
 
       const response = await axios.post(
-        'https://ce-server-5tje.onrender.com/api/team/add',
+        `${api}/team/add`,
         newData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -63,7 +64,7 @@ const TeamHandle = () => {
   const handleRemove = async (id) => {
     console.log(id)
     try {
-      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/team/remove', { data: { id }, withCredentials: true })
+      const response = await axios.delete(`${api}/team/remove`, { data: { id }, withCredentials: true })
       toast.success(response.data.message)
 
     } catch (error) {

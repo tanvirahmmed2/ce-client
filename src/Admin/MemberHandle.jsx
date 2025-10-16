@@ -3,6 +3,7 @@ import axios from 'axios'
 import { ThemeContext } from '../components/Context'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
+import { api } from '../components/api'
 
 const MemberHandle = () => {
 
@@ -17,7 +18,7 @@ const MemberHandle = () => {
   useEffect(() => {
     const fetchMessage = async () => {
       try {
-        const response = await axios.get('https://ce-server-5tje.onrender.com/api/message/')
+        const response = await axios.get(`${api}/message/`, {withCredentials: true})
         setMessages(response.data.payload)
       } catch (error) {
         console.log(error)
@@ -30,7 +31,7 @@ const MemberHandle = () => {
 
   const removeMessage = async (id) => {
     try {
-      const response = await axios.delete('https://ce-server-5tje.onrender.com/api/message/delete', {
+      const response = await axios.delete(`${api}/message/delete`, {
         data: { id }
       })
       toast.success(response.data.message)
@@ -52,7 +53,7 @@ const MemberHandle = () => {
   const handleBan = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put('https://ce-server-5tje.onrender.com/api/user/updateban', banData, { withCredentials: true })
+      const response = await axios.put(`${api}/user/updateban`, banData, { withCredentials: true })
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)

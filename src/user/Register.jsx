@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../components/api';
 
 
 const countries = [
@@ -70,7 +71,7 @@ const Register = () => {
     e.preventDefault()
     try {
 
-      const response = await axios.post("https://ce-server-5tje.onrender.com/api/user/register", formData)
+      const response = await axios.post(`${api}/user/register`, formData)
 
       toast.success(response.data.message);
       window.location.replace('/login')

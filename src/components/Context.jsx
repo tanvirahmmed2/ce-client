@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
+import { api } from "./api";
 
 
 
@@ -28,7 +29,7 @@ const ContextProvider = ({ children }) => {
         const fetchUser = async () => {
             try {
                 const response = await axios.get(
-                    'https://ce-server-5tje.onrender.com/api/user/protectedroute',
+                    `${api}/user/protectedroute`,
                     { withCredentials: true }
                 );
 
@@ -69,7 +70,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/event', { withCredentials: true })
+                const response = await axios.get(`${api}/event`, { withCredentials: true })
                 setEvents(response.data.payload)
             } catch (error) {
 
@@ -81,7 +82,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchTeam = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/team', { withCredentials: true })
+                const response = await axios.get(`${api}/team`, { withCredentials: true })
                 setTeam(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -94,7 +95,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchNotice = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/notice', { withCredentials: true })
+                const response = await axios.get(`${api}/notice`, { withCredentials: true })
                 setNotices(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -108,7 +109,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/project', { withCredentials: true })
+                const response = await axios.get(`${api}/project`, { withCredentials: true })
                 setProjects(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -122,7 +123,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchUpdate = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/update', { withCredentials: true })
+                const response = await axios.get(`${api}/update`, { withCredentials: true })
                 setUpdate(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -136,7 +137,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchGallery = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/gallery', { withCredentials: true })
+                const response = await axios.get(`${api}/gallery`, { withCredentials: true })
                 setGallery(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -151,7 +152,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/user/users', { withCredentials: true })
+                const response = await axios.get(`${api}/user/users`, { withCredentials: true })
                 setUsers(response.data.payload)
             } catch (error) {
                 console.log(error.response)
@@ -164,7 +165,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/user/publications', { withCredentials: true })
+                const response = await axios.get(`${api}/user/publications`, { withCredentials: true })
                 setLPublications(response.data.payload)
             } catch (error) {
                 console.log(error)
@@ -177,7 +178,7 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://ce-server-5tje.onrender.com/api/collaboration', { withCredentials: true })
+                const response = await axios.get(`${api}/collaboration`, { withCredentials: true })
                 setCollaborations(response.data.payload)
             } catch (error) {
                 console.log(error)
