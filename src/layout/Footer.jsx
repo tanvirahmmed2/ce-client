@@ -43,7 +43,7 @@ const Footer = () => {
             <a href="mailto:ccirl.mec@gmail.com">ccirl.mec@gmail.com</a>
             <a href="tel:+8801306556358">+8801306556358</a>
             <a href="https://www.facebook.com/ccirl.mec/">Facebook</a>
-            <a href='https://www.linkedin.com/in/ccirl.mec/'>Linkedin</a>
+            <a href='https://www.linkedin.com/company/ccirl-mec/'>Linkedin</a>
           </div>
         </div>
 
