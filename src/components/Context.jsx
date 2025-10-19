@@ -44,10 +44,10 @@ const ContextProvider = ({ children }) => {
                     // Logged in
                     setUser(userData);
 
-                    if (userData.role === 'admin') {
+                    if (userData.role === 'Admin') {
                         setAdmin(true);
                         setAuthor(false);
-                    } else if (userData.role === 'author') {
+                    } else if (userData.role === 'Author') {
                         setAuthor(true);
                         setAdmin(false);
                     } else {

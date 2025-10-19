@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 import { api } from '../components/api'
+import { MdDeleteOutline } from "react-icons/md";
 
 
 
@@ -134,6 +135,39 @@ const UpdateProfile = () => {
     }
   }
 
+
+  const [network, setNetwork] = useState({
+    userId: user._id,
+    title: 'Facebook',
+    link: ''
+  })
+
+  const updateNetwork = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(`${api}/user/addnetwork`, network, { withCredentials: true })
+      toast.success(response.data.message)
+      setNetwork({
+        title: 'Facebook',
+        link: ''
+      })
+    } catch (error) {
+      toast.error(error.response.data.message)
+
+    }
+  }
+
+
+  const removeNetwork = async (userId, networkId) => {
+    try {
+      const response = await axios.delete(`${api}/user/removenetwork`, { data: { userId, networkId }, withCredentials: true })
+      toast.success(response.data.message)
+    } catch (error) {
+      toast.error(error.response.data.message)
+
+    }
+
+  }
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4">
       <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-10 text-center">
@@ -288,8 +322,8 @@ const UpdateProfile = () => {
             user.education.length > 0 && user.education.map((edu) => {
               const { _id, degree, institution } = edu
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
-                <h1>Studies in {degree} in {institution}</h1>
-                <button onClick={() => removeEducation(user._id, _id)}>Remove</button>
+                <h1> {degree} in {institution}</h1>
+                <button onClick={() => removeEducation(user._id, _id)}><MdDeleteOutline/></button>
               </div>
             })
           }
@@ -348,7 +382,6 @@ const UpdateProfile = () => {
           </button>
         </form>
 
-
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Job Information</h1>
           {
@@ -356,11 +389,62 @@ const UpdateProfile = () => {
               const { _id, position, company } = e
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <h1>Works as {position} in {company}</h1>
-                <button onClick={() => removeWork(user._id, _id)}>Remove</button>
+                <button onClick={() => removeWork(user._id, _id)}><MdDeleteOutline/></button>
               </div>
             })
           }
         </div>
+
+        <form
+          onSubmit={updateNetwork}
+          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+        >
+          <h2 className="text-lg font-semibold text-gray-700">Update Work Place</h2>
+          <select type="text"
+            id="title"
+            name="title"
+            required
+            value={network.title}
+            onChange={(e) => setNetwork((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+          >
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Twiteer">Twiteer</option>
+          </select>
+
+
+
+          <input
+            type="text"
+            id="link"
+            name="link"
+            required
+            value={network.link}
+            onChange={(e) => setNetwork((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+            className="w-full border border-gray-300 rounded-lg p-2 px-3 outline-none"
+            placeholder="Enter Profile Url"
+          />
+          <button className="bg-black text-white py-2 rounded-lg ">
+            Add
+          </button>
+        </form>
+
+        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+          <h1 className="text-lg font-semibold text-gray-700">Networks</h1>
+          {
+            user.network.length > 0 && user.network.map((net) => {
+              const { _id, title, link } = net
+              return <div key={_id} className='w-full flex flex-row items-center justify-between '>
+                <a href={link}>{title}</a>
+                <button onClick={() => removeNetwork(user._id, _id)}><MdDeleteOutline/></button>
+              </div>
+            })
+          }
+        </div>
+
+
 
         <form
           onSubmit={changePassword}

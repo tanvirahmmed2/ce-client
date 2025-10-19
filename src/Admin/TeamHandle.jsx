@@ -3,6 +3,7 @@ import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { api } from '../components/api'
+import { MdDeleteOutline } from "react-icons/md";
 
 const roleMap = {
   advisor: ["Chief Advisor", "Faculty Advisor", "Advisor"],
@@ -18,37 +19,27 @@ const TeamHandle = () => {
 
   const { team } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
-    name: '',
     role: 'mentor',
     post: '',
     email: '',
-    profileImage: null
   })
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target
-    if (name === 'profileImage') {
-      setFormData((prev) => ({ ...prev, profileImage: files[0] }))
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }))
-    }
+    const { name, value } = e.target
+
+    setFormData((prev) => ({ ...prev, [name]: value }))
+
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const newData = new FormData()
-      newData.append('name', formData.name)
-      newData.append('role', formData.role)
-      newData.append('post', formData.post)
-      newData.append('email', formData.email)
-      newData.append('profileImage', formData.profileImage)
+
 
       const response = await axios.post(
         `${api}/team/add`,
-        newData,
+        formData,
         {
-          headers: { 'Content-Type': 'multipart/form-data' },
           withCredentials: true
         }
       )
@@ -82,18 +73,7 @@ const TeamHandle = () => {
           onSubmit={handleSubmit}
           className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'
         >
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name='name'
-              id='name'
-              onChange={handleChange}
-              value={formData.name}
-              required
-              className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
-            />
-          </div>
+
 
           <div>
             <label htmlFor="role">Role</label>
@@ -132,18 +112,6 @@ const TeamHandle = () => {
 
 
 
-          <div>
-            <label htmlFor="profileImage">Image</label>
-            <input
-              type='file'
-              name="profileImage"
-              id="profileImage"
-              required
-              accept="image/*"
-              onChange={handleChange}
-              className='w-full border border-gray-400 rounded-md p-2 outline-none bg-white text-gray-800'
-            />
-          </div>
 
           <div>
             <label htmlFor="profileLink">email</label>
@@ -171,7 +139,7 @@ const TeamHandle = () => {
         <div className='w-full flex flex-col items-center justify-center gap-4'>
           <h1 className='text-2xl font-semibold text-center'>Existing Team Members</h1>
 
-          <div className='w-full grid grid-cols-4 justify-items-center'>
+          <div className='w-full grid grid-cols-4  border-2 p-2'>
             <p>Name</p>
             <p>Role</p>
             <p>Post</p>
@@ -180,11 +148,11 @@ const TeamHandle = () => {
           {team.map((e) => {
             const { name, role, post, _id } = e
             return (
-              <div key={_id} className='w-full grid grid-cols-4 justify-items-center shadow-lg py-2'>
+              <div key={_id} className='w-full grid grid-cols-4  border-2 p-2'>
                 <h1>{name}</h1>
                 <p>{role}</p>
                 <p>{post}</p>
-                <button onClick={() => handleRemove(_id)}>Remove</button>
+                <button onClick={() => handleRemove(_id)}><MdDeleteOutline/></button>
               </div>
             )
           })}

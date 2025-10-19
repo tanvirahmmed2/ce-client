@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 import { api } from '../components/api'
 
@@ -9,7 +9,8 @@ const AccessHandle = () => {
   const { users } = useContext(ThemeContext)
 
 
-  const admins = users.filter((user) => user.role === 'admin')
+  const admins = users.filter((user) => user.role === 'Admin')
+  const authors = users.filter((user) => user.role === 'Author')
 
 
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const AccessHandle = () => {
       })
       toast.success(response.data.message)
     } catch (error) {
-     toast.error(error.response.data.message)
+      toast.error(error.response.data.message)
 
     }
   }
@@ -66,19 +67,21 @@ const AccessHandle = () => {
         Access Manager
       </h1>
 
+      <div className='w-full flex flex-col items-center justify-center gap-2 bg-gray-50 border-gray-100 border-2 py-2'>
 
-      <h1 className='text-2xl font-semibold text-center text-emerald-500'>Admins</h1>
-      {
-        admins.length > 0 && admins.map((admin) => {
-          const { name, email, profileImage, _id } = admin
-          return <div key={_id} className='w-full flex-row flex items-center justify-around'>
-            <img src={profileImage} alt="" className='w-[50px] h-[50px] rounded-full' />
-            <h1>{name}</h1>
-            <p>{email}</p>
-          </div>
-        })
-      }
+        <h1 className='text-2xl font-semibold text-center text-emerald-500'>Admins</h1>
+        {
+          admins.length > 0 && admins.map((admin) => {
+            const { name, email, profileImage, _id } = admin
+            return <div key={_id} className='w-full flex-row flex items-center justify-around p-1'>
+              <img src={profileImage} alt="" className='w-[50px] h-[50px] rounded-full' />
+              <h1>{name}</h1>
+              <p>{email}</p>
+            </div>
+          })
+        }
 
+      </div>
       <form onSubmit={handleUpdate} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
         <h2 className='text-2xl font-bold text-gray-800 text-center mb-4'>
           Add New Access Manager
@@ -103,9 +106,9 @@ const AccessHandle = () => {
           <label htmlFor="role" className='text-sm font-medium text-gray-700'>Role</label>
           <select name="role" id="role" onChange={handleChangeUpdate} value={formData.role} required className='bg-white border border-gray-400 rounded-md p-2 outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition'>
             <option value="">Select Role</option>
-            <option value="admin">Admin</option>
-            <option value="author">Author</option>
-            <option value="member">Member</option>
+            <option value="Admin">Admin</option>
+            <option value="Author">Author</option>
+            <option value="Member">Member</option>
           </select>
         </div>
 
@@ -124,7 +127,21 @@ const AccessHandle = () => {
         <button type='submit' className='bg-red-600 text-white p-1 px-2 rounded-lg'>Delete</button>
       </form>
 
+      <div className='w-full flex flex-col items-center justify-center gap-2 bg-gray-50 border-gray-100 border-2 py-2'>
 
+        <h1 className='text-2xl font-semibold text-center text-emerald-500'>Authors</h1>
+        {
+          authors.length > 0 && authors.map((admin) => {
+            const { name, email, profileImage, _id } = admin
+            return <div key={_id} className='w-full flex-row flex items-center justify-around p-1'>
+              <img src={profileImage} alt="" className='w-[50px] h-[50px] rounded-full' />
+              <h1>{name}</h1>
+              <p>{email}</p>
+            </div>
+          })
+        }
+
+      </div>
     </div>
   )
 }

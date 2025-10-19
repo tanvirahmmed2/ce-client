@@ -18,13 +18,13 @@ const UserProfile = () => {
     <section className='w-full min-h-[800px] p-6 flex flex-col items-center gap-10 bg-gray-50'>
 
 
-      <div className='w-full max-w-4xl bg-emerald-500 py-6 text-white rounded-lg flex flex-col items-center gap-4'>
+      <div className='w-full max-w-4xl border-2 py-6  rounded-lg flex flex-col items-center gap-4'>
         {user.profileImage
           ? <img src={user.profileImage} alt={user.name} className='w-40 h-40 object-cover rounded-full border-4 border-white shadow-md' />
-          : <div className='text-9xl text-white border-4 border-white rounded-full p-2'><RxAvatar /></div>
+          : <div className='text-9xl  border-4 border-white rounded-full p-2'><RxAvatar /></div>
         }
         <h1 className='text-3xl font-semibold'>{user.name}</h1>
-        <p className='italic text-white/90'>{user.role}</p>
+        <p className='italic '>{user.role} {user.post && <span>& {user.post}</span>}</p>
       </div>
 
 
@@ -47,7 +47,7 @@ const UserProfile = () => {
               const { _id, degree, institution, field, startYear, endYear } = edu;
               return (
                 <div key={_id} className='p-3 rounded-md bg-gray-50 border border-gray-100'>
-                  <p><span className='font-semibold'>{degree}</span> ({` ${field} `}) at {institution}</p>
+                  <p><span className='font-semibold'>{degree} </span> ({` ${field} `})  at {institution}</p>
                   <p className='text-sm text-gray-500'>Start Year: {startYear}</p>
                   {endYear && <p className='text-sm text-gray-500'>End Year: {endYear}</p>}
                 </div>
@@ -74,6 +74,20 @@ const UserProfile = () => {
                   {startYear && <p>From {startYear}</p>}
                   {endYear && <p>To {endYear}</p>}
                 </div>
+
+              );
+            })}
+          </div>
+        </div>
+      )}
+      {user.network?.length > 0 && (
+        <div className='w-full max-w-4xl bg-white shadow-md rounded-xl p-6 border border-gray-200'>
+          <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>Network</h2>
+          <div className='flex flex-col gap-3'>
+            {user.network.map((net) => {
+              const { _id, title,link } = net;
+              return (
+                <a href={link} key={_id}>{title}</a>
 
               );
             })}

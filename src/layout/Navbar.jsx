@@ -6,7 +6,7 @@ import { ThemeContext } from '../components/Context';
 const Navbar = () => {
   const { sidebar, setSidebar } = useContext(ThemeContext)
   return (
-    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-sm z-40 bg-white text-emerald-950'>
+    <nav className='w-full h-16 fixed flex flex-row items-center justify-between px-2 md:px-6 shadow-sm z-40 bg-white text-emerald-950 border-b-2 border-black border-opacity-50'>
       <a href="/" className='w-auto h-full flex flex-row items-center justify-center gap-2'>
         <img src={`https://res.cloudinary.com/dq4gmh1z6/image/upload/v1760450691/CCIRL_zvnbcp.png`} alt=""  className='h-16'/>
         <div className='w-auto h-full flex flex-col items-start justify-center'>
@@ -21,6 +21,7 @@ const Navbar = () => {
         <Link to='/update' className='w-auto h-full hidden md:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Update</Link>
         <Link to='/projects' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Projects</Link>
         <Link to='/collaboration' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Collaborations</Link>
+        <Link to='/publications' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Publications</Link>
         <Link to='/events' className='w-auto h-full flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Events</Link>
         <Link to='/gallery' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Gallery</Link>
         <Link to='/team' className='w-auto h-full hidden lg:flex justify-center items-center px-2 hover:border-b-2 border-green-600'>Team</Link>

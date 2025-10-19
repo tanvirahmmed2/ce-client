@@ -13,22 +13,16 @@ const Publications = () => {
 
       </div>
       <div className='w-full flex flex-col items-center justify-center gap-6'>
-        <div className='w-full grid grid-cols-5 shadow-lg p-4 rounded-md justify-items-center'>
-          <h1>Title</h1>
-          <p>Description</p>
-          <p>PDF</p>
-          <p>Abstruct Link</p>
-          <p>View Author</p>
-        </div>
+        <p className='w-full text-center p-1 shadow-lg rounded-xl'>Publication</p>
         {
           publications && publications.map((paper) => {
-            const { _id, authorId, title, abstract, description, pdf } = paper
-            return <div key={_id} className='w-full grid grid-cols-5 shadow-lg p-4 rounded-md justify-items-center'>
-              <h1>{title.slice(0,20)}...</h1>
-              <p>{description.slice(0,20)}<Link to={`/publications/${_id}`} className='text-red-500'>... more</Link></p>
-              <a href={abstract} className='text-white bg-emerald-500 p-2 px-3 rounded-lg w-auto'>Abstract</a>
-              <a href={pdf}>PDF</a>
-              <Link to={`/profile/${authorId}`} className='italic font-semibold'>Click</Link>
+            const { _id, authorId, title,link, description, pdf , authorName} = paper
+            return <div key={_id} className='w-full flex flex-row items-center justify-between px-2 border-l-2 border-opacity-15 border-black'>
+              <Link to={`/publications/${_id}`}>{title.slice(0,20)}...</Link>
+              <p className='hidden lg:block'>{description.slice(0,20)}</p>
+              <a href={link} className='rounded-lg w-auto hidden md:block'>Abstract</a>
+              <a href={pdf} className='hidden sm:block'>PDF</a>
+              <Link to={`/profile/${authorId}`} className='italic font-semibold'>{authorName}</Link>
             </div>
           })
         }

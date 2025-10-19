@@ -12,7 +12,7 @@ const Update = () => {
     <section className="w-full min-h-[800px] bg-gray-50 p-6 flex flex-col items-center justify-center gap-8">
       <h1 className='text-4xl font-bold text-emerald-600'>Latest Updates</h1>
       <p className='text-base sm:text-lg text-center'>Stay updated with our recent discoveries and announcements</p>
-      <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center'>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center'>
         {
           update.length > 0 && update.map((e) => {
             const { _id, title, image, description } = e
@@ -21,7 +21,7 @@ const Update = () => {
               <img src={image} alt="" className='w-full h-full rounded-lg object-cover' />
 
               {
-                description.length >0 && <p className=''>{description.slice(0, 150)} .... <Link to={`/update/${_id}`} className='italic text-green-600'>see more</Link></p>
+                description.length >0 && <p className=''>{description.slice(0, 20)} .... <Link to={`/update/${_id}`} className='italic text-green-600'>see more</Link></p>
               }
             </motion.div>
           })

@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <section className='w-full flex items-center justify-center p-6'>
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} className='w-full lg:w-3/4 h-auto  bg-gradient-to-br from-emerald-600 to-cyan-700 text-white flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden'>
-        <div className='w-full flex flex-col items-center justify-center gap-2 py-6 text-center'>
+        <div className='w-full flex flex-col items-center justify-center gap-2 p-6 text-center'>
           <h1>Welcom back to</h1>
           <h1 className='text-xl font-semibold'>Climate Change and Impact Resonance Lab</h1>
           <p>Login to your portal and contribute for the world</p>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { ThemeContext } from '../components/Context'
+import { MdDeleteOutline } from "react-icons/md";
 import { api } from '../components/api'
 
 const PublicationHandle = () => {
@@ -54,7 +55,7 @@ const removePub = async (authorId, pubId) => {
                 <p>{authorId}</p>
                 <p>{authorName}</p>
                 <button onClick={()=> removePub(authorId, _id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
-                  Remove
+                 <MdDeleteOutline/>
                 </button>
 
               </div>

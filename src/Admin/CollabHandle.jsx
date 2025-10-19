@@ -3,6 +3,7 @@ import { ThemeContext } from '../components/Context'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { api } from '../components/api'
+import { MdDeleteOutline } from "react-icons/md";
 
 const CollabHandle = () => {
 
@@ -116,7 +117,7 @@ const CollabHandle = () => {
                     <tr key={_id} className="border-t  transition grid grid-cols-3">
                       <td className="p-3">{title}</td>
                       <td className="p-3">{portfolio.slice(0, 50)}...</td>
-                      <td onClick={() => removeProject(_id)} className='cursor-pointer  p-3'>Remove</td>
+                      <td onClick={() => removeProject(_id)} className='cursor-pointer  p-3'><MdDeleteOutline/></td>
                     </tr>
                   )
                 })

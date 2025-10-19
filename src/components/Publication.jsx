@@ -33,18 +33,22 @@ const Publication = () => {
             href={data.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white bg-blue-600 hover:bg-blue-700 transition px-5 py-2 rounded-lg text-center font-medium shadow"
+            className="text-white bg-black hover:bg-black/50 transition px-5 py-2 rounded-lg text-center font-medium shadow"
           >
             View Abstract
           </a>
         )}
+        <a href={data.pdf} 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white bg-black hover:bg-black/50 transition px-5 py-2 rounded-lg text-center font-medium shadow">File</a>
       </div>
 
 
       <div className="mt-6 text-center">
         <Link
           to="/publications"
-          className="text-emerald-600 font-semibold hover:underline"
+          className="text-emerald-600 font-semibold "
         >
           ← Back to all publications
         </Link>

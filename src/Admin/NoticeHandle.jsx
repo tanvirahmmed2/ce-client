@@ -3,6 +3,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { ThemeContext } from '../components/Context'
 import { api } from '../components/api'
+import { MdDeleteOutline } from "react-icons/md";
 
 const NoticeHandle = () => {
   const { notices } = useContext(ThemeContext)
@@ -107,17 +108,20 @@ const NoticeHandle = () => {
 
         {notices && notices.length > 0 ? (
           notices.map((notice) => {
-            const { _id, title, pdf } = notice
+            const { _id, title, pdf} = notice
             return (
               <div
                 key={_id}
                 className='w-full grid grid-cols-3 gap-4 items-center py-3 px-4 text-sm text-gray-700 border-b border-gray-100 hover:bg-gray-50 transition duration-150 rounded-md'
               >
                 <h3 className='font-medium text-gray-900 truncate'>{title}</h3>
-                <a href={pdf} target="_blank" rel="noopener noreferrer" download>Download PDF</a>
+                <a href={pdf}  download={pdf} className="text-blue-600 hover:underline">
+                  Download PDF
+                </a>
+
                 <div className='flex justify-center'>
                   <button onClick={() => removeNotice(_id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
-                    Remove
+                    <MdDeleteOutline/>
                   </button>
                 </div>
               </div>

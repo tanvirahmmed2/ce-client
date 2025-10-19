@@ -4,6 +4,7 @@ import { ThemeContext } from '../components/Context'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../components/api'
+import { MdDeleteOutline } from "react-icons/md";
 
 const MemberHandle = () => {
 
@@ -82,8 +83,8 @@ const MemberHandle = () => {
               <h1 className='font-semibold'>{name}</h1>
               <p>{subject}</p>
               <p className='text-justify'>{message}</p>
-              <a href={`mailto:${email}`} className=''>Response: {email}</a>
-              <button onClick={() => removeMessage(_id)}>Action</button>
+              <a href={`mailto:${email}`} className=''>{email}</a>
+              <button onClick={() => removeMessage(_id)}><MdDeleteOutline/></button>
             </div>
           })
         }

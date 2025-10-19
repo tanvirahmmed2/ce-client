@@ -4,6 +4,7 @@ import { ThemeContext } from '../components/Context'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../components/api';
+import { MdDeleteOutline } from "react-icons/md";
 
 const daysInMonth = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -176,7 +177,7 @@ const EventHandle = () => {
                 <p className='truncate'>{month} {day}, {year}</p>
                 <div className='flex justify-center'>
                   <button onClick={()=>removeEvent(_id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
-                    Remove
+                    <MdDeleteOutline/>
                   </button>
                 </div>
               </div>
