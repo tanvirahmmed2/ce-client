@@ -54,7 +54,7 @@ const removePub = async (authorId, pubId) => {
                 <h3 className='font-medium text-gray-900 truncate'>{title}</h3>
                 <p>{authorId}</p>
                 <p>{authorName}</p>
-                <button onClick={()=> removePub(authorId, _id)} className='text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
+                <button onClick={()=> removePub(authorId, _id)} className='w-auto text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
                  <MdDeleteOutline/>
                 </button>
 
