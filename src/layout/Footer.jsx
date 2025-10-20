@@ -43,9 +43,9 @@ const Footer = () => {
         </div>
 
       </footer>
-      <div className='w-full bg-emerald-950 flex flex-col gap-4 items-center justify-center px-5 py-8 text-center border-t-2'>
+      <div className='w-full bg-emerald-950 flex flex-col gap-4 text-white items-center justify-center px-5 py-8 text-center border-t-2'>
         <p className='text-xs sm:text-base'>© 2025 Climate Change Impact and Resilience Lab. All rights reserved.</p>
-        <p className='text-xs sm:text-base'>Designed & Doveloped by <a className='text-emerald-700' href="https://disibin.com">Disibin</a></p>
+        <p className='text-xs sm:text-base'>Designed & Doveloped by <a className='' href="https://disibin.com">Disibin</a></p>
 
       </div>
     </section>

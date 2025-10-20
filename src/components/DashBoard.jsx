@@ -15,7 +15,7 @@ import CollabHandle from '../Admin/CollabHandle'
 const DashBoard = () => {
     const { handler } = useParams()
     return (
-        <div className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
+        <div className='w-full min-h-[800px] p-2 flex flex-col items-center justify-center gap-8'>
             <section className='grid grid-cols-3 md:grid-cols-5 w-full justify-items-center gap-4'>
                 <Link to='/admin/member' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2'>Member</Link>
                 <Link to='/admin/event' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2'>Event</Link>
@@ -29,7 +29,7 @@ const DashBoard = () => {
                 <Link to='/admin/collaboration' className='w-full h-full bg-emerald-700 hover:bg-emerald-500 transition duration-500 flex items-center justify-center text-white  rounded-lg py-2 '>Collaboration</Link>
 
             </section>
-            <section className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
+            <section className='w-full min-h-[800px] flex flex-col items-center justify-center gap-8'>
                 {handler === 'event' && <EventHandle />}
                 {handler === 'update' && <UpdateHandle />}
                 {handler === 'project' && <ProjectHandle />}
