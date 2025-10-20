@@ -131,7 +131,6 @@ const UserProfile = () => {
               <span className="font-semibold">Email:</span>{' '}
               <span className="text-emerald-600 underline">{user.email}</span>
             </p>
-            {user.phone && <p><span className="font-semibold">Phone:</span> {user.phone}</p>}
             <p className="flex flex-row gap-2 items-center font-semibold text-gray-600">
               <FaMapMarkedAlt className="text-red-500" /> {user.country}
             </p>
