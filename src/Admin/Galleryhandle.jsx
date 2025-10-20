@@ -54,9 +54,9 @@ const Galleryhandle = () => {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start gap-10 py-10 px-4 ">
+    <div className="w-full min-h-screen flex flex-col items-center justify-start gap-10 py-10 px-2 ">
 
-      <div className="w-full  bg-white shadow-lg rounded-2xl p-8">
+      <div className="w-full  bg-white shadow-lg rounded-2xl p-2">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Upload New Image
         </h1>
@@ -114,7 +114,7 @@ const Galleryhandle = () => {
       </div>
 
 
-      <div className="w-full  bg-white shadow-lg rounded-2xl p-8 flex flex-col gap-6">
+      <div className="w-full  bg-white shadow-lg rounded-2xl p-2 flex flex-col gap-6">
         <h1 className="text-xl font-bold text-gray-800 text-center">
           Delete Any Image
         </h1>

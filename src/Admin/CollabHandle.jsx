@@ -49,8 +49,8 @@ const CollabHandle = () => {
   }
 
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
-      <div className="w-full  bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
+    <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-2">
+      <div className="w-full  bg-white rounded-2xl shadow-lg p-2 flex flex-col gap-6">
         <h1 className="text-3xl font-bold text-center text-gray-800">Latest collaborations</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
@@ -98,15 +98,15 @@ const CollabHandle = () => {
         </form>
       </div>
 
-      <div className="w-full  bg-white rounded-2xl shadow-lg p-8">
+      <div className="w-full  bg-white rounded-2xl shadow-lg p-2">
         <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Uploaded projetcs</h1>
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 rounded-lg">
             <thead>
               <tr className="bg-gray-100  text-left grid grid-cols-3">
-                <th className="p-3 font-semibold">Title</th>
-                <th className="p-3 font-semibold">portfolio</th>
-                <th className='p-3'>Action</th>
+                <th className="p-1 font-semibold">Title</th>
+                <th className="p-1 font-semibold">portfolio</th>
+                <th className='p-1'>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -115,9 +115,9 @@ const CollabHandle = () => {
                   const { _id, title, portfolio } = e
                   return (
                     <tr key={_id} className="border-t  transition grid grid-cols-3">
-                      <td className="p-3">{title}</td>
-                      <td className="p-3">{portfolio.slice(0, 50)}...</td>
-                      <td onClick={() => removeProject(_id)} className='cursor-pointer  p-3'><MdDeleteOutline/></td>
+                      <td className="p-1">{title}</td>
+                      <td className="p-1">{portfolio.slice(0, 50)}...</td>
+                      <td onClick={() => removeProject(_id)} className='cursor-pointer  p-1'><MdDeleteOutline/></td>
                     </tr>
                   )
                 })

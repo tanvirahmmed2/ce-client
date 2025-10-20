@@ -25,7 +25,7 @@ const PublicationHandle = () => {
   }
 
   return (
-    <div className='w-full p-4 md:p-8 flex flex-col items-center gap-12  min-h-screen'>
+    <div className='w-full p-2 flex flex-col items-center gap-12  min-h-screen'>
 
       <h1 className='text-center text-3xl font-bold text-gray-900 '>
         Manage Publications
@@ -62,7 +62,7 @@ const PublicationHandle = () => {
             )
           })
         ) : (
-          <div className='w-full p-6 text-center text-gray-500 border border-dashed border-gray-300 rounded-lg bg-white'>
+          <div className='w-full p-2 text-center text-gray-500 border border-dashed border-gray-300 rounded-lg bg-white'>
             No publications found. Add one above!
           </div>
         )}

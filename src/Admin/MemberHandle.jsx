@@ -69,21 +69,15 @@ const MemberHandle = () => {
       <h1 className='text-2xl font-semibold text-center'>Public Response Section</h1>
       <div className='w-full flex flex-col items-center justify-center gap-4'>
         <h1 className='text-2xl font-semibold'>Message</h1>
-        <div className='w-full grid grid-cols-5 gap-2 border-b-2 p-4 justify-items-center'>
-          <p>From</p>
-          <p>Subject</p>
-          <p>Message</p>
-          <p>Email</p>
-          <p>Remove</p>
-        </div>
+        
         {
           messages && messages.map((e) => {
             const { name, subject, message, email, _id } = e
-            return <div key={_id} className='w-full grid grid-cols-5 gap-2 border-b-2 p-2 shadow-sm hover:shadow-md transition duration-500 justify-items-center'>
-              <h1 className='font-semibold'>{name}</h1>
-              <p>{subject}</p>
-              <p className='text-justify'>{message}</p>
-              <a href={`mailto:${email}`} className=''>{email}</a>
+            return <div key={_id} className='w-full flex flex-col gap-2 border-b-2 p-2 shadow-sm hover:shadow-md transition duration-500 '>
+              <h1 className='font-semibold w-full'>{name}</h1>
+              <p className='w-full'>{subject}</p>
+              <p className='text-justify w-full'>{message}</p>
+              <a href={`mailto:${email}`} className='w-full'>{email}</a>
               <button onClick={() => removeMessage(_id)}><MdDeleteOutline/></button>
             </div>
           })
@@ -91,7 +85,7 @@ const MemberHandle = () => {
       </div>
 
 
-      <form onSubmit={handleBan} className='w-full max-w-lg p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
+      <form onSubmit={handleBan} className='w-full max-w-lg p-2 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-4'>
         <h2 className='text-2xl font-bold text-gray-800 text-center mb-4'>
           Ban or unban user
         </h2>

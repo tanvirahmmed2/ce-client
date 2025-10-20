@@ -81,13 +81,13 @@ const EventHandle = () => {
   const labelStyle = 'text-sm font-medium text-gray-700 block mb-1';
 
   return (
-    <div className='w-full p-4 md:p-8 flex flex-col items-center gap-12  min-h-[800px]'>
+    <div className='w-full p-2  flex flex-col items-center gap-12  min-h-[800px]'>
 
       <h1 className='text-center text-3xl font-bold text-gray-900 '>
         Manage Events
       </h1>
 
-      <form onSubmit={handleSubmit} className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
+      <form onSubmit={handleSubmit} className='w-full p-2 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'>
         <h2 className='text-2xl font-bold text-gray-800 text-center mb-2'>
           Fill Event Details
         </h2>
@@ -184,7 +184,7 @@ const EventHandle = () => {
             )
           })
         ) : (
-          <div className='w-full p-6 text-center text-gray-500 border border-dashed border-gray-300 rounded-lg bg-white'>
+          <div className='w-full p-2 text-center text-gray-500 border border-dashed border-gray-300 rounded-lg bg-white'>
             No upcoming events found. Add one above!
           </div>
         )}

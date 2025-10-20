@@ -65,13 +65,13 @@ const TeamHandle = () => {
   }
 
   return (
-    <div className='w-full min-h-[800px] p-6 flex flex-col items-center justify-center gap-8'>
+    <div className='w-full min-h-[800px] p-2 flex flex-col items-center justify-center gap-8'>
       <h1 className='text-2xl font-semibold text-center'>Team Management</h1>
       <div className='w-full flex flex-col items-center justify-center gap-4'>
         <h1>Add Team Member</h1>
         <form
           onSubmit={handleSubmit}
-          className='w-full p-6 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'
+          className='w-full p-2 bg-white rounded-xl shadow-xl border border-gray-300 flex flex-col gap-5'
         >
 
 

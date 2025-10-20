@@ -80,8 +80,7 @@ const UpdateHandle = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-10 py-10 px-4">
-      {/* Add New Update Form */}
-      <div className="w-full bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6 max-w-3xl">
+      <div className="w-full bg-white rounded-2xl shadow-lg p-2 flex flex-col gap-6 max-w-3xl">
         <h1 className="text-3xl font-bold text-center text-gray-800">
           Latest Updates
         </h1>
@@ -140,7 +139,7 @@ const UpdateHandle = () => {
         </form>
       </div>
 
-      <div className="w-full bg-white rounded-2xl shadow-lg p-8 max-w-5xl">
+      <div className="w-full bg-white rounded-2xl shadow-lg p-2 max-w-5xl">
         <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">
           Uploaded Updates
         </h1>

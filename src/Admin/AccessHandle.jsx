@@ -61,7 +61,7 @@ const AccessHandle = () => {
 
 
   return (
-    <div className='w-full p-4 md:p-8 flex items-center justify-center flex-col gap-10 '>
+    <div className='w-full p-2 flex items-center justify-center flex-col gap-10 '>
 
       <h1 className='text-center text-3xl font-bold text-gray-900  pb-2'>
         Access Manager
