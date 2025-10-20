@@ -1,44 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import { RiGlobalLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <section className='w-full flex flex-col items-center justify-center  text-white/60'>
-      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-center bg-emerald-900 justify-center gap-4'>
+    <section className='w-full flex flex-col items-center justify-center border-t-2 border-emerald-600  '>
+      <footer className='w-full flex flex-col md:flex-row px-6 py-7 items-centerjustify-center gap-4'>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
-          <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
+          <img src={`https://res.cloudinary.com/dq4gmh1z6/image/upload/v1760450691/CCIRL_zvnbcp.png`} alt='' className='w-12 ' />
           <div className='w-auto  flex flex-col items-start justify-center'>
-            <h1 className='font-semibold text-white'>CCIRL</h1>
+            <h1 className='font-semibold text-emerald-700'>CCIRL</h1>
             <p className='text-xs'>Climate Change Impact and Resilience Lab</p>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
-          <h1 className='font-semibold text-white'>Quick links</h1>
+          <h1 className='font-semibold text-emerald-700'>Quick links</h1>
           <div className='flex flex-col'>
             <Link to='/mission'>Mission</Link>
-            <Link to='/scope'>Scope</Link>
-            <Link to='/update'>Update</Link>
             <Link to='/events'>Events</Link>
             <Link to='/notice'>Notice</Link>
-            <Link to='/collaboration'>Collaboration</Link>
+            <Link to='/publications'>Publications</Link>
           </div>
         </div>
         <div className='w-full flex flex-col items-start justify-center gap-4'>
-          <h1 className='font-semibold text-white'>Important</h1>
+          <h1 className='font-semibold text-emerald-700'>Important</h1>
           <div className='flex flex-col'>
-            <Link to='/publications'>Publications</Link>
             <Link to='/admin'>Admin</Link>
-            <Link to='/profile'>Profile</Link>
             <Link to='/login'>Join us</Link>
             <Link to='/projects'>Projects</Link>
-            <Link to='/contact'>Contact</Link>
+            <Link to='/collaboration'>Collaboration</Link>
           </div>
         </div>
 
         <div className='w-full flex flex-col items-start justify-center gap-4'>
-          <h1 className='font-semibold text-white'>Connect</h1>
+          <h1 className='font-semibold text-emerald-700'>Connect</h1>
           <div className='flex flex-col'>
             <a href="mailto:ccirl.mec@gmail.com">ccirl.mec@gmail.com</a>
             <a href="tel:+8801306556358">+8801306556358</a>
@@ -50,7 +45,7 @@ const Footer = () => {
       </footer>
       <div className='w-full bg-emerald-950 flex flex-col gap-4 items-center justify-center px-5 py-8 text-center border-t-2'>
         <p className='text-xs sm:text-base'>© 2025 Climate Change Impact and Resilience Lab. All rights reserved.</p>
-        <p className='text-xs sm:text-base'>Designed & Doveloped by <a className='text-white' href="https://disibin.com">Disibin</a></p>
+        <p className='text-xs sm:text-base'>Designed & Doveloped by <a className='text-emerald-700' href="https://disibin.com">Disibin</a></p>
 
       </div>
     </section>

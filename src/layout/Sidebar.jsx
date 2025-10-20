@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import { FaArrowRightLong } from "react-icons/fa6";
-import { RiGlobalLine } from "react-icons/ri";
 import { ThemeContext } from '../components/Context'
 import { toast } from 'react-toastify';
 import { api } from '../components/api';
@@ -28,11 +27,11 @@ const Sidebar = () => {
   }
   
   return (
-    <div className={`fixed right-0 top-0 h-screen max-h-screen overflow-y-auto bg-emerald-950 text-white z-50 flex flex-col items-end px-6 py-4 gap-4  transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
+    <div className={`fixed right-0 top-0 h-screen max-h-screen overflow-y-auto shadow-2xl bg-white z-50 flex flex-col items-end px-6 py-4 gap-4  transition-transform duration-500 ease-in-out ${sidebar ? 'translate-x-0' : 'translate-x-full'}`}>
       <button onClick={() => setSidebar(!sidebar)} className='w-full bg-white/20  flex  justify-center items-center px-2  text-2xl '><FaArrowRightLong /></button>
       <a href="/" className='w-auto  flex flex-col items-end justify-center gap-2'>
 
-        <p className='text-green-600 text-4xl'><RiGlobalLine /></p>
+        <img src={`https://res.cloudinary.com/dq4gmh1z6/image/upload/v1760450691/CCIRL_zvnbcp.png`} alt='' className='w-12 '/>
         <div className='w-auto  flex flex-col items-end justify-center'>
           <h1 className='font-semibold'>CCIRL</h1>
           <p className='text-[10px]'>Climate Change Impact and Resilience Lab</p>

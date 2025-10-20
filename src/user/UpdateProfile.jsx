@@ -317,7 +317,7 @@ const UpdateProfile = () => {
         <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Eduactional Information</h1>
           {
-            user.education.length > 0 && user.education.map((edu) => {
+            user.education && user.education.map((edu) => {
               const { _id, degree, institution } = edu
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <h1> {degree} in {institution}</h1>
@@ -383,7 +383,7 @@ const UpdateProfile = () => {
         <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Job Information</h1>
           {
-            user.work.length > 0 && user.work.map((e) => {
+            user.work && user.work.map((e) => {
               const { _id, position, company } = e
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <h1>Works as {position} in {company}</h1>
@@ -432,7 +432,7 @@ const UpdateProfile = () => {
         <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Networks</h1>
           {
-            user.network.length > 0 && user.network.map((net) => {
+            user.network && user.network.map((net) => {
               const { _id, title, link } = net
               return <div key={_id} className='w-full flex flex-row items-center justify-between '>
                 <a href={link}>{title}</a>
