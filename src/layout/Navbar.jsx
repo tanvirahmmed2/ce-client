@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className='w-auto h-full flex flex-row items-center justify-center gap-2'>
         {
-          user? <Link to='/profile'><img src={user.profileImage} alt=""  className='w-10 rounded-full'/></Link>: <Link Link to='/login' className='w-auto p-2 hidden md:flex justify-center items-center px-4 bg-emerald-600 text-white transition duration-500 hover:bg-emerald-400 rounded-lg'>Login</Link>
+          user? <Link to='/profile'><img src={user.profileImage} alt=""  className='w-8 rounded-full'/></Link>: <Link Link to='/login' className='w-auto p-2 hidden md:flex justify-center items-center px-4 bg-emerald-600 text-white transition duration-500 hover:bg-emerald-400 rounded-lg'>Login</Link>
         }
         <button onClick={() => setSidebar(!sidebar)} className='w-auto h-full flex justify-center items-center px-2  text-2xl'><TbMenuDeep /></button>
       </div>
