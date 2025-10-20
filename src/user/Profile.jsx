@@ -147,7 +147,7 @@ const Profile = () => {
 
           <div className='flex flex-col gap-3 text-gray-700 leading-relaxed'>
 
-            {user.education.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.education && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Education:</h1>
               {user.education.map((edu) => {
 
@@ -168,7 +168,7 @@ const Profile = () => {
               })}
             </div>}
 
-            {user.work.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.work && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Carrier:</h1>
               {user.work.map((job) => {
                 const { _id, position, company, startYear, endYear } = job
@@ -184,7 +184,7 @@ const Profile = () => {
                 )
               })}
             </div>}
-            {user.network.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.network && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Networks:</h1>
               {
                 user.network.map((net) => {
