@@ -99,6 +99,7 @@ const Galleryhandle = () => {
               id="author"
               onChange={handleChange}
               value={formData.author}
+              required
               className="w-full border rounded-lg p-2 px-3 outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
@@ -118,7 +119,7 @@ const Galleryhandle = () => {
           Delete Any Image
         </h1>
         <form
-          onSubmit={handleDelete} className="flex gap-3">
+          onSubmit={handleDelete} className="flex gap-3 flex-col">
           <input
             type="text"
             name="id"

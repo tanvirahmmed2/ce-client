@@ -110,12 +110,12 @@ const Profile = () => {
     }
   }
   return (
-    <section className='w-full min-h-screen bg-gray-50 p-6 flex flex-col items-center justify-center'>
+    <section className='w-full min-h-screen bg-gray-50 p-2 flex flex-col items-center justify-center'>
       <div className='w-full max-w-[700px] flex flex-col items-center justify-center gap-8'>
 
         <div className='w-full bg-white rounded-md shadow-md py-10 flex flex-col items-center justify-center'>
-          <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight'>
-            Welcome to <span className='text-yellow-300'>CCIRL</span>
+          <h1 className='text-xl sm:text-4xl font-extrabold tracking-tight'>
+            Welcome to <span className='text-emerald-300'>CCIRL</span>
           </h1>
         </div>
 
@@ -140,14 +140,14 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className='w-full bg-white shadow-md rounded-xl p-8 border border-gray-200'>
+        <div className='w-full bg-white shadow-md rounded-xl p-2 border border-gray-200'>
           <h2 className='text-2xl font-semibold mb-4 text-gray-700 border-b pb-2'>
             Personal Details
           </h2>
 
           <div className='flex flex-col gap-3 text-gray-700 leading-relaxed'>
 
-            {user.education && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.education.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Education:</h1>
               {user.education.map((edu) => {
 
@@ -157,7 +157,7 @@ const Profile = () => {
                 return (
                   <div key={_id} className=' rounded-md w-full'>
 
-                    <h1 className='flex flow-row gap-2 items-center'><IoSchoolOutline /><span className='font-semibold'>{degree}</span> ({`in ${field} `}) at {institution}</h1>
+                    <h1 className=''><IoSchoolOutline /><span className='font-semibold'>{degree}</span> ({`in ${field} `}) at {institution}</h1>
 
                     <p className='text-sm text-gray-500'>Started: {startYear}</p>
                     {endYear ? <p>
@@ -168,14 +168,14 @@ const Profile = () => {
               })}
             </div>}
 
-            {user.work && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.work.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Carrier:</h1>
               {user.work.map((job) => {
                 const { _id, position, company, startYear, endYear } = job
                 const currentYear = new Date().getFullYear()
                 return (
                   <div key={_id} className='rounded-md  w-full'>
-                    <p className='flex flow-row gap-2 items-center'><MdWorkOutline /> <span className='font-semibold'>{position}</span> at {company}</p>
+                    <p className=''><MdWorkOutline /> <span className='font-semibold'>{position}</span> at {company}</p>
                     {startYear && <p>Joined {startYear}</p>}
                     {endYear ? <p>
                       {endYear > currentYear ? <span className='text-sm text-gray-500'>Will left: {endYear}</span> : <span className='text-sm text-gray-500 font-semibold'>Left: {endYear}</span>}
@@ -184,7 +184,7 @@ const Profile = () => {
                 )
               })}
             </div>}
-            {user.network && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
+            {user.network.length>0 && <div className='w-full flex flex-col items-start justify-start gap-4 p-3 border-2 border-gray-100'>
               <h1 className='text-xl font-semibold'>Networks:</h1>
               {
                 user.network.map((net) => {
@@ -214,12 +214,12 @@ const Profile = () => {
                 const { title, _id, link, description, pdf } = paper
                 return (
                   <div className='w-full flex flex-col items-center justify-center gap-1' key={_id}>
-                    <div key={_id} className='w-full flex flex-row items-center justify-between p-1 border-b border-gray-100'>
+                    <div key={_id} className='w-full flex flex-row items-center justify-between px-2 border-b border-gray-100'>
                       <Link to={`/publications/${_id}`} className='font-medium text-gray-800'>{title.slice(0, 13)}...</Link>
                       <p className='text-gray-600 text-sm hidden sm:block'>
                         {description.slice(0, 20)}......
                       </p>
-                      <a href={pdf}>PDF</a>
+                      <a href={pdf} className='hidden sm:block'>PDF</a>
                       <a
                         href={link}
                         target='_blank'

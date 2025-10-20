@@ -9,7 +9,7 @@ const PublicationHandle = () => {
   const { publications } = useContext(ThemeContext)
 
 
-const removePub = async (authorId, pubId) => {
+  const removePub = async (authorId, pubId) => {
     try {
       const response = await axios.delete(
         `${api}/user/removepublication`,
@@ -45,7 +45,7 @@ const removePub = async (authorId, pubId) => {
 
         {publications && publications.length > 0 ? (
           publications.map((paper) => {
-            const { _id, title, authorId, authorName} = paper
+            const { _id, title, authorId, authorName } = paper
             return (
               <div
                 key={_id}
@@ -54,8 +54,8 @@ const removePub = async (authorId, pubId) => {
                 <h3 className='font-medium text-gray-900 truncate'>{title}</h3>
                 <p>{authorId}</p>
                 <p>{authorName}</p>
-                <button onClick={()=> removePub(authorId, _id)} className='w-auto text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
-                 <MdDeleteOutline/>
+                <button onClick={() => removePub(authorId, _id)} className='w-auto text-red-600 hover:text-red-800 font-semibold text-xs border border-red-300 py-1 px-3 rounded-full hover:bg-red-50 transition'>
+                  <MdDeleteOutline />
                 </button>
 
               </div>

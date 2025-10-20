@@ -19,7 +19,7 @@ const Notice = () => {
           notices.length >0? notices.map((event) => {
             const { _id, pdf, title } = event
             return <div className='w-full flex-row flex items-center justify-between p-2 border-b-2  pl-3' key={_id}>
-              <p className='font-semibold italic'>{title}</p>
+              <p className=' italic'>{title}</p>
               <a href={pdf} className='w-auto px-3 bg-emerald-800 text-white rounded-xl'>Click</a>
             </div>
 

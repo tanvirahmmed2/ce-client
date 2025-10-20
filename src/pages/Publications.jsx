@@ -17,12 +17,12 @@ const Publications = () => {
         {
           publications && publications.map((paper) => {
             const { _id, authorId, title,link, description, pdf , authorName} = paper
-            return <div key={_id} className='w-full flex flex-row items-center justify-between px-2 border-l-2 border-opacity-15 border-black'>
-              <Link to={`/publications/${_id}`}>{title.slice(0,20)}...</Link>
+            return <div key={_id} className='w-full flex flex-row items-center justify-between px-2 py-4 border-l-2 border-opacity-15 border-black'>
+              <Link to={`/publications/${_id}`} className='font-semibold'>{title.length > 15 ? <span className='text-xs font-thin'>{title.slice(0, 15)}.. click</span> : <span>{title}</span>} </Link>
               <p className='hidden lg:block'>{description.slice(0,20)}</p>
               <a href={link} className='rounded-lg w-auto hidden md:block'>Abstract</a>
               <a href={pdf} className='hidden sm:block'>PDF</a>
-              <Link to={`/profile/${authorId}`} className='italic font-semibold'>{authorName}</Link>
+              <Link to={`/profile/${authorId}`} className='italic'>{authorName}</Link>
             </div>
           })
         }

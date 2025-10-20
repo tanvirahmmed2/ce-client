@@ -181,7 +181,7 @@ const UpdateProfile = () => {
             e.preventDefault();
             const formData = new FormData();
             formData.append("userId", user._id);
-            formData.append("file", e.target.profileImage.files[0]);
+            formData.append("image", e.target.profileImage.files[0]);
 
             try {
               const response = await axios.put(
@@ -195,7 +195,7 @@ const UpdateProfile = () => {
               console.log(error)
             }
           }}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Profile Image</h2>
           <input
@@ -216,7 +216,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={changeName}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Name</h2>
           <input
@@ -237,7 +237,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={changeDob}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Date of Birth</h2>
           <input
@@ -258,7 +258,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={updateEducation}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Education</h2>
           <input
@@ -293,7 +293,6 @@ const UpdateProfile = () => {
           />
           <input
             type="number"
-            id="startYear"
             name="startYear"
             required
             value={newEducation.startYear}
@@ -303,7 +302,6 @@ const UpdateProfile = () => {
           />
           <input
             type="number"
-            id="endYear"
             name="endYear"
             value={newEducation.endYear}
             onChange={eduChange}
@@ -316,7 +314,7 @@ const UpdateProfile = () => {
         </form>
 
 
-        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+        <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Eduactional Information</h1>
           {
             user.education.length > 0 && user.education.map((edu) => {
@@ -332,7 +330,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={updateWork}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Work Place</h2>
           <input
@@ -382,7 +380,7 @@ const UpdateProfile = () => {
           </button>
         </form>
 
-        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+        <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Job Information</h1>
           {
             user.work.length > 0 && user.work.map((e) => {
@@ -397,7 +395,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={updateNetwork}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Update Work Place</h2>
           <select type="text"
@@ -431,7 +429,7 @@ const UpdateProfile = () => {
           </button>
         </form>
 
-        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
+        <div className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition">
           <h1 className="text-lg font-semibold text-gray-700">Networks</h1>
           {
             user.network.length > 0 && user.network.map((net) => {
@@ -448,7 +446,7 @@ const UpdateProfile = () => {
 
         <form
           onSubmit={changePassword}
-          className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
+          className="bg-white shadow-md rounded-2xl p-2 flex flex-col gap-4 border border-gray-100 hover:shadow-lg transition"
         >
           <h2 className="text-lg font-semibold text-gray-700">Change Password</h2>
           <input
