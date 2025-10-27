@@ -2,12 +2,14 @@ import { createContext, useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
 import { api } from "./api";
+import { toast } from "react-toastify";
 
 
 
 export const ThemeContext = createContext()
 
 const ContextProvider = ({ children }) => {
+    const [loader, setLoader]= useState(true)
     const [sidebar, setSidebar] = useState(false)
     const [update, setUpdate] = useState([])
     const [events, setEvents] = useState([])
@@ -24,6 +26,23 @@ const ContextProvider = ({ children }) => {
     const [collaborations, setCollaborations] = useState([])
 
 
+    useEffect(()=>{
+        const fetchServer= async()=>{
+            try {
+                const response= await axios.get(`${api}`, {withCredentials: true})
+                if(response.data.success){
+                    setLoader(false)
+                }else{
+                    setLoader(true)
+                }
+            } catch (error) {
+                setLoader(true)
+                toast.error(error)
+            }
+        }
+        fetchServer()
+    })
+
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -36,12 +55,10 @@ const ContextProvider = ({ children }) => {
                 const userData = response.data.user;
 
                 if (!userData) {
-                    // Not logged in
                     setUser(null);
                     setAdmin(false);
                     setAuthor(false);
                 } else {
-                    // Logged in
                     setUser(userData);
 
                     if (userData.role === 'Admin') {
@@ -56,7 +73,6 @@ const ContextProvider = ({ children }) => {
                     }
                 }
             } catch (error) {
-                // On error, treat as not logged in
                 setUser(null);
                 setAdmin(false);
                 setAuthor(false);
@@ -189,6 +205,7 @@ const ContextProvider = ({ children }) => {
 
 
     const contextValue = {
+        loader, setLoader,
         sidebar, setSidebar,
         update, setUpdate,
         events, setEvents,
