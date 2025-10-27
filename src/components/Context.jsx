@@ -41,7 +41,7 @@ const ContextProvider = ({ children }) => {
             }
         }
         fetchServer()
-    })
+    },[])
 
 
     useEffect(() => {
