@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import {ToastContainer} from 'react-toastify'
 import Navbar from './layout/Navbar'
 import Sidebar from './layout/Sidebar'
 import Footer from './layout/Footer'
@@ -37,58 +37,55 @@ import { ThemeContext } from './components/Context'
 import Loader from './components/Loader'
 
 const App = () => {
-  const { loader } = useContext(ThemeContext)
+  const {loader}= useContext(ThemeContext)
+  if(loader) return <Loader/>
   return (
     <div className='w-full relative overflow-x-hidden'>
-      {
-        loader ? <Loader /> : <div className='w-full relative overflow-x-hidden'>
-          <Navbar />
-          <Sidebar />
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
-          <div className='w-full min-h-[800px] flex items-center justify-center mt-16'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/contact' element={<Contact />} />
-              <Route path='/team' element={<Team />} />
-              <Route path='/events' element={<Events />} />
-              <Route path='/projects' element={<Projects />} />
-              <Route path='/projects/:id' element={<Project />} />
-              <Route path='/gallery' element={<Gallery />} />
-              <Route path='/gallery/:id' element={<Image />} />
-              <Route path='/mission' element={<Mission />} />
-              <Route path='/update' element={<Update />} />
-              <Route path='/profile/:id' element={<UserProfile />} />
-              <Route path='/update/:id' element={<UpdateBox />} />
-              <Route path='/scope' element={<Scope />} />
-              <Route path='/publications' element={<Publications />} />
-              <Route path='/publications/:id' element={<Publication />} />
-              <Route path='/registration' element={<ProtectedUser><Register /></ProtectedUser>} />
-              <Route path='/login' element={<ProtectedUser><Login /></ProtectedUser>} />
-              <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-              <Route path='/updateprofile' element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} />
-              <Route path='/admin' element={<ProtectedAdmin><Admin /></ProtectedAdmin>} />
-              <Route path='/admin/:handler' element={<ProtectedAdmin><DashBoard /></ProtectedAdmin>} />
-              <Route path='/recover' element={<ProtectedUser><Recover /></ProtectedUser>} />
-              <Route path='/notice' element={<Notice />} />
-              <Route path='/collaboration' element={<Collaboration />} />
+      <Navbar />
+      <Sidebar />
+     <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <div className='w-full min-h-[800px] flex items-center justify-center mt-16'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/team' element={<Team />} />
+          <Route path='/events' element={<Events/>} />
+          <Route path='/projects' element={<Projects/>} />
+          <Route path='/projects/:id' element={<Project/>} />
+          <Route path='/gallery' element={<Gallery/>} />
+          <Route path='/gallery/:id' element={<Image/>} />
+          <Route path='/mission' element={<Mission/>} />
+          <Route path='/update' element={<Update/>} />
+          <Route path='/profile/:id' element={<UserProfile/>} />
+          <Route path='/update/:id' element={<UpdateBox/>} />
+          <Route path='/scope' element={<Scope/>} />
+          <Route path='/publications' element={<Publications/>} />
+          <Route path='/publications/:id' element={<Publication/>} />
+          <Route path='/registration' element={<ProtectedUser><Register/></ProtectedUser>} />
+          <Route path='/login' element={<ProtectedUser><Login/></ProtectedUser>} />
+          <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>} />
+          <Route path='/updateprofile' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>} />
+          <Route path='/admin' element={<ProtectedAdmin><Admin/></ProtectedAdmin>} />
+          <Route path='/admin/:handler' element={<ProtectedAdmin><DashBoard/></ProtectedAdmin>} />
+          <Route path='/recover' element={<ProtectedUser><Recover/></ProtectedUser>} />
+          <Route path='/notice' element={<Notice/>} />
+          <Route path='/collaboration' element={<Collaboration/>} />
 
-              <Route path='/*' element={<Error />} />
-            </Routes>
-          </div>
-          <Footer />
+          <Route path='/*' element={<Error />} />
+        </Routes>
+      </div>
+      <Footer />
 
-        </div>
-      }
     </div>
   )
 }
